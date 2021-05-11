@@ -14,8 +14,8 @@ export class SettingsComponent implements OnInit {
 
   public products: Product[] = [];
   public search: boolean = false;
-  
-  public languages = [{ 
+
+  public languages = [{
     name: 'English',
     code: 'en'
   }, {

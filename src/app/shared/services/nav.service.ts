@@ -26,7 +26,7 @@ export class NavService {
 	public leftMenuToggle: boolean = false;
 	public mainMenuToggle: boolean = false;
 
-	// Windows width
+	// Window width
 	@HostListener('window:resize', ['$event'])
 	onResize(event?) {
 		this.screenWidth = window.innerWidth;
@@ -34,7 +34,7 @@ export class NavService {
 
 	MENUITEMS: Menu[] = [
 		{
-			title: 'home', type: 'sub', active: false, children: [
+			title: 'Home', type: 'sub', active: false, children: [
 				{
 					title: 'clothing', type: 'sub', active: false, children: [
 						{ path: '/home/fashion', title: 'fashion-01', type: 'link' },
@@ -204,7 +204,7 @@ export class NavService {
 		},
 		{
 			title: 'bags', type: 'sub', active: false, children: [
-			  { path: '/home/fashion', title: 'shopper bags', type: 'link' },
+			  { path: '/home/fashion', title: 'shopping bags', type: 'link' },
 			//   { path: '/home/fashion', title: 'laptop bags', type: 'link' },
 			//   { path: '/home/fashion', title: 'clutches', type: 'link' },
 			//   {
@@ -275,9 +275,9 @@ export class NavService {
 		// 	  },
 		// 	]
 		// },
-		{
-			path: '/home/fashion', title: 'home & decor', type: 'link'
-		},
+		// {
+		// 	path: '/home/fashion', title: 'home & decor', type: 'link'
+		// },
 		// {
 		// 	path: '/home/fashion', title: 'kitchen', type: 'link'
 		// }

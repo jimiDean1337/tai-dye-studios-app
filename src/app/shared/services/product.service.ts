@@ -185,7 +185,7 @@ export class ProductService {
     const qty = product.quantity + quantity
     const stock = product.stock
     if (stock < qty || stock == 0) {
-      this.toastrService.error('You can not add more items than available. In stock '+ stock +' items.');
+      this.toastrService.error('You can not add more items than available. In stock: '+ stock +' items.');
       return false
     }
     return true

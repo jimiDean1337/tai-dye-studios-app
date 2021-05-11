@@ -23,9 +23,10 @@
                                     aria-hidden="true"></i>Wishlist</a>
                         </li>
                         <li class="onhover-dropdown mobile-account">
+                            <!-- TODO: Add user account component -->
                             <i class="fa fa-user" aria-hidden="true"></i> My Account
                             <ul class="onhover-show-div">
-                                <li *ngIf="!userIsLoggedIn">
+                                <li>
                                     <a [routerLink]="['/pages/login']" data-lng="en">
                                         Login
                                     </a>

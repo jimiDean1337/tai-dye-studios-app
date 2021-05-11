@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-header-two',
@@ -15,16 +14,9 @@ export class HeaderTwoComponent implements OnInit {
 
   public stick: boolean = false;
 
-  public userIsLoggedIn: boolean = false;
-
-  constructor(private authService: AuthService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.authService.getUser().subscribe(res => {
-      if (res) {
-        this.userIsLoggedIn = true;
-      }
-    })
   }
 
   // @HostListener Decorator
