@@ -1,0 +1,62 @@
+Services: @critical 
+    Auth:
+        ☐ CheckAuthStatus
+        ☐ Login
+            ☐ GoogleAuthProvider
+            ☐ FacebookAuthProvider
+            ☐ Other
+        ☐ Logout
+        ☐ Registration
+        ☐ Password Reset
+
+    User:
+        ☐ Create
+        ☐ Read
+        ☐ Update
+        ☐ Delete
+
+    Data:
+        ☐ Users
+        ☐ Contacts
+        ☐ Subscribers
+        ☐ Products
+        ☐ Other
+
+    Other: @high 
+        ☐ Image Download
+        ☐ Reviews
+        ☐ Search
+        ☐ Lookbook
+
+    Analytics:
+        ☐ Study Documentation on Google Analytics
+        ☐ Add Google Analytics
+        ☐ Use Firebase to generate functions saving analytics
+        
+------------------------------------------       
+
+Assets: @high 
+    ☐ Products Data
+        ☐ Generate data for every product that will be sold
+        ☐ Enter generated data into Products Firestore database
+    ☐ Product Images
+        ☐ Take high quality photos of every product w/ variations
+        ☐ Meet resolution requirements
+
+------------------------------------------        
+
+UI/UX/Markup: @high 
+    ☐ Generate accurate sitemap for reference
+    ☐ Create UI flow chart
+    ☐ Complete text/copy/content for every site page
+        ☐ SEO focused
+        ☐ Spell checking
+
+------------------------------------------            
+    
+Testing: @high 
+    ☐ Add testing for all key services
+    ☐ Add testing for all key components
+    ☐ Map out stategies/services/modules for implementing A/B Testing
+
+------------------------------------------    

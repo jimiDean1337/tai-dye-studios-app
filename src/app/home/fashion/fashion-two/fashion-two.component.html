@@ -68,7 +68,8 @@
                             <div class="no-slider row">
                                 <ng-container *ngFor="let product of getCollectionProducts(collection) | slice:0:8">
                                     <div class="product-box">
-                                        <app-product-box-one [product]="product" [currency]="productService?.Currency" [thumbnail]="true" [cartModal]="true" [loader]="false">
+                                        <app-product-box-one [product]="product" [currency]="productService?.Currency" [cartModal]="true" [thumbnail]="true"
+                                            [loader]="false">
                                         </app-product-box-one>
                                     </div>
                                 </ng-container>
@@ -84,7 +85,7 @@
 
 <!-- Parallax banner start-->
 <section class="p-0">
-    <div class="full-banner parallax-banner1 parallax text-center p-left" [ngStyle]="{'background-image': 'url(assets/images/parallax/2.jpg)'}">
+    <div class="full-banner parallax-banner1 parallax text-center p-left" [ngStyle]="{'background-image': 'url(http://www.placeimg.com/2020/714/any/sepia)'}">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -134,6 +135,5 @@
     </div>
 </section>
 <!-- Instagram section End -->
-
 <app-newsletter></app-newsletter>
 <app-footer-two [themeLogo]="themeLogo"></app-footer-two>

@@ -97,7 +97,7 @@ import { DiscountPipe } from './pipes/discount.pipe';
     CarouselModule,
     BarRatingModule,
     LazyLoadImageModule.forRoot({
-      // preset: scrollPreset // <-- tell LazyLoadImage that you want to use scrollPreset
+      /* preset: scrollPreset */ // <-- tell LazyLoadImage that you want to use scrollPreset
     }),
     NgxSkeletonLoaderModule,
     TranslateModule

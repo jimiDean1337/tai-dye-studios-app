@@ -79,55 +79,55 @@ export class NavService {
 				{ path: '/shop/product/image/outside/trim-dress', title: 'image-outside', type: 'link' }
 			]
 		},
-		// {
-		// 	title: 'Features', type: 'sub', megaMenu: true, badge: true, badgeText: 'new', active: false, children: [
-		// 		{
-		// 			title: 'portfolio', type: 'sub', active: false, children: [
-		// 				{ path: '/pages/portfolio/grid/two', title: 'portfolio-grid-2', type: 'link' },
-		// 				{ path: '/pages/portfolio/grid/three', title: 'portfolio-grid-3', type: 'link' },
-		// 				{ path: '/pages/portfolio/grid/four', title: 'portfolio-grid-4', type: 'link' },
-		// 				{ path: '/pages/portfolio/masonry/grid/two', title: 'mesonary-grid-2', type: 'link' },
-		// 				{ path: '/pages/portfolio/masonry/grid/three', title: 'mesonary-grid-3', type: 'link' },
-		// 				{ path: '/pages/portfolio/masonry/grid/four', title: 'mesonary-grid-4', type: 'link' },
-		// 				{ path: '/pages/portfolio/masonry/full-width', title: 'mesonary-Full-Width', type: 'link' }
-		// 			]
-		// 		},
-		// 		{
-		// 			title: 'add-to-cart', type: 'sub', active: false, children: [
-		// 				{ path: '/home/vegetable', title: 'cart-right', type: 'link' },
-		// 				{ path: '/home/watch', title: 'cart-left', type: 'link' },
-		// 				{ path: '/home/furniture', title: 'cart-top', type: 'link' },
-		// 				{ path: '/home/flower', title: 'cart-bottom', type: 'link' },
-		// 				{ path: '/home/fashion', title: 'cart-model-popup', type: 'link' }
-		// 			]
-		// 		},
-		// 		{
-		// 			title: 'theme-elements', type: 'sub', active: false, children: [
-		// 				{ path: '/elements/theme/title', title: 'title', type: 'link' },
-		// 				{ path: '/elements/theme/collection-banner', title: 'collection-banner', type: 'link' },
-		// 				{ path: '/elements/theme/home-slider', title: 'home-slider', type: 'link' },
-		// 				{ path: '/elements/theme/category', title: 'category', type: 'link' },
-		// 				{ path: '/elements/theme/services', title: 'services', type: 'link' }
-		// 			]
-		// 		},
-		// 		{
-		// 			title: 'product-elements', type: 'sub', active: false, children: [
-		// 				{ path: '/elements/product/slider', title: 'product-slider', type: 'link' },
-		// 				{ path: '/elements/product/banners', title: 'banners', type: 'link' },
-		// 				{ path: '/elements/product/tabs', title: 'product-tabs', type: 'link' },
-		// 				{ path: '/elements/product/multi-slider', title: 'multi-slider', type: 'link' }
-		// 			]
-		// 		},
-		// 		{
-		// 			title: 'email-template', type: 'sub', active: false, children: [
-		// 				{ path: 'http://themes.pixelstrap.com/multikart/front-end/email-order-success.html', title: 'order-success', type: 'extTabLink' },
-		// 				{ path: 'http://themes.pixelstrap.com/multikart/front-end/email-order-success-two.html', title: 'order-success-2', type: 'extTabLink' },
-		// 				{ path: 'http://themes.pixelstrap.com/multikart/front-end/email-template.html', title: 'email-template', type: 'extTabLink' },
-		// 				{ path: 'http://themes.pixelstrap.com/multikart/front-end/email-template-two.html', title: 'email-template-2', type: 'extTabLink' }
-		// 			]
-		// 		}
-		// 	]
-		// },
+		{
+			title: 'Features', type: 'sub', megaMenu: true, badge: true, badgeText: 'new', active: false, children: [
+				{
+					title: 'portfolio', type: 'sub', active: false, children: [
+						{ path: '/pages/portfolio/grid/two', title: 'portfolio-grid-2', type: 'link' },
+						{ path: '/pages/portfolio/grid/three', title: 'portfolio-grid-3', type: 'link' },
+						{ path: '/pages/portfolio/grid/four', title: 'portfolio-grid-4', type: 'link' },
+						{ path: '/pages/portfolio/masonry/grid/two', title: 'mesonary-grid-2', type: 'link' },
+						{ path: '/pages/portfolio/masonry/grid/three', title: 'mesonary-grid-3', type: 'link' },
+						{ path: '/pages/portfolio/masonry/grid/four', title: 'mesonary-grid-4', type: 'link' },
+						{ path: '/pages/portfolio/masonry/full-width', title: 'mesonary-Full-Width', type: 'link' }
+					]
+				},
+				{
+					title: 'add-to-cart', type: 'sub', active: false, children: [
+						{ path: '/home/vegetable', title: 'cart-right', type: 'link' },
+						{ path: '/home/watch', title: 'cart-left', type: 'link' },
+						{ path: '/home/furniture', title: 'cart-top', type: 'link' },
+						{ path: '/home/flower', title: 'cart-bottom', type: 'link' },
+						{ path: '/home/fashion', title: 'cart-model-popup', type: 'link' }
+					]
+				},
+				{
+					title: 'theme-elements', type: 'sub', active: false, children: [
+						{ path: '/elements/theme/title', title: 'title', type: 'link' },
+						{ path: '/elements/theme/collection-banner', title: 'collection-banner', type: 'link' },
+						{ path: '/elements/theme/home-slider', title: 'home-slider', type: 'link' },
+						{ path: '/elements/theme/category', title: 'category', type: 'link' },
+						{ path: '/elements/theme/services', title: 'services', type: 'link' }
+					]
+				},
+				{
+					title: 'product-elements', type: 'sub', active: false, children: [
+						{ path: '/elements/product/slider', title: 'product-slider', type: 'link' },
+						{ path: '/elements/product/banners', title: 'banners', type: 'link' },
+						{ path: '/elements/product/tabs', title: 'product-tabs', type: 'link' },
+						{ path: '/elements/product/multi-slider', title: 'multi-slider', type: 'link' }
+					]
+				},
+				{
+					title: 'email-template', type: 'sub', active: false, children: [
+						{ path: 'http://themes.pixelstrap.com/multikart/front-end/email-order-success.html', title: 'order-success', type: 'extTabLink' },
+						{ path: 'http://themes.pixelstrap.com/multikart/front-end/email-order-success-two.html', title: 'order-success-2', type: 'extTabLink' },
+						{ path: 'http://themes.pixelstrap.com/multikart/front-end/email-template.html', title: 'email-template', type: 'extTabLink' },
+						{ path: 'http://themes.pixelstrap.com/multikart/front-end/email-template-two.html', title: 'email-template-2', type: 'extTabLink' }
+					]
+				}
+			]
+		},
 		{
 			title: 'pages', type: 'sub', active: false, children: [
 				{
@@ -148,7 +148,7 @@ export class NavService {
 				{ path: '/pages/typography', title: 'typography', type: 'link', badge: true, badgeText: 'new' },
 				{ path: '/pages/review', title: 'review', type: 'link', badge: true, badgeText: 'new' },
 				{ path: '/pages/order/success', title: 'order-success', type: 'link' },
-					{ 
+					{
 						title: 'compare', type: 'sub', active: false, children: [
 							{ path: '/pages/compare/one', title: 'compare-1', type: 'link' },
 							{ path: '/pages/compare/two', title: 'compare-2', type: 'link', badge: true, badgeText: 'new' }

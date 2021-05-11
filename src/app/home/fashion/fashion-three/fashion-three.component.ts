@@ -31,11 +31,11 @@ export class FashionThreeComponent implements OnInit, OnDestroy {
   public sliders = [{
     title: 'welcome to fashion',
     subTitle: 'Men fashion',
-    image: 'assets/images/slider/5.jpg'
+    image: 'http://placeimg.com/1920/780/any/sepia'
   }, {
     title: 'welcome to fashion',
     subTitle: 'Women fashion',
-    image: 'assets/images/slider/6.jpg'
+    image: 'http://placeimg.com/1920/780/any/sepia'
   }];
 
   ngOnInit(): void {

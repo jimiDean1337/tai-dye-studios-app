@@ -45,7 +45,7 @@ import { SuccessComponent } from './checkout/success/success.component';
 
 @NgModule({
   declarations: [
-    ProductLeftSidebarComponent, 
+    ProductLeftSidebarComponent,
     ProductRightSidebarComponent,
     ProductNoSidebarComponent,
     ThreeColumnComponent,

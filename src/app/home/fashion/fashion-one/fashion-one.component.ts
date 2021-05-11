@@ -31,42 +31,42 @@ export class FashionOneComponent implements OnInit {
   public sliders = [{
     title: 'welcome to fashion',
     subTitle: 'Men fashion',
-    image: 'assets/images/slider/1.jpg'
+    image: 'http://placeimg.com/1920/718/any/sepia'
   }, {
     title: 'welcome to fashion',
     subTitle: 'Women fashion',
-    image: 'assets/images/slider/2.jpg'
+    image: 'http://placeimg.com/1920/718/any/grayscale'
   }]
 
   // Collection banner
   public collections = [{
-    image: 'assets/images/collection/fashion/1.jpg',
+    image: 'http://placeimg.com/672/310/any/sepia',
     save: 'save 50%',
     title: 'men'
   }, {
-    image: 'assets/images/collection/fashion/2.jpg',
+    image: 'http://placeimg.com/672/310/any/sepia',
     save: 'save 50%',
     title: 'women'
   }];
 
   // Blog
   public blog = [{
-    image: 'assets/images/blog/1.jpg',
+    image: 'http://placeimg.com/1000/591/any',
     date: '25 January 2018',
     title: 'Lorem ipsum dolor sit consectetur adipiscing elit,',
     by: 'John Dio'
   }, {
-    image: 'assets/images/blog/2.jpg',
+    image: 'http://placeimg.com/1000/591/any',
     date: '26 January 2018',
     title: 'Lorem ipsum dolor sit consectetur adipiscing elit,',
     by: 'John Dio'
   }, {
-    image: 'assets/images/blog/3.jpg',
+    image: 'http://placeimg.com/1000/591/any',
     date: '27 January 2018',
     title: 'Lorem ipsum dolor sit consectetur adipiscing elit,',
     by: 'John Dio'
   }, {
-    image: 'assets/images/blog/4.jpg',
+    image: 'http://placeimg.com/1000/591/any',
     date: '28 January 2018',
     title: 'Lorem ipsum dolor sit consectetur adipiscing elit,',
     by: 'John Dio'

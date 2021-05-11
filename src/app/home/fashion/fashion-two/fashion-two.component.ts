@@ -33,31 +33,31 @@ export class FashionTwoComponent implements OnInit {
   public sliders = [{
     title: 'welcome to fashion',
     subTitle: 'Men fashion',
-    image: 'assets/images/slider/tie-dye-pink-and-white.jpg'
+    image: 'http://placeimg.com/1920/780/any/sepia'
   },
   {
     title: 'welcome to fashion',
     subTitle: 'Women fashion',
-    image: 'assets/images/slider/tie-dye-black-and-blue.jpg'
+    image: 'http://placeimg.com/1920/780/any/grayscale'
   }]
 
   // Collection banner
   public collections1 = [{
-    image: 'assets/images/collection/fashion/tie-dye-pink-and-white.jpg',
+    image: 'http://placeimg.com/672/310/people/sepia',
     save: 'save 30%',
     title: 'Women'
   }, {
-    image: 'assets/images/collection/fashion/tie-dye-pink-and-white.jpg',
+    image: 'http://placeimg.com/672/310/people/sepia',
     save: 'save 50%',
     title: 'Men'
   }];
 
   public collections2 = [{
-    image: 'assets/images/collection/fashion/5.jpg',
+    image: 'http://placeimg.com/672/310/people/sepia',
     save: 'save 30%',
     title: 'Pets'
   }, {
-    image: 'assets/images/collection/fashion/6.jpg',
+    image: 'http://placeimg.com/672/310/people/sepia',
     save: 'save 10%',
     title: 'Kids'
   }];

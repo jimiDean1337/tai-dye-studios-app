@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tai-dye-studios": {
+      "hosting": {
+        "tie-dye-studios": [
+          "tai-dye-studios"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tai-dye-studios"
+  }
+}

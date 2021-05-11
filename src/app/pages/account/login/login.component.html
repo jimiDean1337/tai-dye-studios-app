@@ -6,16 +6,16 @@
             <div class="col-lg-6">
                 <h3>Login</h3>
                 <div class="theme-card">
-                    <form class="theme-form">
+                    <form class="theme-form" name="loginForm" #loginForm="ngForm">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                            <input [(ngModel)]="loginModel.email" #email="ngModel" name="loginEmail" type="text" class="form-control" id="email" placeholder="Email" required="">
                         </div>
                         <div class="form-group">
                             <label for="review">Password</label>
-                            <input type="password" class="form-control" id="review" placeholder="Enter your password" required="">
+                            <input [(ngModel)]="loginModel.password" #password="ngModel" name="loginPassword" type="password" class="form-control" id="review" placeholder="Enter your password" required="">
                         </div>
-                        <button class="btn btn-solid">Login</button>
+                        <button class="btn btn-solid" [disabled]="loginForm.invalid" (click)="loginWithEmailAndPassword(email.value, password.value)">Login</button>
                     </form>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { QuickViewComponent } from "../../modal/quick-view/quick-view.component";
 import { CartModalComponent } from "../../modal/cart-modal/cart-modal.component";
-import { Product } from "../../../classes/product";
+import { Product, Variants, Images } from "../../../classes/product";
 import { ProductService } from "../../../services/product.service";
 
 @Component({
@@ -12,16 +12,16 @@ import { ProductService } from "../../../services/product.service";
 export class ProductBoxOneComponent implements OnInit {
 
   @Input() product: Product;
-  @Input() currency: any = this.productService.Currency; // Default Currency 
-  @Input() thumbnail: boolean = false; // Default False 
+  @Input() currency: any = this.productService.Currency; // Default Currency
+  @Input() thumbnail: boolean = false; // Default False
   @Input() onHowerChangeImage: boolean = false; // Default False
   @Input() cartModal: boolean = false; // Default False
   @Input() loader: boolean = false;
-  
+
   @ViewChild("quickView") QuickView: QuickViewComponent;
   @ViewChild("cartModal") CartModal: CartModalComponent;
 
-  public ImageSrc : string
+  public ImageSrc: string;
 
   constructor(private productService: ProductService) { }
 
@@ -32,7 +32,7 @@ export class ProductBoxOneComponent implements OnInit {
   }
 
   // Get Product Color
-  Color(variants) {
+  Color(variants: Variants[]) {
     const uniqColor = [];
     for (let i = 0; i < Object.keys(variants).length; i++) {
       if (uniqColor.indexOf(variants[i].color) === -1 && variants[i].color) {
@@ -43,10 +43,10 @@ export class ProductBoxOneComponent implements OnInit {
   }
 
   // Change Variants
-  ChangeVariants(color, product) {
-    product.variants.map((item) => {
+  ChangeVariants(color: string, product: Product) {
+    product.variants.map((item: Variants) => {
       if (item.color === color) {
-        product.images.map((img) => {
+        product.images.map((img: Images) => {
           if (img.image_id === item.image_id) {
             this.ImageSrc = img.src;
           }
@@ -56,19 +56,21 @@ export class ProductBoxOneComponent implements OnInit {
   }
 
   // Change Variants Image
-  ChangeVariantsImage(src) {
-    this.ImageSrc = src;
+  ChangeVariantsImage(src: string) {
+    setTimeout(() => {
+      this.ImageSrc = src;
+    }, 0)
   }
 
-  addToCart(product: any) {
+  addToCart(product: Product) {
     this.productService.addToCart(product);
   }
 
-  addToWishlist(product: any) {
+  addToWishlist(product: Product) {
     this.productService.addToWishlist(product);
   }
 
-  addToCompare(product: any) {
+  addToCompare(product: Product) {
     this.productService.addToCompare(product);
   }
 
