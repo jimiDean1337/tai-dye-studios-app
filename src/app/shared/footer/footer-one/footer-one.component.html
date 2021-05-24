@@ -13,11 +13,11 @@
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<form class="form-inline subscribe-form" target="_blank" method="post">
+						<form class="form-inline subscribe-form">
 							<div class="form-group mx-sm-3">
-								<input type="email" #name name="EMAIL" id="mce-EMAIL" class="form-control" placeholder="Enter your email">
+								<input type="email" #email name="EMAIL" id="mce-EMAIL" class="form-control" placeholder="Enter your email">
 							</div>
-							<button type="submit" class="btn btn-solid">subscribe</button>
+							<button type="button" class="btn btn-solid" (click)="addSubscriber(email.value)">subscribe</button>
 						</form>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
                                     <a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><i class="fa fa-google-plus" aria-hidden="true"></i></a>                 
+                                    <a href="javascript:void(0)"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a>

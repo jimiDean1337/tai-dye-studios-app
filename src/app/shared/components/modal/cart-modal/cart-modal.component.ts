@@ -14,7 +14,7 @@ export class CartModalComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() product: Product;
   @Input() currency : any;
-  
+
   @ViewChild("cartModal", { static: false }) CartModal: TemplateRef<any>;
 
   public closeResult: string;
@@ -32,14 +32,14 @@ export class CartModalComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
   }
 
-  async openModal(product) {
-    await this.productService.getProducts.subscribe(response => this.products = response);
-    this.products = await this.products.filter(items => items.category == product.category && items.id != product.id);
-    const status = await this.productService.addToCart(product);
+  openModal(product) {
+    this.productService.getProducts.subscribe(response => this.products = response);
+    this.products = this.products.filter(items => items.category == product.category && items.id != product.id);
+    const status = this.productService.addToCart(product);
     if(status) {
       this.modalOpen = true;
-      if (isPlatformBrowser(this.platformId)) { // For SSR 
-        this.modalService.open(this.CartModal, { 
+      if (isPlatformBrowser(this.platformId)) { // For SSR
+        this.modalService.open(this.CartModal, {
           size: 'lg',
           ariaLabelledBy: 'Cart-Modal',
           centered: true,

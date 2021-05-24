@@ -2,51 +2,68 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import firebase from 'firebase/app';
+import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { first, map, shareReplay, switchMap, take } from 'rxjs/operators';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  User: AngularFireAuth['user'] | Observable<null>;
-  LoggedIn: BehaviorSubject<boolean>;
+  Auth: AngularFireAuth['user'];
   constructor(private afAuth: AngularFireAuth,
+    private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute) {
-      this.LoggedIn = new BehaviorSubject(null);
+    private route: ActivatedRoute,
+    private toastr: ToastrService) {
     }
 
     // Returns user auth data if logged in
-    private get user() {
-    return this.User = new Observable(obs => {
-      this.afAuth.authState
-        .subscribe(state => {
-          this.LoggedIn.next(state !== null);
-          obs.next(state);
-          obs.complete();
-        })
-      })
+  private get auth() {
+    return this.Auth = this.afAuth.authState;
+  }
+
+  public getLoggedInState() {
+    return this.auth.pipe(map(user => !!user));
   }
 
   // Get user auth data
-  public getUser() {
-    return this.user;
+  public getAuthData() {
+    return this.auth;
+  }
+
+  public createUserWithEmailAndPassword(email: string, password: string) {
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
+  }
+
+  public createUserWithProvider(provider: string) {
+    return this.loginWithProvider(provider)
   }
 
   // Sign-in to Firebase using email and password
-  // Get customer data
   public loginWithEmailAndPassword(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
   }
 
-  public loginWithProvider(provider: firebase.default.auth.AuthProvider) {
-    return this.afAuth.signInWithPopup(provider)
+  public loginWithProvider(provider: string) {
+    // TODO: Add app to Google developer console
+    // TODO: Add app to Facebook developer console
+    // TODO: Add app to Twitter developer console
+    const providers = {
+      google: firebase.auth.GoogleAuthProvider,
+      twitter: firebase.auth.TwitterAuthProvider,
+      facebook: firebase.auth.FacebookAuthProvider
+    };
+    const selectedProvider = providers[provider];
+    return this.afAuth.signInWithPopup(new selectedProvider());
   }
 
   public logOut() {
-    return this.afAuth.signOut()
+    // this.userService.signout()
+    return this.afAuth.signOut();
   }
 
 

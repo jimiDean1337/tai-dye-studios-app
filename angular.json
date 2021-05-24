@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tie-dye-studios": {
+    "tai-dye-studios": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -27,7 +27,7 @@
               "rxjs/Subject",
               "rxjs/Subscription"
             ],
-            "outputPath": "dist/tie-dye-studios/browser",
+            "outputPath": "dist/tai-dye-studios/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -79,18 +79,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tie-dye-studios:build"
+            "browserTarget": "tai-dye-studios:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tie-dye-studios:build:production"
+              "browserTarget": "tai-dye-studios:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tie-dye-studios:build"
+            "browserTarget": "tai-dye-studios:build"
           }
         },
         "test": {
@@ -127,18 +127,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tie-dye-studios:serve"
+            "devServerTarget": "tai-dye-studios:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tie-dye-studios:serve:production"
+              "devServerTarget": "tai-dye-studios:serve:production"
             }
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/tie-dye-studios/server",
+            "outputPath": "dist/tai-dye-studios/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -159,21 +159,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "tie-dye-studios:build",
-            "serverTarget": "tie-dye-studios:server"
+            "browserTarget": "tai-dye-studios:build",
+            "serverTarget": "tai-dye-studios:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tie-dye-studios:build:production",
-              "serverTarget": "tie-dye-studios:server:production"
+              "browserTarget": "tai-dye-studios:build:production",
+              "serverTarget": "tai-dye-studios:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "tie-dye-studios:build:production",
-            "serverTarget": "tie-dye-studios:server:production",
+            "browserTarget": "tai-dye-studios:build:production",
+            "serverTarget": "tai-dye-studios:server:production",
             "routes": [
               "/"
             ]
@@ -189,7 +189,7 @@
       }
     }
   },
-  "defaultProject": "tie-dye-studios",
+  "defaultProject": "tai-dye-studios",
   "cli": {
     "analytics": false
   }

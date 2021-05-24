@@ -1,0 +1,25 @@
+<i class="fa fa-user" aria-hidden="true"></i> My Account
+<ul class="onhover-show-div" *ngIf="!(userIsLoggedIn | async)">
+    <li>
+        <a [routerLink]="['/pages/login']" data-lng="en">
+            Login
+        </a>
+    </li>
+</ul>
+<ul class="onhover-show-div" *ngIf="userIsLoggedIn | async">
+    <li>
+        <a [routerLink]="['/pages/dashboard']" [queryParams]="{userId: UserId | async}">
+            Dashboard
+        </a>
+    </li>
+    <li>
+        <a [routerLink]="['/pages/profile']" [queryParams]="{userId: UserId | async}">
+            Edit Profile
+        </a>
+    </li>
+    <li>
+        <a data-lng="es" (click)="signout()">
+            Logout
+        </a>
+    </li>
+</ul>

@@ -10,7 +10,7 @@
     "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
   },
   "hosting": {
-    "public": "dist",
+    "public": "dist/tai-dye-studios/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

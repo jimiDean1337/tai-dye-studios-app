@@ -24,19 +24,7 @@
                         </li>
                         <li class="onhover-dropdown mobile-account">
                             <!-- TODO: Add user account component -->
-                            <i class="fa fa-user" aria-hidden="true"></i> My Account
-                            <ul class="onhover-show-div">
-                                <li>
-                                    <a [routerLink]="['/pages/login']" data-lng="en">
-                                        Login
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-lng="es">
-                                        Logout
-                                    </a>
-                                </li>
-                            </ul>
+                            <app-account-menu></app-account-menu>
                         </li>
                     </ul>
                 </div>

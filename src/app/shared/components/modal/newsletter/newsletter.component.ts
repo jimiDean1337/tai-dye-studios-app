@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, Input, AfterViewI
   Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { DataService } from 'src/app/core/services/data/data.service';
 
 @Component({
   selector: 'app-newsletter',
@@ -16,9 +17,13 @@ export class NewsletterComponent implements OnInit, AfterViewInit, OnDestroy {
   public modalOpen: boolean = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal, private dataService: DataService) { }
 
   ngOnInit(): void {
+  }
+
+  addSubscriber(email: string) {
+    this.dataService.addSubscriber(email);
   }
 
   ngAfterViewInit(): void {
@@ -28,13 +33,14 @@ export class NewsletterComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openModal() {
-    if (isPlatformBrowser(this.platformId)) { // For SSR 
-      this.modalService.open(this.NewsLetterModal, { 
+    if (isPlatformBrowser(this.platformId)) { // For SSR
+      this.modalService.open(this.NewsLetterModal, {
         size: 'lg',
         ariaLabelledBy: 'NewsLetter-Modal',
         centered: true,
         windowClass: 'theme-modal newsletterm NewsLetterModal'
       }).result.then((result) => {
+        console.log(`Modal Result ${result}`)
         this.modalOpen = true;
         `Result ${result}`
       }, (reason) => {

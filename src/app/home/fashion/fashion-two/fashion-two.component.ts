@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomeSlider } from '../../../shared/data/slider';
 import { Product } from '../../../shared/classes/product';
 import { ProductService } from '../../../shared/services/product.service';
+import { NewsletterComponent } from '../../../shared/components/modal/newsletter/newsletter.component';
 
 @Component({
   selector: 'app-fashion-two',
@@ -9,7 +10,7 @@ import { ProductService } from '../../../shared/services/product.service';
   styleUrls: ['./fashion-two.component.scss']
 })
 export class FashionTwoComponent implements OnInit {
-  
+  @ViewChild('newsletterModal', { static: true }) newsletter: NewsletterComponent;
   public themeLogo: string = 'assets/images/icon/logo.png'; // Change Logo
 
   public products : Product[] = [];
@@ -63,7 +64,12 @@ export class FashionTwoComponent implements OnInit {
   }];
 
   ngOnInit(): void {
+    // For testing only
+    // setTimeout(() => {
+    //   localStorage.setItem('newsletter', 'false')
+    // }, 3000)
   }
+
 
   // Product Tab collection
   getCollectionProducts(collection) {

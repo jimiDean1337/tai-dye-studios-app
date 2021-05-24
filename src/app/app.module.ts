@@ -7,15 +7,16 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import { TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CookieService } from 'ngx-cookie-service';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
 import { PagesComponent } from './pages/pages.component';
 import { ElementsComponent } from './elements/elements.component';
-import { CoreModule } from './core/core.module';
 
 
 // AoT requires an exported function for factories
@@ -53,7 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     CoreModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

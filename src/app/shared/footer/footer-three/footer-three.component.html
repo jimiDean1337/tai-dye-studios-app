@@ -43,9 +43,9 @@
                                 <h2>newsletter</h2>
                                 <form>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="exampleFormControlInput"
+                                        <input type="text" #email name="email" class="form-control" id="exampleFormControlInput"
                                             placeholder="Enter your email">
-                                        <button type="submit" class="btn btn-solid black-btn">subscribe</button>
+                                        <button type="button" class="btn btn-solid black-btn" (click)="addSubscriber(email.value)">subscribe</button>
                                     </div>
                                 </form>
                             </div>

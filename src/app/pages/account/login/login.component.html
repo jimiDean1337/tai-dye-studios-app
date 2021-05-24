@@ -17,6 +17,21 @@
                         </div>
                         <button class="btn btn-solid" [disabled]="loginForm.invalid" (click)="loginWithEmailAndPassword(email.value, password.value)">Login</button>
                     </form>
+                    <hr>
+                    <div class="login-provider-container mt-3">
+                        <h4>Or login with</h4>
+                        <div class="btn-toolbar" role="toolbar" aria-label="">
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="button" class="btn btn-solid mr-1" (click)="loginWithProvider('facebook')">Facebook <i class="fa fa-facebook-official"></i></button>
+                                <button type="button" class="btn btn-solid" (click)="loginWithProvider('twitter')">Twitter <i class="fa fa-twitter"></i></button>
+
+                            </div>
+                            <!-- <div class="btn-group" role="group" aria-label="">
+                                <button type="button" class="btn btn-primary"></button>
+                                <button type="button" class="btn btn-primary"></button>
+                            </div> -->
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 right-login">
@@ -24,7 +39,7 @@
                 <div class="theme-card authentication-right">
                     <h6 class="title-font">Create A Account</h6>
                     <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click register.</p>
-                    <button class="btn btn-solid">Create an Account</button>
+                    <button class="btn btn-solid" (click)="goToRegistration()">Create an Account</button>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from 'src/app/core/services/data/data.service';
 
 @Component({
   selector: 'app-footer-three',
@@ -7,16 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FooterThreeComponent implements OnInit {
 
-  @Input() class: string; // Default class 
-  @Input() mainFooter: boolean = true; // Default true 
-  @Input() subFooter: boolean = false; // Default false 
+  @Input() class: string; // Default class
+  @Input() mainFooter: boolean = true; // Default true
+  @Input() subFooter: boolean = false; // Default false
   @Input() themeLogo: string = 'assets/images/icon/logo.png'; // Default Logo
 
   public today: number = Date.now();
-  
-  constructor() { }
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+  }
+
+  addSubscriber(email: string) {
+    this.dataService.addSubscriber(email);
   }
 
 }

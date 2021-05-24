@@ -33,140 +33,146 @@ import { MasonryGridTwoComponent } from './portfolio/masonry-grid-two/masonry-gr
 import { MasonryGridThreeComponent } from './portfolio/masonry-grid-three/masonry-grid-three.component';
 import { MasonryGridFourComponent } from './portfolio/masonry-grid-four/masonry-grid-four.component';
 import { MasonryFullWidthComponent } from './portfolio/masonry-full-width/masonry-full-width.component';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
-  { 
-    path: 'wishlist', 
-    component: WishlistComponent 
+  {
+    path: 'wishlist',
+    component: WishlistComponent
   },
-  { 
-    path: 'cart', 
-    component: CartComponent 
+  {
+    path: 'cart',
+    component: CartComponent
   },
-  { 
-    path: 'dashboard', 
-    component: DashboardComponent 
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
-  { 
-    path: 'login', 
-    component: LoginComponent 
+  {
+    path: 'login',
+    component: LoginComponent
+    // TODO: Add CanDeactivate Guard
   },
-  { 
-    path: 'register', 
-    component: RegisterComponent 
+  {
+    path: 'register',
+    component: RegisterComponent
   },
-  { 
-    path: 'forget/password', 
-    component: ForgetPasswordComponent 
+  {
+    path: 'forget/password',
+    component: ForgetPasswordComponent
   },
-  { 
-    path: 'profile', 
-    component: ProfileComponent 
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
-  { 
-    path: 'contact', 
-    component: ContactComponent 
+  {
+    path: 'contact',
+    component: ContactComponent
   },
-  { 
-    path: 'checkout', 
-    component: CheckoutComponent 
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [AuthGuard]
   },
-  { 
-    path: 'aboutus', 
-    component: AboutUsComponent 
+  {
+    path: 'aboutus',
+    component: AboutUsComponent
   },
-  { 
-    path: 'search', 
-    component: SearchComponent 
+  {
+    path: 'search',
+    component: SearchComponent
   },
-  { 
-    path: 'typography', 
-    component: TypographyComponent 
+  {
+    path: 'typography',
+    component: TypographyComponent
   },
-  { 
-    path: 'review', 
-    component: ReviewComponent 
+  {
+    path: 'review',
+    component: ReviewComponent
   },
-  { 
-    path: 'order/success', 
-    component: OrderSuccessComponent 
+  {
+    path: 'order/success',
+    component: OrderSuccessComponent
   },
-  { 
-    path: 'compare/one', 
-    component: CompareOneComponent 
+  {
+    path: 'compare/one',
+    component: CompareOneComponent
   },
-  { 
-    path: 'compare/two', 
-    component: CompareTwoComponent 
+  {
+    path: 'compare/two',
+    component: CompareTwoComponent
   },
-  { 
-    path: 'collection', 
-    component: CollectionComponent 
+  {
+    path: 'collection',
+    component: CollectionComponent
   },
-  { 
-    path: 'lookbook', 
-    component: LookbookComponent 
+  {
+    path: 'lookbook',
+    component: LookbookComponent
   },
-  { 
-    path: '404', 
-    component: ErrorComponent 
+  {
+    path: '404',
+    component: ErrorComponent
   },
-  { 
-    path: 'comingsoon', 
-    component: ComingSoonComponent 
+  {
+    path: 'comingsoon',
+    component: ComingSoonComponent
   },
-  { 
-    path: 'faq', 
-    component: FaqComponent 
+  {
+    path: 'faq',
+    component: FaqComponent
   },
-  { 
-    path: 'blog/left/sidebar', 
-    component: BlogLeftSidebarComponent 
+  {
+    path: 'blog/left/sidebar',
+    component: BlogLeftSidebarComponent
   },
-  { 
-    path: 'blog/right/sidebar', 
-    component: BlogRightSidebarComponent 
+  {
+    path: 'blog/right/sidebar',
+    component: BlogRightSidebarComponent
   },
-  { 
-    path: 'blog/no/sidebar', 
-    component: BlogNoSidebarComponent 
+  {
+    path: 'blog/no/sidebar',
+    component: BlogNoSidebarComponent
   },
-  { 
-    path: 'blog/details', 
-    component: BlogDetailsComponent 
+  {
+    path: 'blog/details',
+    component: BlogDetailsComponent
   },
-  { 
-    path: 'portfolio/grid/two', 
-    component: GridTwoComponent 
+  {
+    path: 'portfolio/grid/two',
+    component: GridTwoComponent
   },
-  { 
-    path: 'portfolio/grid/three', 
-    component: GridThreeComponent 
+  {
+    path: 'portfolio/grid/three',
+    component: GridThreeComponent
   },
-  { 
-    path: 'portfolio/grid/four', 
-    component: GridFourComponent 
+  {
+    path: 'portfolio/grid/four',
+    component: GridFourComponent
   },
-  { 
-    path: 'portfolio/masonry/grid/two', 
-    component: MasonryGridTwoComponent 
+  {
+    path: 'portfolio/masonry/grid/two',
+    component: MasonryGridTwoComponent
   },
-  { 
-    path: 'portfolio/masonry/grid/three', 
-    component: MasonryGridThreeComponent 
+  {
+    path: 'portfolio/masonry/grid/three',
+    component: MasonryGridThreeComponent
   },
-  { 
-    path: 'portfolio/masonry/grid/four', 
-    component: MasonryGridFourComponent 
+  {
+    path: 'portfolio/masonry/grid/four',
+    component: MasonryGridFourComponent
   },
-  { 
-    path: 'portfolio/masonry/full-width', 
-    component: MasonryFullWidthComponent 
+  {
+    path: 'portfolio/masonry/full-width',
+    component: MasonryFullWidthComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class PagesRoutingModule { }

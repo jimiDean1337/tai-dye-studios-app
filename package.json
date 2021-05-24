@@ -1,5 +1,5 @@
 {
-  "name": "tie-dye-studios",
+  "name": "tai-dye-studios",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
@@ -8,10 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev:ssr": "ng run tie-dye-studios:serve-ssr",
-    "serve:ssr": "node dist/tie-dye-studios/server/main.js",
-    "build:ssr": "ng build --prod && ng run tie-dye-studios:server:production",
-    "prerender": "ng run tie-dye-studios:prerender",
+    "dev:ssr": "ng run tai-dye-studios:serve-ssr",
+    "serve:ssr": "node dist/tai-dye-studios/server/main.js",
+    "build:ssr": "ng build --prod && ng run tai-dye-studios:server:production",
+    "prerender": "ng run tai-dye-studios:prerender",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "private": true,
@@ -43,6 +43,7 @@
     "cors": "^2.8.5",
     "domino": "^2.1.5",
     "express": "^4.15.2",
+    "firebase": "^7.0 || ^8.0",
     "font-awesome": "^4.7.0",
     "fs": "0.0.1-security",
     "hammerjs": "^2.0.8",
@@ -56,6 +57,7 @@
     "ng-masonry-grid": "^1.3.0",
     "ng5-slider": "^1.2.4",
     "ngx-bar-rating": "^2.0.0",
+    "ngx-cookie-service": "^12.0.0",
     "ngx-infinite-scroll": "^10.0.0",
     "ngx-isotope": "^0.1.7",
     "ngx-masonry": "^1.1.4",
@@ -67,8 +69,7 @@
     "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "firebase": "^7.0 || ^8.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.2",

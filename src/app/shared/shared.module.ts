@@ -37,9 +37,11 @@ import { ProductBoxVerticalSliderComponent } from './components/product/product-
 import { NewsletterComponent } from './components/modal/newsletter/newsletter.component';
 import { QuickViewComponent } from './components/modal/quick-view/quick-view.component';
 import { CartModalComponent } from './components/modal/cart-modal/cart-modal.component';
+import { LegalDocsComponent } from './components/modal/legal-docs/legal-docs.component';
 import { CartVariationComponent } from './components/modal/cart-variation/cart-variation.component';
 import { VideoModalComponent } from './components/modal/video-modal/video-modal.component';
 import { SizeModalComponent } from './components/modal/size-modal/size-modal.component';
+import { AlertModalComponent } from './components/modal/alert-modal/alert-modal.component';
 import { AgeVerificationComponent } from './components/modal/age-verification/age-verification.component';
 
 // Skeleton Loader Components
@@ -51,8 +53,14 @@ import { LayoutBoxComponent } from './components/layout-box/layout-box.component
 // Tap To Top
 import { TapToTopComponent } from './components/tap-to-top/tap-to-top.component';
 
+// Account Menu
+import { AccountMenuComponent } from './components/account-menu/account-menu.component';
+
+// Cookie consent prompt
+import { CookiePromptComponent } from './components/cookie-prompt/cookie-prompt.component';
 // Pipes
 import { DiscountPipe } from './pipes/discount.pipe';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -86,7 +94,12 @@ import { DiscountPipe } from './pipes/discount.pipe';
     SkeletonProductBoxComponent,
     LayoutBoxComponent,
     TapToTopComponent,
-    DiscountPipe
+    DiscountPipe,
+    AccountMenuComponent,
+    CookiePromptComponent,
+    LegalDocsComponent,
+    SafeHtmlPipe,
+    AlertModalComponent
   ],
   imports: [
     CommonModule,
@@ -139,7 +152,12 @@ import { DiscountPipe } from './pipes/discount.pipe';
     SkeletonProductBoxComponent,
     LayoutBoxComponent,
     TapToTopComponent,
-    DiscountPipe
+    DiscountPipe,
+    AccountMenuComponent,
+    CookiePromptComponent,
+    LegalDocsComponent,
+    SafeHtmlPipe,
+    AlertModalComponent
   ]
 })
 export class SharedModule { }

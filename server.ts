@@ -41,7 +41,7 @@ enableProdMode();
 export function app() {
   const server = express();
   server.use(cors());
-  const distFolder = join(process.cwd(), 'dist/tie-dye-studios/browser');
+  const distFolder = join(process.cwd(), 'dist/tai-dye-studios/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
   const LAZY_MODULE_MAP = require('./src/main.server');
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
@@ -55,7 +55,7 @@ export function app() {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
-  
+
   // Example Express Rest API endpoints
   // app.get('/api/**', (req, res) => { });
   // Serve static files from /browser
@@ -65,10 +65,10 @@ export function app() {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, { req, 
-      providers: [{ 
+    res.render(indexHtml, { req,
+      providers: [{
         provide: APP_BASE_HREF,
-        useValue: req.baseUrl 
+        useValue: req.baseUrl
       }]
     });
   });

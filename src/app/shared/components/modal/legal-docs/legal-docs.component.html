@@ -1,0 +1,23 @@
+<!--modal popup start-->
+<ng-template id="legalmodal" class="theme-modal" #legalDocs let-modal>
+        <div class="modal-content">
+            <div class="modal-body modal7">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="modal-bg">
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="legal-content">
+                                    <div [innerHTML]="docs[docType]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</ng-template>
+<!--modal popup end-->

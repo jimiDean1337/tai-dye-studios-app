@@ -1,6 +1,8 @@
 export const environment = {
   production: true,
   instagram_token: 'INSTA_TOKEN',
+  twitter_token: 'TWITTER_TOKEN',
+  facebook_token: 'FACEBOOK_TOKEN',
   stripe_token: 'STRIPE_TOKEN',
   paypal_token: 'PAYPAL_TOKEN',
   firebase_config: {

@@ -20,8 +20,8 @@
                             <h2>newsletter</h2>
                             <form >
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Enter your email">
-                                    <button type="submit" class="btn btn-solid ">subscribe</button>
+                                    <input type="text" #email name="email" class="form-control" id="exampleFormControlInput3" placeholder="Enter your email">
+                                    <button type="button" class="btn btn-solid " (click)="addSubscriber(email.value)">subscribe</button>
                                 </div>
                             </form>
                         </div>

@@ -5,23 +5,23 @@
         <div class="row">
             <div class="col-sm-12">
                 <h3>PERSONAL DETAIL</h3>
-                <form class="theme-form">
+                <form class="theme-form" name="profileDataForm" #profileDataForm="ngForm">
                     <div class="form-row">
                         <div class="col-md-6">
-                            <label for="name">First Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
+                            <label for="fname">First Name</label>
+                            <input name="fname" [(ngModel)]="profileDataModel.fName" type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
                         </div>
                         <div class="col-md-6">
                             <label for="email">Last Name</label>
-                            <input type="text" class="form-control" id="last-name" placeholder="Email" required="">
+                            <input name="lname" [(ngModel)]="profileDataModel.lName" type="text" class="form-control" id="last-name" placeholder="Email" required="">
                         </div>
                         <div class="col-md-6">
                             <label for="review">Phone number</label>
-                            <input type="text" class="form-control" id="review" placeholder="Enter your number" required="">
+                            <input name="phone" [(ngModel)]="profileDataModel.phone" type="text" class="form-control" id="review" placeholder="Enter your number" required="">
                         </div>
                         <div class="col-md-6">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                            <input name="email" [(ngModel)]="profileDataModel.email" type="text" class="form-control" id="email" placeholder="Email" required="">
                         </div>
                         <div class="col-md-12">
                             <label for="review">Write Your Message</label>
@@ -40,39 +40,39 @@
         <div class="row">
             <div class="col-sm-12">
                 <h3>SHIPPING ADDRESS</h3>
-                <form class="theme-form">
+                <form class="theme-form" name="profileShippingDataForm" #profileShippingDataForm="ngForm">
                     <div class="form-row">
                         <div class="col-md-6">
-                            <label for="name">flat / plot</label>
-                            <input type="text" class="form-control" id="home-ploat" placeholder="company name" required="">
+                            <label for="shippingAddress1">Address Line 1*</label>
+                            <input name="shippingAddress1" [(ngModel)]="profileDataModel.address.street" type="text" class="form-control" id="address-one" placeholder="Street Line 1" required="">
                         </div>
                         <div class="col-md-6">
-                            <label for="name">Address *</label>
-                            <input type="text" class="form-control" id="address-two" placeholder="Address" required="">
+                            <label for="address2">Address Line 2</label>
+                            <input name="address2" [(ngModel)]="profileDataModel.address.street2" type="text" class="form-control" id="address-two" placeholder="Street Line 2 - Apt/Suite #">
                         </div>
                         <div class="col-md-6">
-                            <label for="email">Zip Code *</label>
-                            <input type="text" class="form-control" id="zip-code" placeholder="zip-code" required="">
+                            <label for="zip-code">Zip Code *</label>
+                            <input name="zip-code" [(ngModel)]="profileDataModel.address.zipcode" type="text" class="form-control" id="zip-code" placeholder="zip-code" required="">
                         </div>
                         <div class="col-md-6 select_input">
-                            <label for="review">Country *</label>
-                            <select class="form-control" size="1">
-                                <option value="India">India</option>
-                                <option value="UAE">UAE</option>
-                                <option value="U.K">U.K</option>
-                                <option value="US">US</option>
+                            <label for="country">Country *</label>
+                            <select name="country" [(ngModel)]="profileDataModel.address.country" class="form-control" size="1">
+                                <option value="USA">USA</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="U.K.">U.K.</option>
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="review">City *</label>
-                            <input type="text" class="form-control" id="city" placeholder="City" required="">
+                            <label for="city">City *</label>
+                            <input name="city" [(ngModel)]="profileDataModel.address.city" type="text" class="form-control" id="city" placeholder="City" required="">
                         </div>
                         <div class="col-md-6">
-                            <label for="review">Region/State *</label>
-                            <input type="text" class="form-control" id="region-state" placeholder="Region/state" required="">
+                            <label for="stateOrProvince">Region/State *</label>
+                            <input name="stateOrProvince" [(ngModel)]="profileDataModel.address.stateOrProvince" type="text" class="form-control" id="shippingStateOrProvince" placeholder="Province/State" required="">
                         </div>
                         <div class="col-md-12">
-                            <button class="btn btn-sm btn-solid" type="submit">Save setting</button>
+                            <button class="btn btn-sm btn-solid" type="submit" (click)="updateProfile(profileDataModel.id, profileDataModel, profileDataForm)" [disabled]="profileShippingDataForm.invalid">Save setting</button>
                         </div>
                     </div>
                 </form>
