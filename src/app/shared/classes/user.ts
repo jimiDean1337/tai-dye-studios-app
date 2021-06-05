@@ -35,7 +35,9 @@ export class UserProfile {
     isNewUser?: boolean = true;
     isActive?: boolean = true;
     creationDate?: string | Date;
-
+    providerType?: string = 'password';
+    emailVerified?: boolean = false;
+    additionalUserInfo?: any;
 }
 
 export const USER_PROFILE_DEFAULTS: UserProfile = {
@@ -48,7 +50,7 @@ export const USER_PROFILE_DEFAULTS: UserProfile = {
         stateOrProvince: '',
         country: '',
         zipcode: '',
-        sameAsBilling: false,
+        sameAsBilling: true,
     },
     photoURL: 'assets/images/icons/user-profile-default.png',
     isNewUser: true,

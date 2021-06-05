@@ -61,6 +61,7 @@ import { CookiePromptComponent } from './components/cookie-prompt/cookie-prompt.
 // Pipes
 import { DiscountPipe } from './pipes/discount.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { GuideModalComponent } from './components/modal/guide-modal/guide-modal.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     CookiePromptComponent,
     LegalDocsComponent,
     SafeHtmlPipe,
-    AlertModalComponent
+    AlertModalComponent,
+    GuideModalComponent
   ],
   imports: [
     CommonModule,
@@ -157,7 +159,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     CookiePromptComponent,
     LegalDocsComponent,
     SafeHtmlPipe,
-    AlertModalComponent
+    AlertModalComponent,
+    GuideModalComponent
   ]
 })
 export class SharedModule { }

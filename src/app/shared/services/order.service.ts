@@ -35,5 +35,7 @@ export class OrderService {
     localStorage.removeItem("cartItems");
     this.router.navigate(['/shop/checkout/success', orderId]);
   }
-  
+
 }
+
+/* TODO: Send order to firestore */

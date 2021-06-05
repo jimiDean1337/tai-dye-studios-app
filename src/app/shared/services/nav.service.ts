@@ -81,6 +81,7 @@ export class NavService {
 				{ path: '/shop/product/image/outside/trim-dress', title: 'image-outside', type: 'link' }
 			]
 		}, */
+		{ title: 'faq', type: 'link', active: false, path: '/pages/faq' },
 		{title: 'about us', type: 'link', active: false, path: '/pages/aboutus'},
 		{ title: 'contact', type: 'link', active: false, path: '/pages/contact' },
 		// {

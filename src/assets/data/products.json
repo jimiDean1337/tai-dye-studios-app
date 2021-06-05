@@ -1,10 +1,10 @@
 [
     {
         "id": 1,
-        "title": "trim dress",
+        "title": "Sunset Tshirt",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "fashion",
-        "brand": "nike",
+        "brand": "none",
         "collection": [
             "new products"
         ],
@@ -18,10 +18,11 @@
             "new",
             "s",
             "m",
-            "yellow",
+            "l",
+            "xl",
+            "orange",
             "white",
-            "pink",
-            "nike"
+            "pink"
         ],
         "variants": [
             {
@@ -29,55 +30,23 @@
                 "id": 1,
                 "sku": "sku1",
                 "size": "s",
-                "color": "yellow",
+                "color": "pink",
                 "image_id": 111
             },
             {
-                "variant_id": 102,
+                "variant_id": 101,
                 "id": 1,
-                "sku": "sku2",
-                "size": "s",
-                "color": "white",
-                "image_id": 112
-            },
-            {
-                "variant_id": 103,
-                "id": 1,
-                "sku": "sku3",
-                "size": "s",
-                "color": "pink",
-                "image_id": 113
-            },
-            {
-                "variant_id": 104,
-                "id": 1,
-                "sku": "sku4",
+                "sku": "sku1",
                 "size": "m",
-                "color": "yellow",
+                "color": "pink",
                 "image_id": 111
             },
             {
-                "variant_id": 105,
-                "id": 1,
-                "sku": "sku5",
-                "size": "m",
-                "color": "purple",
-                "image_id": 112
-            },
-            {
-                "variant_id": 106,
-                "id": 1,
-                "sku": "sku5",
-                "size": "m",
-                "color": "pink",
-                "image_id": 113
-            },
-            {
-                "variant_id": 107,
+                "variant_id": 101,
                 "id": 1,
                 "sku": "sku1",
                 "size": "l",
-                "color": "yellow",
+                "color": "pink",
                 "image_id": 111
             }
         ],
@@ -85,58 +54,43 @@
             {
                 "image_id": 111,
                 "id": 1,
-                "alt": "yellow",
-                "src": "http://placeimg.com/480/644/any",
+                "alt": "front",
+                "src": "assets/images/product/tshirts/1_front.jpg",
                 "variant_id": [
-                    101,
-                    104
+                    101
                 ]
             },
             {
-                "image_id": 112,
+                "image_id": 111,
                 "id": 1,
-                "alt": "white",
-                "src": "http://placeimg.com/480/644/any/sepia",
+                "alt": "back",
+                "src": "assets/images/product/tshirts/1_back.jpg",
                 "variant_id": [
-                    102,
-                    105
-                ]
-            },
-            {
-                "image_id": 113,
-                "id": 1,
-                "alt": "pink",
-                "src": "http://placeimg.com/480/644/any/grayscale",
-                "variant_id": [
-                    103,
-                    106
+                    101
                 ]
             }
         ]
     },
     {
         "id": 2,
-        "title": "belted dress",
+        "title": "Morning Person Tshirt",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "fashion",
-        "brand": "zara",
+        "brand": "none",
         "collection": [
             "best sellers"
         ],
-        "category": "Women",
+        "category": "Kids",
         "price": 185,
         "sale": false,
         "discount": "40",
         "stock": 2,
         "new": false,
         "tags": [
+            "hot",
             "s",
-            "m",
-            "l",
-            "olive",
-            "navy",
-            "red",
-            "zara"
+            "white",
+            "pink"
         ],
         "variants": [
             {
@@ -144,149 +98,61 @@
                 "id": 2,
                 "sku": "sku1",
                 "size": "s",
-                "color": "olive",
+                "color": "pink",
                 "image_id": 211
-            },
-            {
-                "variant_id": 202,
-                "id": 2,
-                "sku": "sku2",
-                "size": "s",
-                "color": "navy",
-                "image_id": 212
-            },
-            {
-                "variant_id": 203,
-                "id": 2,
-                "sku": "sku3",
-                "size": "s",
-                "color": "red",
-                "image_id": 213
-            },
-            {
-                "variant_id": 204,
-                "id": 2,
-                "sku": "sku4",
-                "size": "m",
-                "color": "olive",
-                "image_id": 211
-            },
-            {
-                "variant_id": 205,
-                "id": 2,
-                "sku": "sku4",
-                "size": "m",
-                "color": "navy",
-                "image_id": 212
-            },
-            {
-                "variant_id": 206,
-                "id": 2,
-                "sku": "sku4",
-                "size": "m",
-                "color": "red",
-                "image_id": 213
-            },
-            {
-                "variant_id": 207,
-                "id": 2,
-                "sku": "sku4",
-                "size": "l",
-                "color": "olive",
-                "image_id": 211
-            },
-            {
-                "variant_id": 208,
-                "id": 2,
-                "sku": "sku4",
-                "size": "l",
-                "color": "navy",
-                "image_id": 212
-            },
-            {
-                "variant_id": 209,
-                "id": 2,
-                "sku": "sku4",
-                "size": "l",
-                "color": "red",
-                "image_id": 213
             }
         ],
         "images": [
             {
                 "image_id": 211,
                 "id": 2,
-                "alt": "olive",
-                "src": "http://placeimg.com/480/644/any/grayscale",
+                "alt": "front",
+                "src": "assets/images/product/tshirts/2_front.jpg",
                 "variant_id": [
-                    201,
-                    204,
-                    207
+                    201
                 ]
             },
             {
                 "image_id": 212,
                 "id": 2,
-                "alt": "navy",
-                "src": "http://placeimg.com/480/644/any/grayscale",
+                "alt": "back",
+                "src": "assets/images/product/tshirts/2_back.jpg",
                 "variant_id": [
-                    202,
-                    205,
-                    208
-                ]
-            },
-            {
-                "image_id": 213,
-                "id": 2,
-                "alt": "pink",
-                "src": "http://placeimg.com/480/644/any/grayscale",
-                "variant_id": [
-                    203,
-                    206,
-                    209
-                ]
-            },
-            {
-                "image_id": 214,
-                "id": 2,
-                "alt": "pink",
-                "src": "http://placeimg.com/480/644/any/grayscale",
-                "variant_id": [
-                    201,
-                    204
+                    201
                 ]
             }
         ]
     },
     {
         "id": 3,
-        "title": "fitted dress",
+        "title": "Freedom Tshirt",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "fashion",
-        "brand": "denim",
+        "brand": "none",
         "collection": [
             "featured products"
         ],
-        "category": "Women",
+        "category": "Men",
         "price": 174,
         "sale": false,
         "discount": "40",
         "stock": 0,
         "new": true,
         "tags": [
-            "denim",
+            "featured",
             "l",
             "m",
+            "red",
             "white",
-            "black"
+            "blue"
         ],
         "variants": [
             {
                 "variant_id": 301,
                 "id": 3,
                 "sku": "sku3",
-                "size": "l",
-                "color": "white",
+                "size": "s",
+                "color": "blue",
                 "image_id": 311
             },
             {
@@ -294,7 +160,7 @@
                 "id": 3,
                 "sku": "skul3",
                 "size": "m",
-                "color": "white",
+                "color": "blue",
                 "image_id": 311
             },
             {
@@ -302,15 +168,15 @@
                 "id": 3,
                 "sku": "sku3l",
                 "size": "l",
-                "color": "black",
+                "color": "blue",
                 "image_id": 312
             },
             {
                 "variant_id": 304,
                 "id": 3,
                 "sku": "sku4m",
-                "size": "m",
-                "color": "black",
+                "size": "xl",
+                "color": "blue",
                 "image_id": 312
             }
         ],
@@ -318,21 +184,19 @@
             {
                 "image_id": 311,
                 "id": 3,
-                "alt": "white",
-                "src": "http://placeimg.com/480/644/any/grayscale",
+                "alt": "front",
+                "src": "assets/images/product/tshirts/3_front.jpg",
                 "variant_id": [
-                    301,
-                    303
+                    301
                 ]
             },
             {
                 "image_id": 312,
-                "id": 1,
-                "alt": "white",
-                "src": "http://placeimg.com/480/644/any/grayscale",
+                "id": 3,
+                "alt": "back",
+                "src": "assets/images/product/tshirts/3_back.jpg",
                 "variant_id": [
-                    302,
-                    304
+                    301
                 ]
             }
         ]

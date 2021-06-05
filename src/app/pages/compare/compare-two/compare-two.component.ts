@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { CompareSlider } from '../../../shared/data/slider';
 
 @Component({
@@ -8,9 +9,10 @@ import { CompareSlider } from '../../../shared/data/slider';
 })
 export class CompareTwoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Compare - Tai-Dye Studios | Creative Clothing &amp; Accessories')
   }
 
   public CompareSliderConfig: any = CompareSlider;

@@ -23,10 +23,7 @@
                             <label for="email">Email</label>
                             <input name="email" [(ngModel)]="profileDataModel.email" type="text" class="form-control" id="email" placeholder="Email" required="">
                         </div>
-                        <div class="col-md-12">
-                            <label for="review">Write Your Message</label>
-                            <textarea class="form-control mb-0" placeholder="Write Your Message" id="exampleFormControlTextarea1" rows="6"></textarea>
-                        </div>
+
                     </div>
                 </form>
             </div>
@@ -81,3 +78,5 @@
     </div>
 </section>
 <!-- Section ends -->
+<!-- Start helper modal -->
+<app-guide-modal [type]="'helper'" [modalOptions]="helperModalOptions" [modalId]="'profileGuideModal'" [textOrTemplate]="guideModalContent" #profileHelper></app-guide-modal>

@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Order } from '../../../shared/classes/order';
 import { OrderService } from '../../../shared/services/order.service';
 import { ProductService } from '../../../shared/services/product.service';
@@ -10,17 +11,22 @@ import { ProductService } from '../../../shared/services/product.service';
 })
 export class SuccessComponent implements OnInit, AfterViewInit{
 
-  public orderDetails : Order = {};
+  public orderDetails: Order = {};
+  public estimatedDeliveryDate: any = new Date().setDate(new Date().getDate() + 2 * 7);
 
-  constructor(public productService: ProductService,
+  constructor(public title: Title, public productService: ProductService,
     private orderService: OrderService) { }
 
-  ngOnInit(): void {	
-    this.orderService.checkoutItems.subscribe(response => this.orderDetails = response);
+  ngOnInit(): void {
+    this.title.setTitle('Order Success - Tai-Dye Studios | Creative Apparel &amp; Accessories');
+    this.orderService.checkoutItems.subscribe(response => {
+      this.orderDetails = response;
+      // response.totalAmount.subscribe(res => console.log(res))
+    });
   }
 
   ngAfterViewInit() {
-    
+
   }
 
 }

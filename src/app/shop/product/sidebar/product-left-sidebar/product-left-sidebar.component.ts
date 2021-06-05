@@ -4,6 +4,9 @@ import { ProductDetailsMainSlider, ProductDetailsThumbSlider } from '../../../..
 import { Product } from '../../../../shared/classes/product';
 import { ProductService } from '../../../../shared/services/product.service';
 import { SizeModalComponent } from "../../../../shared/components/modal/size-modal/size-modal.component";
+import { NgForm } from '@angular/forms';
+import { DataService } from 'src/app/core/services/data/data.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product-left-sidebar',
@@ -17,18 +20,25 @@ export class ProductLeftSidebarComponent implements OnInit {
   public activeSlide: any = 0;
   public selectedSize: any;
   public mobileSidebar: boolean = false;
+  // public reviewRating: number = 5;
+  public reviewFormModel: any = {
+    reviewRating: 1
+  };
 
   @ViewChild("sizeChart") SizeChart: SizeModalComponent;
-  
+
   public ProductDetailsMainSliderConfig: any = ProductDetailsMainSlider;
   public ProductDetailsThumbConfig: any = ProductDetailsThumbSlider;
 
   constructor(private route: ActivatedRoute, private router: Router,
-    public productService: ProductService) { 
+    private dataService: DataService,
+    public title: Title,
+    public productService: ProductService) {
       this.route.data.subscribe(response => this.product = response.data );
     }
 
   ngOnInit(): void {
+    this.title.setTitle('Shop - Tai-Dye Studios | Creative Clothing &amp; Accessories')
   }
 
   // Get Product Color
@@ -56,7 +66,7 @@ export class ProductLeftSidebarComponent implements OnInit {
   selectSize(size) {
     this.selectedSize = size;
   }
-  
+
   // Increament
   increment() {
     this.counter++ ;
@@ -91,6 +101,13 @@ export class ProductLeftSidebarComponent implements OnInit {
   // Toggle Mobile Sidebar
   toggleMobileSidebar() {
     this.mobileSidebar = !this.mobileSidebar;
+  }
+
+  // Add review to database
+  addProductreview(productId: string, data: any, form: NgForm) {
+    this.dataService.addProductReview(productId, data).then(() => {
+      form.reset();
+    })
   }
 
 }

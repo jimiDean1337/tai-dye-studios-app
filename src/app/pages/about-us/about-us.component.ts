@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { TeamSlider, TestimonialSlider } from '../../shared/data/slider';
 
 @Component({
@@ -7,12 +8,6 @@ import { TeamSlider, TestimonialSlider } from '../../shared/data/slider';
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   public TeamSliderConfig: any = TeamSlider;
   public TestimonialSliderConfig: any = TestimonialSlider;
 
@@ -55,6 +50,11 @@ export class AboutUsComponent implements OnInit {
     image: 'assets/images/team/1.jpg',
     name: 'Jimi Flynn',
     designation: 'Lead Developer'
- }]
+  }]
+  constructor(public title: Title) { }
+
+  ngOnInit(): void {
+    this.title.setTitle('About Us - Tai-Dye Studios | Creative Clothing &amp; Accessories');
+  }
 
 }

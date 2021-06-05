@@ -16,10 +16,12 @@
 
 :root {
   --theme-deafult: #1BB697;
-  
-  // This gradient color only for gym and marijuana layout
-  --theme-gradient1: #18C618;
-  --theme-gradient2: #e7c400;
+
+  // These colors only for social buttons
+  --theme-facebook1: #3578E5;
+  --theme-facebook2: #134aa3;
+  --theme-google1: #F70000;
+  --theme-google2: #a20202;
 }
 
 @import 'theme/style';

@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment';
 import { Product } from "../../shared/classes/product";
 import { ProductService } from "../../shared/services/product.service";
 import { OrderService } from "../../shared/services/order.service";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-checkout',
@@ -21,8 +22,9 @@ export class CheckoutComponent implements OnInit {
   public amount:  any;
 
   constructor(private fb: FormBuilder,
+    public title: Title,
     public productService: ProductService,
-    private orderService: OrderService) { 
+    private orderService: OrderService) {
     this.checkoutForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
       lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
@@ -37,8 +39,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle('Checkout - Tai-Dye Studios | Creative Clothing &amp; Accessories')
     this.productService.cartItems.subscribe(response => this.products = response);
-    this.getTotal.subscribe(amount => this.amount = amount);
+    this.getTotal.subscribe(amount => {
+      this.amount = amount;
+      console.log(this.amount)
+    });
     this.initConfig();
   }
 
@@ -59,12 +65,12 @@ export class CheckoutComponent implements OnInit {
     });
     handler.open({
       name: 'Tai-Dye-Studios',
-      description: 'Online Fashion Store',
+      description: 'Creative Apparel Online Store',
       amount: this.amount * 100
-    }) 
+    })
   }
 
-  // Paypal Payment Gateway
+  // Paypal Payment Gateway Default
   private initConfig(): void {
     this.payPalConfig = {
         currency: this.productService.Currency.currency,
@@ -89,11 +95,11 @@ export class CheckoutComponent implements OnInit {
         },
         style: {
             label: 'paypal',
-            size:  'small', // small | medium | large | responsive
+            size:  'responsive', // small | medium | large | responsive
             shape: 'rect', // pill | rect
         },
         onApprove: (data, actions) => {
-            this.orderService.createOrder(this.products, this.checkoutForm.value, data.orderID, this.getTotal);
+            this.orderService.createOrder(this.products, this.checkoutForm.value, data.orderID, this.amount);
             console.log('onApprove - transaction was approved, but not authorized', data, actions);
             actions.order.get().then(details => {
                 console.log('onApprove - you can get full order details inside onApprove: ', details);

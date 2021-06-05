@@ -16,30 +16,28 @@
                             <input [(ngModel)]="loginModel.password" #password="ngModel" name="loginPassword" type="password" class="form-control" id="review" placeholder="Enter your password" required="">
                         </div>
                         <button class="btn btn-solid" [disabled]="loginForm.invalid" (click)="loginWithEmailAndPassword(email.value, password.value)">Login</button>
-                    </form>
-                    <hr>
-                    <div class="login-provider-container mt-3">
-                        <h4>Or login with</h4>
-                        <div class="btn-toolbar" role="toolbar" aria-label="">
-                            <div class="btn-group" role="group" aria-label="">
-                                <button type="button" class="btn btn-solid mr-1" (click)="loginWithProvider('facebook')">Facebook <i class="fa fa-facebook-official"></i></button>
-                                <button type="button" class="btn btn-solid" (click)="loginWithProvider('twitter')">Twitter <i class="fa fa-twitter"></i></button>
-
-                            </div>
-                            <!-- <div class="btn-group" role="group" aria-label="">
-                                <button type="button" class="btn btn-primary"></button>
-                                <button type="button" class="btn btn-primary"></button>
-                            </div> -->
+                        <div class="form-footer">
+                            <span>Or Login with social platforms</span>
+                            <ul class="social">
+                                <li (click)="loginWithProvider('facebook')"><a class="fa fa-facebook" href="javascript:void(0)"></a></li>
+                                <li (click)="loginWithProvider('google')"><a class="fa fa-google" href="javascript:void(0)"></a></li>
+                                <!-- <li><a class="fa fa-twitter" href="javascript:void(0)"></a></li>
+                                <li><a class="fa fa-instagram" href="javascript:void(0)"></a>
+                                </li>
+                                <li><a class="fa fa-pinterest" href="javascript:void(0)"></a>
+                                </li> -->
+                            </ul>
                         </div>
-                    </div>
+                    </form>
+
                 </div>
             </div>
             <div class="col-lg-6 right-login">
                 <h3>New Customer</h3>
                 <div class="theme-card authentication-right">
-                    <h6 class="title-font">Create A Account</h6>
-                    <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click register.</p>
-                    <button class="btn btn-solid" (click)="goToRegistration()">Create an Account</button>
+                    <h6 class="title-font">Create Free Account</h6>
+                    <p>Sign up for a free account with our store. Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click 'CREATE MY ACCOUNT'.</p>
+                    <button class="btn btn-solid" (click)="goToRegistration()">Create my Account</button>
                 </div>
             </div>
         </div>

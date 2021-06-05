@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductService } from "../../shared/services/product.service";
 import { Product } from "../../shared/classes/product";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cart',
@@ -12,11 +13,12 @@ export class CartComponent implements OnInit {
 
   public products: Product[] = [];
 
-  constructor(public productService: ProductService) {
+  constructor(public productService: ProductService, public title: Title) {
     this.productService.cartItems.subscribe(response => this.products = response);
   }
 
   ngOnInit(): void {
+    this.title.setTitle('Cart - Tai-Dye Studios | Creative Clothing &amp; Accessories')
   }
 
   public get getTotal(): Observable<number> {

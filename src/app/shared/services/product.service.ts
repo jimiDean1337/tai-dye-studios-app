@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, startWith, delay } from 'rxjs/operators';
+import { map, startWith, delay, mapTo } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from '../classes/product';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -143,7 +143,7 @@ export class ProductService {
   }
 
   // Add to Cart
-  public addToCart(product): any {
+  public addToCart(product: Product): any {
     const cartItem = state.cart.find(item => item.id === product.id);
     const qty = product.quantity ? product.quantity : 1;
     const items = cartItem ? cartItem : product;

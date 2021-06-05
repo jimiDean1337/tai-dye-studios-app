@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog-left-sidebar',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogLeftSidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Blog - Tai-Dye Studios | Creative Clothing &amp; Accessories')
   }
 
 }

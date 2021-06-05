@@ -20,13 +20,13 @@ export class CookiesService {
   }
 
   init(): boolean {
-    console.log('allow cookies', this.checkCookieConsent())
+    // console.log('allow cookies', this.checkCookieConsent())
     if (this.checkCookieConsent()) {
       this.allowCookieStorage = true;
       const storedCookies = this.cookie.getAll();
       const allCookies = Object.keys(storedCookies);
       for (let cookie of allCookies) {
-        console.log(`${cookie}: ${storedCookies[cookie]}`);
+        // console.log(`${cookie}: ${storedCookies[cookie]}`);
         this.CookieCache.push({key: cookie, val: storedCookies[cookie]})
       }
       return false;

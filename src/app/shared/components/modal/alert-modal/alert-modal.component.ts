@@ -12,36 +12,33 @@ import { CookiesService } from 'src/app/core/services/cookies/cookies.service';
   styleUrls: ['./alert-modal.component.scss']
 })
 export class AlertModalComponent implements OnInit {
-  @ViewChild('alertModal', { static: false }) ProfileHelper: TemplateRef<any>;
-  @Input() type: string = 'helper';
+  @ViewChild('alertModal', { static: false }) AlertModal: TemplateRef<any>;
+  @Input() type: string;
   public modalOpen: boolean = false;
-  closeResult: string;
+  public closeResult: string;
+  modalRef: Promise<void>;
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private cookies: CookiesService,
     private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    if (!this.cookies.checkCookie('ORIENTATION_COMPLETE')) {
-      this.openModal()
-    }
   }
 
-  openModal() {
+  public openModal() {
     console.log(`Modal Opening`);
     if (isPlatformBrowser(this.platformId)) { // For SSR
       console.log(`Modal Open`);
-      this.modalService.open(this.ProfileHelper, {
+      this.modalRef = this.modalService.open(this.AlertModal, {
         size: 'xl',
-        ariaLabelledBy: 'Profile-Helper-Modal',
+        ariaLabelledBy: 'Alert-Modal',
         centered: true,
         windowClass: 'QuickView'
       }).result.then((result) => {
         console.log(`Modal Result ${result}`);
-        this.cookies.setCookieVal('ORIENTATION_COMPLETE', 'true');
         this.modalOpen = true;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      });
+      })
     }
   }
 

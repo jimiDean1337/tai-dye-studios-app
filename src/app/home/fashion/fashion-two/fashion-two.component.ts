@@ -3,6 +3,7 @@ import { HomeSlider } from '../../../shared/data/slider';
 import { Product } from '../../../shared/classes/product';
 import { ProductService } from '../../../shared/services/product.service';
 import { NewsletterComponent } from '../../../shared/components/modal/newsletter/newsletter.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-fashion-two',
@@ -11,12 +12,47 @@ import { NewsletterComponent } from '../../../shared/components/modal/newsletter
 })
 export class FashionTwoComponent implements OnInit {
   @ViewChild('newsletterModal', { static: true }) newsletter: NewsletterComponent;
-  public themeLogo: string = 'assets/images/icon/logo.png'; // Change Logo
+  public themeLogo: string = 'assets/images/icon/logo-shirt_230x93.png'; // Change Logo
 
   public products : Product[] = [];
   public productCollections: any[] = [];
 
-  constructor(public productService: ProductService) {
+
+  public HomeSliderConfig: any = HomeSlider;
+
+  public sliders = [{
+    title: 'express creativity',
+    subTitle: 'Men\'s Apparel',
+    image: 'assets/images/slider/men.jpg'
+  },
+  {
+    title: 'express originality',
+    subTitle: 'Women\'s Apparel',
+    image: 'assets/images/slider/women.jpg'
+  }]
+
+  // Collection banner
+  public collections1 = [{
+    image: 'assets/images/banner/women.jpg',
+    save: 'shop',
+    title: 'Women'
+  }, {
+    image: 'assets/images/banner/men.jpg',
+    save: 'shop',
+    title: 'Men'
+  }];
+
+  public collections2 = [{
+    image: 'assets/images/banner/featured.jpg',
+    save: 'shop',
+    title: 'Featured'
+  }, {
+    image: 'assets/images/banner/kids.jpg',
+    save: 'shop',
+    title: 'Kids'
+  }];
+
+  constructor(public title: Title, public productService: ProductService) {
     this.productService.getProducts.subscribe(response => {
       this.products = response.filter(item => item.type == 'fashion');
       // Get Product Collection
@@ -29,45 +65,12 @@ export class FashionTwoComponent implements OnInit {
     });
   }
 
-  public HomeSliderConfig: any = HomeSlider;
-
-  public sliders = [{
-    title: 'welcome to fashion',
-    subTitle: 'Men fashion',
-    image: 'http://placeimg.com/1920/780/any/sepia'
-  },
-  {
-    title: 'welcome to fashion',
-    subTitle: 'Women fashion',
-    image: 'http://placeimg.com/1920/780/any/grayscale'
-  }]
-
-  // Collection banner
-  public collections1 = [{
-    image: 'http://placeimg.com/672/310/people/sepia',
-    save: 'save 30%',
-    title: 'Women'
-  }, {
-    image: 'http://placeimg.com/672/310/people/sepia',
-    save: 'save 50%',
-    title: 'Men'
-  }];
-
-  public collections2 = [{
-    image: 'http://placeimg.com/672/310/people/sepia',
-    save: 'save 30%',
-    title: 'Pets'
-  }, {
-    image: 'http://placeimg.com/672/310/people/sepia',
-    save: 'save 10%',
-    title: 'Kids'
-  }];
-
   ngOnInit(): void {
     // For testing only
     // setTimeout(() => {
     //   localStorage.setItem('newsletter', 'false')
     // }, 3000)
+    this.title.setTitle(`Home - Tai-Dye Studios | Creative Clothing &amp; Accessories`);
   }
 
 

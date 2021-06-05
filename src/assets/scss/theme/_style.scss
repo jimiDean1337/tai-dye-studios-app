@@ -586,6 +586,32 @@ button {
         }
     }
 
+    &.btn-facebook {
+        background-image: linear-gradient(to right, var(--theme-facebook1), var(--theme-facebook2));
+        background-color: var(--theme-facebook1);
+        border: 1px solid var(--theme-facebook1);
+
+        &:hover {
+            background-position: 100%;
+            background-color: white;
+            background-image: none;
+            color: var(--theme-facebook1);
+        }
+    }
+
+    &.btn-google {
+        background-image: linear-gradient(to right, var(--theme-google1), var(--theme-google2));
+        background-color: var(--theme-google1);
+        border: 1px solid var(--theme-google1);
+
+        &:hover {
+            background-position: 100%;
+            background-color: white;
+            background-image: none;
+            color: var(--theme-google1);
+        }
+    }
+
     &.btn-sm {
         padding: 9px 16px;
     }
@@ -1331,8 +1357,8 @@ header {
 
     .brand-logo {
         display: inline-block;
-        padding-top: 35px;
-        padding-bottom: 35px;
+        // padding-top: 35px;
+        // padding-bottom: 35px;
     }
 
     .menu-left {
@@ -1664,13 +1690,13 @@ header {
         h1 {
             margin-bottom: 0;
             margin-top: 10px;
-            color: $dark-font;
+            color: $grey3;
         }
 
         h4 {
             font-weight: 700;
             letter-spacing: 0.4em;
-            color: $grey;
+            color: $white-1;
             margin-bottom: 0;
             margin-top: -3px;
         }
@@ -2880,7 +2906,7 @@ header {
         }
 
         i {
-            color: $icon;
+            color: lighten($icon, 50);
             font-size: 18px;
             padding-right: 10px;
             padding-left: 10px;
@@ -3469,7 +3495,7 @@ header {
     background-repeat: no-repeat;
     padding-top: 190px;
     padding-bottom: 190px;
-    background-position: center;
+    background-position: right;
 
     &.parallax-layout {
         padding-top: 350px;
@@ -3477,7 +3503,7 @@ header {
 
         .banner-contain {
             h4 {
-                color: $grey-shade;
+                color: $grey3;
             }
         }
     }
@@ -3535,21 +3561,21 @@ header {
         h2 {
             font-size: 100px;
             font-weight: 700;
-            color: var(--theme-deafult);
+            color: $grey-lighter;
             text-transform: uppercase;
             margin-top: -15px;
         }
 
         h3 {
             font-size: 60px;
-            color: $font-color;
+            color: #FDDC69;
             text-transform: uppercase;
             font-weight: 700;
         }
 
         h4 {
             font-size: 24px;
-            color: $grey;
+            color: $white;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5em;
@@ -3652,7 +3678,7 @@ header {
         }
 
         h4 {
-            color: var(--theme-deafult);
+            color: $grey3;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -3663,7 +3689,7 @@ header {
         h2 {
             font-size: 60px;
             font-weight: 700;
-            color: $dark-font;
+            color: $white-1;
             letter-spacing: 0.1em;
             margin-bottom: -7px;
         }
@@ -4044,7 +4070,8 @@ header {
     padding-right: 0 !important;
 }
 
-.legal-content, .helper-content {
+.legal-content,
+.helper-content {
     h2 {
         margin: 0 0 32px 0;
     }
@@ -4062,6 +4089,7 @@ header {
 
         li {
             display: block;
+
             span {
                 margin-right: 12px;
             }
@@ -7404,6 +7432,45 @@ footer {
                 margin-bottom: 30px;
                 height: inherit;
             }
+
+            .form-footer {
+                position: relative;
+                padding-top: 25px;
+                border-top: 1px solid #f3f3f3;
+                margin-top: 25px;
+
+                .social {
+                    margin-bottom: 0 !important;
+                    border-bottom: none;
+
+                    li {
+                        padding: 10px;
+                        border-radius: 100%;
+                        border: 1px solid var(--theme-deafult);
+                        height: 40px;
+                        width: 40px;
+                        margin-right: 10px;
+                        text-align: center;
+                        display: inline-block;
+
+                        a.fa-google {
+                            color: $color-red;
+                        }
+
+                        a.fa-facebook {
+                            color: $blue;
+                        }
+                    }
+                }
+
+                >span {
+                    position: absolute;
+                    top: -11px;
+                    padding-right: 20px;
+                    background-color: $white;
+                    color: #909090;
+                }
+            }
         }
     }
 
@@ -7455,6 +7522,45 @@ footer {
                 padding: 17px 25px;
                 margin-bottom: 30px;
                 height: inherit;
+            }
+
+            .form-footer {
+                position: relative;
+                padding-top: 25px;
+                border-top: 1px solid #f3f3f3;
+                margin-top: 25px;
+
+                .social {
+                    margin-bottom: 0 !important;
+                    border-bottom: none;
+
+                    li {
+                        padding: 10px;
+                        border-radius: 100%;
+                        border: 1px solid var(--theme-deafult);
+                        height: 40px;
+                        width: 40px;
+                        margin-right: 10px;
+                        text-align: center;
+                        display: inline-block;
+
+                        a.fa-google {
+                            color: $color-red;
+                        }
+
+                        a.fa-facebook {
+                            color: $blue;
+                        }
+                    }
+                }
+
+                >span {
+                    position: absolute;
+                    top: -11px;
+                    padding-right: 20px;
+                    background-color: $white;
+                    color: #909090;
+                }
             }
         }
     }
@@ -8591,13 +8697,13 @@ footer {
     i {
         padding-right: 5px;
 
-        &:nth-child(-n+4) {
+        &.fa-star.filled {
             color: $star-yellow;
         }
 
-        &:last-child {
-            color: $round-border;
-        }
+        // &:last-child {
+        //     color: $round-border;
+        // }
     }
 
     .three-star {

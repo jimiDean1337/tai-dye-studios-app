@@ -9,7 +9,7 @@ import { DataService } from 'src/app/core/services/data/data.service';
 export class FooterOneComponent implements OnInit {
 
   @Input() class: string = 'footer-light' // Default class
-  @Input() themeLogo: string = 'assets/images/icon/logo.png' // Default Logo
+  @Input() themeLogo: string = 'assets/images/icon/logo-shirt_230x93.png' // Default Logo
   @Input() newsletter: boolean = true; // Default True
 
   public today: number = Date.now();
