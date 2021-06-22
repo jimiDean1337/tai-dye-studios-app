@@ -8,21 +8,26 @@ export interface Product {
     collection?: any[];
     category?: string;
     price?: number;
+    salesTax?: number;
+    shipping?: any;
     sale?: boolean;
     discount?: number;
     stock?: number;
     new?: boolean;
     quantity?: number;
     tags?: any[];
-    variants?: Variants[];
+    variants?: Variant[];
     images?: Images[];
+    size?: string;
+    sku?: Variant['sku'];
 }
 
-export interface Variants {
+export interface Variant {
     variant_id?: number;
     id?: number;
     sku?: string;
     size?: string;
+    price?: number,
     color?: string;
     image_id?: number;
 }

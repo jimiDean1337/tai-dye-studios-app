@@ -2,12 +2,12 @@ import { TeamMemberProfile } from '../classes/team';
 
 export let OWNER: TeamMemberProfile = {
     name: 'Tai Loughman',
-    phone: '740 704-2859',
+    phone: '740 299 -4147',
     address: {
         city: 'Zanesville',
         stateOrProvince: 'OH',
         zipcode: '43701'
     },
-    email: 'tai@tai-dye-studios.com',
+    email: 'hello@tai-dye-studios.com',
     title: 'Owner'
 }

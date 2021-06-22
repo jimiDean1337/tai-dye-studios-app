@@ -49,8 +49,6 @@ export class AuthService {
   }
 
   public loginWithProvider(provider: string) {
-    // TODO: Add app to Google developer console
-    // TODO: Add app to Facebook developer console
     // TODO: Add app to Twitter developer console
     const providers = {
       google: firebase.auth.GoogleAuthProvider,

@@ -14,12 +14,13 @@ import { ProductService } from '../../../../shared/services/product.service';
 export class QuickViewComponent implements OnInit, OnDestroy  {
 
   @Input() product: Product;
-  @Input() currency: any;  
+  @Input() currency: any;
   @ViewChild("quickView", { static: false }) QuickView: TemplateRef<any>;
 
   public closeResult: string;
   public ImageSrc: string;
   public counter: number = 1;
+  public selectedSize: any;
   public modalOpen: boolean = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
@@ -31,12 +32,12 @@ export class QuickViewComponent implements OnInit, OnDestroy  {
 
   openModal() {
     this.modalOpen = true;
-    if (isPlatformBrowser(this.platformId)) { // For SSR 
-      this.modalService.open(this.QuickView, { 
+    if (isPlatformBrowser(this.platformId)) { // For SSR
+      this.modalService.open(this.QuickView, {
         size: 'lg',
         ariaLabelledBy: 'modal-basic-title',
         centered: true,
-        windowClass: 'Quickview' 
+        windowClass: 'Quickview'
       }).result.then((result) => {
         `Result ${result}`
       }, (reason) => {
@@ -90,6 +91,10 @@ export class QuickViewComponent implements OnInit, OnDestroy  {
     })
   }
 
+  selectSize(size) {
+    this.selectedSize = size;
+  }
+
   // Increament
   increment() {
     this.counter++ ;
@@ -101,8 +106,10 @@ export class QuickViewComponent implements OnInit, OnDestroy  {
   }
 
   // Add to cart
-  async addToCart(product: any) {
+  async addToCart(product: any, selectedSize: any) {
+    product = { ...product, ...this.productService.getSelectedVariant(product, selectedSize) };
     product.quantity = this.counter || 1;
+    product.size = selectedSize;
     const status = await this.productService.addToCart(product);
     if(status)
       this.router.navigate(['/shop/cart']);

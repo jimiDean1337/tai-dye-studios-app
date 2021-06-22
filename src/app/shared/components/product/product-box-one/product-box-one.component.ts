@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { QuickViewComponent } from "../../modal/quick-view/quick-view.component";
 import { CartModalComponent } from "../../modal/cart-modal/cart-modal.component";
-import { Product, Variants, Images } from "../../../classes/product";
+import { Product, Variant, Images } from "../../../classes/product";
 import { ProductService } from "../../../services/product.service";
 
 @Component({
@@ -14,7 +14,7 @@ export class ProductBoxOneComponent implements OnInit {
   @Input() product: Product;
   @Input() currency: any = this.productService.Currency; // Default Currency
   @Input() thumbnail: boolean = false; // Default False
-  @Input() onHowerChangeImage: boolean = false; // Default False
+  @Input() onHoverChangeImage: boolean = false; // Default False
   @Input() cartModal: boolean = false; // Default False
   @Input() loader: boolean = false;
 
@@ -32,7 +32,7 @@ export class ProductBoxOneComponent implements OnInit {
   }
 
   // Get Product Color
-  Color(variants: Variants[]) {
+  Color(variants: Variant[]) {
     const uniqColor = [];
     for (let i = 0; i < Object.keys(variants).length; i++) {
       if (uniqColor.indexOf(variants[i].color) === -1 && variants[i].color) {
@@ -44,7 +44,7 @@ export class ProductBoxOneComponent implements OnInit {
 
   // Change Variants
   ChangeVariants(color: string, product: Product) {
-    product.variants.map((item: Variants) => {
+    product.variants.map((item: Variant) => {
       if (item.color === color) {
         product.images.map((img: Images) => {
           if (img.image_id === item.image_id) {

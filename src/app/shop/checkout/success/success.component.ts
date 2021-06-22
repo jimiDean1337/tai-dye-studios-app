@@ -12,7 +12,6 @@ import { ProductService } from '../../../shared/services/product.service';
 export class SuccessComponent implements OnInit, AfterViewInit{
 
   public orderDetails: Order = {};
-  public estimatedDeliveryDate: any = new Date().setDate(new Date().getDate() + 2 * 7);
 
   constructor(public title: Title, public productService: ProductService,
     private orderService: OrderService) { }

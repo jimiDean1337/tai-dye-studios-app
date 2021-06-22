@@ -36,7 +36,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.UserProfile$ = this.route.queryParams.pipe(
       switchMap((params: Params) => {
         this.USER_ID = params.userId;
-        this.cookies.setCookieVal('USER_ID', params.userId)
+        if (!this.cookies.checkCookie('USER_ID')) {
+          this.cookies.setCookieVal('USER_ID', params.userId)
+        }
         return this.userService.getUserById(this.USER_ID)
       })
     )
@@ -48,7 +50,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (!this.cookies.checkCookie('ORIENTATION_COMPLETE') || this.cookies.getCookieVal('ORIENTATION_COMPLETE') === 'false') {
+    if (this.cookies.checkCookie('ORIENTATION_COMPLETE') === false) {
       this.router.navigate(['/pages/profile'], {
         queryParams: { userId: this.USER_ID }
       })

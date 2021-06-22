@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ProductService } from "../../services/product.service";
 import { Product } from "../../classes/product";
+import { map, reduce } from 'rxjs/operators';
+import { PreviewsComponent } from '@ks89/angular-modal-gallery/lib/components/previews/previews.component';
 
 @Component({
   selector: 'app-settings',
@@ -15,6 +17,7 @@ export class SettingsComponent implements OnInit {
   public products: Product[] = [];
   public search: boolean = false;
 
+  /* TODO: Add Spanish to available translations */
   public languages = [{
     name: 'English',
     code: 'en'
@@ -23,23 +26,28 @@ export class SettingsComponent implements OnInit {
     code: 'fr'
   }];
 
-  public currencies = [{
+  public currencies = [
+    {
     name: 'Euro',
     currency: 'EUR',
-    price: 0.90 // price of euro
-  }, {
-    name: 'Rupees',
-    currency: 'INR',
-    price: 70.93 // price of inr
-  }, {
+    price: 0.82 // price of euro
+    },
+    {
     name: 'Pound',
     currency: 'GBP',
-    price: 0.78 // price of euro
-  }, {
+    price: 0.71 // price of euro
+    },
+    {
     name: 'Dollar',
     currency: 'USD',
     price: 1 // price of usd
-  }]
+    },
+    {
+      name: 'Peso',
+      currency: 'MXN',
+      price: 20.02 // price of mxn
+    }
+  ]
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private translate: TranslateService,
@@ -73,3 +81,4 @@ export class SettingsComponent implements OnInit {
   }
 
 }
+

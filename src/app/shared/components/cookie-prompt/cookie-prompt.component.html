@@ -1,8 +1,10 @@
 <div class="dark animated slow" [ngClass]="show ? '':'slideOutDown'">
-    <div class="cookie-consent"> <span>This site uses cookies to enhance user experience. See<a href="javascript:void(0)" (click)="legalDocsModal.openModal()"
-                class="ml-1 text-decoration-none">Privacy policy</a> </span>
-        <div class=" ml-2 d-flex align-items-center justify-content-center g-2"> <button class="btn btn-solid mr-1" (click)="allow()">ok</button> <button class="btn btn-solid red" (click)="deny()">deny</button> </div>
+    <div class="cookie-consent"> <span>By continuing to browse our website, you agree to our use of cookies. See our <a href="javascript:void(0)" (click)="privacyDocsModal.openModal()"
+        class="ml-1 text-decoration-none text-primary">Privacy Policy</a> and <a href="javascript:void(0)"
+        (click)="userTermsDocsModal.openModal()" class="ml-1 text-decoration-none text-primary">Terms of Use</a>.</span>
+        <div class=" ml-2 d-flex align-items-center justify-content-center g-2"> <button class="btn btn-solid mr-1" (click)="allow()">ok</button></div>
     </div>
 </div>
-<app-legal-docs #legalDocsModal [docType]="'privacy'"></app-legal-docs>
+<app-legal-docs #privacyDocsModal [docType]="'privacy'"></app-legal-docs>
+<app-legal-docs #userTermsDocsModal [docType]="'terms'"></app-legal-docs>
 <!-- TODO: Finsih Cookie Consent component -->

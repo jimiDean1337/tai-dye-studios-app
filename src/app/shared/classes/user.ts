@@ -23,6 +23,16 @@ export class UserAccount {
     fullName?: string;
 }
 
+export class UserOrderHistory {
+    [key: string]: any;
+    shippingDetails?: any;
+    product?: any;
+    orderId?: any;
+    totalAmount?: any;
+    salesTax?: any;
+    shippingTotal?: any;
+}
+
 export class UserProfile {
     id?: string;
     displayName?: string;

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "description": "OG Customer Discount for original and loyal customers.",
+        "code": "OGCUST",
+        "type": "CASH",
+        "discount": 7.00,
+        "save": "$7",
+        "expiresOn": "never"
+    },
+    {
+        "id": 2,
+        "description": "Free Shipping For These Lucky Coupon Holders.",
+        "code": "FREESHIP",
+        "type": "SHIPPING",
+        "discount": 1,
+        "save": "100%",
+        "expiresOn": "never"
+    },
+    {
+        "id": 3,
+        "description": "New TDS Newsletter Subscribers Enjoy 10% Off Entire Purchase",
+        "code": "ILUVTDS",
+        "type": "PERCENTAGE",
+        "discount": 0.1,
+        "save": "10%",
+        "expiresOn": "never"
+    },
+    {
+        "id": 4,
+        "description": "Test The TDS Web App And Enjoy 10% Off Entire Purchase.",
+        "code": "TESTTDS",
+        "type": "PERCENTAGE",
+        "discount": 0.1,
+        "save": "10%",
+        "expiresOn": "never"
+    }
+]

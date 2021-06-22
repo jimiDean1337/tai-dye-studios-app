@@ -6,41 +6,68 @@
             <div class="col-lg-12">
                 <h3>create account</h3>
                 <div class="theme-card">
-                    <form class="theme-form" name="registrationForm" #regForm="ngForm">
+                    <form class="theme-form" name="regForm">
                         <div class="form-row">
                             <div class="col-md-6">
                                 <label for="fname">First Name</label>
-                                <input #fname="ngModel" [(ngModel)]="registrationModel.fName" type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required="">
+                                <input [formControl]="registrationForm.controls['fName']" type="text" class="form-control" id="fname" name="fname" placeholder="First Name" autocomplete="off">
+                                <div *ngIf="registrationForm.controls.fName.touched && registrationForm.controls.fName.errors?.required"
+                                    class="text text-danger mb-3">
+                                    First Name is required.
+                                </div>
+                                <div *ngIf="registrationForm.controls.fName.touched && registrationForm.controls.fName.errors?.pattern"
+                                    class="text text-danger mb-3">
+                                    Field may not contain non-alphabetic characters.
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="lname">Last Name</label>
-                                <input #lname="ngModel" [(ngModel)]="registrationModel.lName" type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required="">
+                                <input [formControl]="registrationForm.controls['lName']" type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" autocomplete="off">
+                                <div *ngIf="registrationForm.controls.lName.touched && registrationForm.controls.lName.errors?.required"
+                                    class="text text-danger mb-3">
+                                    Last Name is required.
+                                </div>
+                                <div *ngIf="registrationForm.controls.lName.touched && registrationForm.controls.lName.errors?.pattern"
+                                    class="text text-danger mb-3">
+                                    Field may not contain non-alphabetic characters.
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-6">
-                                <label for="regEmail">email</label>
-                                <input #email="ngModel" [(ngModel)]="registrationModel.email" type="email" class="form-control" id="regEmail" name="email" placeholder="Email" required="">
+                                <label for="email">email</label>
+                                <input [formControl]="registrationForm.controls['email']" type="email" class="form-control" id="regEmail" name="email" placeholder="Email" autocomplete="off">
+                                <div *ngIf="registrationForm?.controls.email.touched && registrationForm.controls.email.errors?.required"
+                                    class="text text-danger mb-3">
+                                    Email is required.
+                                </div>
+                                <div *ngIf="registrationForm.controls?.email.touched && registrationForm.controls?.email.errors?.email"
+                                    class="text text-danger mb-3">
+                                    Invalid Email
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="regPassword">Password</label>
-                                <input #password="ngModel" [(ngModel)]="registrationModel.password" type="password" class="form-control" id="regPassword" name="password" placeholder="Enter your password" required="">
+                                <input [formControl]="registrationForm.controls['password']" [type]="showPassword ? 'text':'password'" class="form-control" id="regPassword" [pattern]="passReg" name="password" placeholder="Enter your password" autocomplete="off"><button class="btn btn-addon" (click)="toggleShowPassword()"><i class="fa" [ngClass]="showPassword ? 'fa-eye-slash':'fa-eye'"></i></button>
+                                <div *ngIf="registrationForm.controls.password.touched && registrationForm.controls.password.errors?.required"
+                                    class="text text-danger mb-3">
+                                    Password is required.
+                                </div>
+                                <div *ngIf="registrationForm.controls.password.touched && registrationForm.controls.password.errors?.pattern"
+                                    class="text text-danger mb-3">
+                                    Password must be 6-16 characters, and include at least ONE letter AND ONE number AND ONE special character (!@#$%^&*).
+                                </div>
                             </div>
-                            <button class="btn btn-solid" (click)="registerNewUser(email.value, password.value, fname.value, lname.value)" [disabled]="regForm.invalid">create Account</button>
+                            <button class="btn btn-solid" (click)="registerNewUser(registrationForm.value)" [disabled]="registrationForm.invalid">create Account</button>
 
-                            <p class="mt-3">Have an account?&nbsp;<a routerLink="/pages/login" class="btn btn-link">Go back to Login</a>
+                            <p class="mt-3 ml-3">Have an account?&nbsp;<a [routerLink]="'/pages/login'" class="btn btn-link">Go back to Login</a>
                             </p>
                         </div>
                         <div class="form-footer">
-                            <span>Or Register with social platforms</span>
+                            <span>Or register with social platforms</span>
                             <ul class="social">
-                                <li (click)="registerWithProvider('facebook')"><a class="fa fa-facebook" href="javascript:void(0)"></a></li>
-                                <li (click)="registerWithProvider('google')"><a class="fa fa-google" href="javascript:void(0)"></a></li>
-                                <!-- <li><a class="fa fa-twitter" href="javascript:void(0)"></a></li>
-                                                        <li><a class="fa fa-instagram" href="javascript:void(0)"></a>
-                                                        </li>
-                                                        <li><a class="fa fa-pinterest" href="javascript:void(0)"></a>
-                                                        </li> -->
+                                <li *ngFor="let provider of authProviders" (click)="registerWithProvider(provider.name)"><a class="fa"
+                                        [ngClass]="provider.icon" href="javascript:void(0)"></a></li>
                             </ul>
                         </div>
                     </form>

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CookiesService } from 'src/app/core/services/cookies/cookies.service';
+import { DataService } from 'src/app/core/services/data/data.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 const state = {
   checkoutItems: JSON.parse(localStorage['checkoutItems'] || '[]')
@@ -11,7 +14,7 @@ const state = {
 })
 export class OrderService {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService, private dataService: DataService, private cookies: CookiesService) { }
 
   // Get Checkout Items
   public get checkoutItems(): Observable<any> {
@@ -19,21 +22,41 @@ export class OrderService {
       observer.next(state.checkoutItems);
       observer.complete();
     });
-    return <Observable<any>>itemsStream;
+    return itemsStream;
   }
 
   // Create order
-  public createOrder(product: any, details: any, orderId: any, amount: any) {
-    var item = {
-        shippingDetails: details,
-        product: product,
-        orderId: orderId,
-        totalAmount: amount
+  public createOrder(product: any, shippingDetails: any, orderId: any, subTotal: any, grandTotal: any, salesTax: any, shippingTotal: any, forPickup: boolean, orderDetails: any, coupon = null) {
+    const userId: any = this.cookies.getCookieVal('USER_ID');
+    const orderDate = new Date();
+    const estimatedDeliveryDate = orderDate.setDate(orderDate.getDate() + 3 * 7);
+    const item = {
+      orderDate,
+      shippingDetails,
+      estimatedDeliveryDate,
+      product,
+      orderId,
+      subTotal,
+      grandTotal,
+      salesTax,
+      shippingTotal,
+      forPickup,
+      orderDetails,
+      coupon: coupon
     };
     state.checkoutItems = item;
     localStorage.setItem("checkoutItems", JSON.stringify(item));
     localStorage.removeItem("cartItems");
-    this.router.navigate(['/shop/checkout/success', orderId]);
+    localStorage.removeItem("subTotal");
+    return this.router.navigate(['/shop/checkout/success', orderId]).then(success => {
+      if (success) {
+        this.dataService.addOrder(item);
+        this.userService.addUserOrder(userId, item)
+        if (coupon) {
+          this.dataService.addUsedCoupons(coupon.code);
+        }
+      }
+    });
   }
 
 }

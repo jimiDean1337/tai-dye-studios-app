@@ -9,27 +9,20 @@ import { LegalDocsComponent } from '../modal/legal-docs/legal-docs.component';
   styleUrls: ['./cookie-prompt.component.scss']
 })
 export class CookiePromptComponent implements OnInit {
-  @ViewChild('legalDocsModal') LegalDocsModal: LegalDocsComponent;
+  @ViewChild('privacyDocsModal') PrivacyDocsModal: LegalDocsComponent;
+  @ViewChild('userTermsDocsModal') UserTermsDocsModal: LegalDocsComponent;
   show: boolean = true;
 
   constructor(private cookiesService: CookiesService) { }
 // TODO: Finish Cookie consent component
   ngOnInit(): void {
     this.show = this.cookiesService.init();
+    this.cookiesService.setCookieConsent();
+
   }
 
   allow() {
-    this.cookiesService.setCookieConsent('true');
     this.show = false;
-  }
-
-  deny() {
-    this.cookiesService.setCookieConsent('false');
-    this.show = false;
-  }
-
-  openModal() {
-
   }
 
 }

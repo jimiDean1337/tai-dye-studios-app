@@ -38,7 +38,7 @@ export class ProductLeftSidebarComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.title.setTitle('Shop - Tai-Dye Studios | Creative Clothing &amp; Accessories')
+    this.title.setTitle('Shop - Tai-Dye Studios | Creative Clothing & Accessories')
   }
 
   // Get Product Color
@@ -78,16 +78,19 @@ export class ProductLeftSidebarComponent implements OnInit {
   }
 
   // Add to cart
-  async addToCart(product: any) {
+  async addToCart(product: any, selectedSize: any) {
+    product = {...product, ...this.productService.getSelectedVariant(product, selectedSize)};
     product.quantity = this.counter || 1;
+    product.size = selectedSize;
     const status = await this.productService.addToCart(product);
     if(status)
       this.router.navigate(['/shop/cart']);
   }
 
   // Buy Now
-  async buyNow(product: any) {
+  async buyNow(product: any, selectedSize: any) {
     product.quantity = this.counter || 1;
+    product.size = selectedSize;
     const status = await this.productService.addToCart(product);
     if(status)
       this.router.navigate(['/shop/checkout']);

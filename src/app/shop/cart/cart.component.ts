@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('Cart - Tai-Dye Studios | Creative Clothing &amp; Accessories')
+    this.title.setTitle('Cart - Tai-Dye Studios | Creative Clothing & Accessories')
   }
 
   public get getTotal(): Observable<number> {

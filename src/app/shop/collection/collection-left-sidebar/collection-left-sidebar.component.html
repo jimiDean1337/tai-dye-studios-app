@@ -20,8 +20,8 @@
                         <!-- side-bar colleps block stat -->
                         <div class="collection-filter-block">
                             <!-- brand filter start -->
-                            <app-brands [products]="products" [brands]="brands" (brandsFilter)="updateFilter($event)">
-                            </app-brands>
+                            <!-- <app-brands [products]="products" [brands]="brands" (brandsFilter)="updateFilter($event)">
+                            </app-brands> -->
                             <!-- color filter start here -->
                             <app-colors [products]="products" [colors]="colors" (colorsFilter)="updateFilter($event)">
                             </app-colors>
@@ -55,13 +55,15 @@
                                         <img src="assets/images/banner/shop-ad_2.jpg" class="img-fluid " alt="Shop Top Banner">
                                     </a>
                                     <div class="top-banner-content small-section">
-                                        <h4>Originali-tee</h4>
-                                        <h5>The coolest clothing can be confortable, too. Super soft t-shirts, sweatshirts and hoodies that will quickly become your favorites.
+                                        <h4>Online Shop Grand Opening</h4>
+                                        <h5>We are starting our launch with a handful of our most popular items. New items will be added regularly, so check back often!
                                         </h5>
                                         <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                                            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                            Each soft style t-shirt comes decorated beautifully using an acid washing technique that makes your tee original and
+                                            one-of-a-kind to your specific design. Each graphic design is printed using the art of sublimation. Sublimation is a
+                                            design process that uses heat to turn the ink to a gas before turning back to a solid, ultimately dying the fibers of
+                                            the tee. The sublimated dye process makes the design permanent, and the design will not crack like with other common
+                                            decorating techniques.
                                         </p>
                                     </div>
                                 </div>
@@ -93,7 +95,7 @@
                                         <div class="row">
                                             <div class="col-grid-box" [ngClass]="grid" *ngFor="let product of products">
                                                 <div class="product-box">
-                                                    <app-product-box-one [product]="product" [currency]="productService?.Currency" [thumbnail]="false" [cartModal]="true" [loader]="true">
+                                                    <app-product-box-one [product]="product" [currency]="productService?.Currency" [thumbnail]="false" [loader]="true">
                                                     </app-product-box-one>
                                                 </div>
                                             </div>

@@ -1,5 +1,5 @@
 <ng-template class="theme-modal" #quickView let-modal>
-    <div class="modal-content quick-view-modal">
+    <div class="modal-content quick-view-modal" #modal>
         <div class="modal-body">
             <button type="button" class="close" (click)="modal.dismiss('Cross click')">
                 <span aria-hidden="true">&times;</span>
@@ -29,7 +29,7 @@
                             <div class="size-box" *ngIf="Size(product.variants).length">
                                 <ul>
                                     <li *ngFor="let size of Size(product.variants)">
-                                        <a href="javascript:void(0)">{{ size | titlecase }}</a>
+                                        <a href="javascript:void(0)" (click)="selectSize(size)">{{ size | uppercase }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -52,8 +52,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="product-buttons">
-                            <a href="javascript:void(0)" class="btn btn-solid" [class.disabled]="counter > product.stock" (click)="addToCart(product)">add to cart</a>
+                        <div class="product-buttons" [placement]="modal.clientWidth > 760 ? 'left': 'top'" [ngbPopover]="!selectedSize ? 'You must select your size before you can add to cart': ''" [popoverTitle]="'Select Size'" triggers="click">
+                            <a href="javascript:void(0)" class="btn btn-solid" [class.disabled]="counter > product.stock || !selectedSize" (click)="addToCart(product, selectedSize)">add to cart</a>
                             <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]" class="btn btn-solid">view detail</a>
                         </div>
                     </div>

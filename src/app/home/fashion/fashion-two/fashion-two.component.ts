@@ -4,6 +4,7 @@ import { Product } from '../../../shared/classes/product';
 import { ProductService } from '../../../shared/services/product.service';
 import { NewsletterComponent } from '../../../shared/components/modal/newsletter/newsletter.component';
 import { Title } from '@angular/platform-browser';
+import { WebsiteContactInfo } from 'src/app/shared/data/support.data';
 
 @Component({
   selector: 'app-fashion-two',
@@ -16,7 +17,6 @@ export class FashionTwoComponent implements OnInit {
 
   public products : Product[] = [];
   public productCollections: any[] = [];
-
 
   public HomeSliderConfig: any = HomeSlider;
 
@@ -54,7 +54,7 @@ export class FashionTwoComponent implements OnInit {
 
   constructor(public title: Title, public productService: ProductService) {
     this.productService.getProducts.subscribe(response => {
-      this.products = response.filter(item => item.type == 'fashion');
+      this.products = response.filter(item => item.type == 'clothing');
       // Get Product Collection
       this.products.filter((item) => {
         item.collection.filter((collection) => {

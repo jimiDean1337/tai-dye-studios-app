@@ -6,6 +6,13 @@
         <img src="assets/images/icon-empty-cart.png" class="img-fluid mb-4">
         <h3><strong>Your Cart is Empty</strong></h3>
         <h4>Add something to make me happy :)</h4>
+        <div class="row cart-buttons">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <a [routerLink]="['/shop/collection/left/sidebar']" class="btn btn-solid">back to shop</a>
+            </div>
+            <div class="col-3"></div>
+        </div>
         </div>
         <div class="row" *ngIf="products.length">
         <div class="col-sm-12">
@@ -28,7 +35,7 @@
                             </a>
                         </td>
                         <td>
-                            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">{{ product.title | titlecase }}</a>
+                            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">{{ product.title | titlecase }} - Size: {{product.size | uppercase}}</a>
                             <div class="mobile-cart-content row">
                                 <div class="col-xs-3">
                                     <div class="qty-box">

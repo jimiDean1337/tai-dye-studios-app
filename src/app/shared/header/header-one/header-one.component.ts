@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { WebsiteContactInfo } from '../../data/support.data';
 
 @Component({
   selector: 'app-header-one',
@@ -11,6 +12,8 @@ export class HeaderOneComponent implements OnInit {
   @Input() themeLogo: string = 'assets/images/icon/logo-shirt_230x93.png'; // Default Logo
   @Input() topbar: boolean = true; // Default True
   @Input() sticky: boolean = false; // Default false
+
+  public contactInfo = WebsiteContactInfo;
 
   public stick: boolean = false;
 

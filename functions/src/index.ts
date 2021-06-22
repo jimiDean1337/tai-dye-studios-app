@@ -2,6 +2,7 @@ import { initializeApp } from './modules/init';
 import { respondToContact } from './email/contact.function';
 import { respondToSubscriber } from './email/subscriber.function';
 import { handleScheduledNewsletter } from './schedulers/newsletter.scheduler';
+import { orderConfirmation } from './email/order.function';
 
 
 // HTML Templates
@@ -24,6 +25,11 @@ exports.sendSubscriberWelcome = respondToSubscriber()
  * method for sending response to contact
  */
 exports.sendNewContactEmail = respondToContact();
+
+/**
+ * method for sending a new order confirmation to customer
+ */
+exports.sendOrderConfirmation = orderConfirmation();
 
 /* TODO: Create methods for:
     email verification

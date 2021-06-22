@@ -72,7 +72,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (!this.cookies.checkCookie('ORIENTATION_COMPLETE') || this.cookies.getCookieVal('ORIENTATION_COMPLETE') === 'false') {
+    if (this.cookies.checkCookie('ORIENTATION_COMPLETE') === false) {
       this.ProfileHelper.openModal().then(results => {
         this.cookies.setCookieVal('ORIENTATION_COMPLETE', results)
       });

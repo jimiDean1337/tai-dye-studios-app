@@ -1,12 +1,21 @@
-<i class="fa fa-user" aria-hidden="true"></i> My Account
+<span *ngIf="!(userIsLoggedIn | async)"><i class="fa fa-user" aria-hidden="true"></i> My Account</span>
+<span *ngIf="userIsLoggedIn | async"><i class="fa fa-user" aria-hidden="true"></i> {{(UserProfile | async)?.fName | titlecase}}</span>
 <ul class="onhover-show-div" *ngIf="!(userIsLoggedIn | async)">
     <li>
         <a [routerLink]="['/pages/login']" data-lng="en">
             Login
         </a>
     </li>
+    <li>
+        <a [routerLink]="['/pages/register']" data-lng="en">
+            Register
+        </a>
+    </li>
 </ul>
 <ul class="onhover-show-div" *ngIf="userIsLoggedIn | async">
+    <li class="d-sm-inline-block d-md-none">
+        <i class="fa fa-user" aria-hidden="true"></i>{{(UserProfile | async)?.fName | titlecase}}
+    </li>
     <li>
         <a [routerLink]="['/pages/dashboard']" [queryParams]="{userId: UserId | async}">
             Dashboard

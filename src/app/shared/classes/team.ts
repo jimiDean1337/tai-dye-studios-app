@@ -7,10 +7,20 @@ export interface TeamMemberAddress {
     zipcode?: string;
 };
 
+export interface SocialLinks {
+    name?: string;
+    url?: string;
+    icon ?: string;
+    imgURL ?: string;
+}
+
 export interface TeamMemberProfile {
+    [key: string]: any;
     name?: string;
     phone?: string;
     address?: TeamMemberAddress;
     email?: string;
-    title?: 'Owner' | 'Management' | 'Associate' | string;
+    imgURL?: string | string[];
+    socialLinks?: SocialLinks[];
+    title?: 'Owner' | 'Management' | 'Associate' | string | string[];
 }

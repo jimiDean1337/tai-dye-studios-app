@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Sunset Tshirt",
+        "title": "Sunrise, Sunburn, Sunset, Repeat Graphic Tee",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "fashion",
         "brand": "none",
@@ -9,9 +9,8 @@
             "new products"
         ],
         "category": "Women",
-        "price": 145,
-        "sale": true,
-        "discount": "40",
+        "price": 22,
+        "sale": false,
         "stock": 5,
         "new": true,
         "tags": [
@@ -73,7 +72,7 @@
     },
     {
         "id": 2,
-        "title": "Morning Person Tshirt",
+        "title": "I'm Not a Morning Person- Blonde Graphic Tee",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
         "type": "fashion",
         "brand": "none",

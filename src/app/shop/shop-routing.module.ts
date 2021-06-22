@@ -23,6 +23,8 @@ import { SuccessComponent } from './checkout/success/success.component';
 import { Resolver } from '../shared/services/resolver.service';
 import { AuthGuard } from '../core/guards/auth.guard';
 
+/* TODO: Change default component to: ProductLeftSidebarComponent and default path to: product/:slug */
+/* TODO: Change all links in app to: product/:slug */
 const routes: Routes = [
   {
     path: 'product/left/sidebar/:slug',

@@ -1,6 +1,6 @@
 <app-breadcrumb [title]="product?.title" [breadcrumb]="'Product'"></app-breadcrumb>
 <!-- section start -->
-<section class="section-b-space">
+<section class="section-b-space" #productsSection>
   <div class="collection-wrapper">
     <div class="container">
       <div class="row">
@@ -69,7 +69,7 @@
                   <h2>{{ product?.title }}</h2>
                   <h4>
                       <del *ngIf="product?.discount">{{ product?.price * productService.Currency?.price | currency: productService.Currency?.currency:'symbol' }}</del>
-                      <span>{{ product?.discount }}% off</span>
+                      <span *ngIf="product?.discount">{{ product?.discount }}% off</span>
                   </h4>
                   <h3>
                       {{ (product?.price | discount:product) * productService.Currency?.price | currency: productService.Currency?.currency:'symbol' }}
@@ -84,17 +84,17 @@
                   <app-stock-inventory [stock]="product?.stock"></app-stock-inventory>
                   <div class="product-description border-product">
                     <h6 class="product-title size-text" *ngIf="Size(product.variants).length">
-                        select size
-                        <span>
+                        select size <span>Additional $3 for 2XL / $5 for 3XL</span>
+                        <!-- <span>
                           <a href="javascrip:void(0)" (click)="SizeChart.openModal()">size chart</a>
-                        </span>
+                        </span> -->
                     </h6>
                     <div class="size-box" *ngIf="Size(product.variants).length">
                       <ul>
                           <li [class.active]="selectedSize == size"
                               *ngFor="let size of Size(product.variants)">
                               <a href="javascript:void(0)" (click)="selectSize(size)">
-                                {{ size | titlecase }}
+                                {{ size | uppercase }}
                               </a>
                           </li>
                       </ul>
@@ -118,9 +118,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="product-buttons">
-                    <a href="javascrip:void(0)" class="btn btn-solid" [class.disabled]="counter > product.stock" (click)="addToCart(product)">add to cart</a>
-                    <a href="javascrip:void(0)" class="btn btn-solid" [class.disabled]="counter > product.stock" (click)="buyNow(product)">buy now</a>
+                  <div class="product-buttons" [placement]="productsSection.clientWidth > 760 ? 'left': 'top'" [ngbPopover]="!selectedSize ? 'You must select your size before you can add to cart or buy now': ''" [popoverTitle]="'Select Size'" triggers="click">
+                    <button class="btn btn-solid mr-3" [class.disabled]="counter > product.stock || !selectedSize" (click)="addToCart(product, selectedSize)">add to cart</button>
+                    <button class="btn btn-solid" [class.disabled]="counter > product.stock || !selectedSize" (click)="buyNow(product, selectedSize)">buy now</button>
                   </div>
                   <div class="border-product">
                     <h6 class="product-title">product details</h6>

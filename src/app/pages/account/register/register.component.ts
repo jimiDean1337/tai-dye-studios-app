@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable, of } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { UserProfile } from 'src/app/shared/classes/user';
@@ -12,32 +14,47 @@ import { UserProfile } from 'src/app/shared/classes/user';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  registrationModel: any = {}
-
   public authProviders: any = [
-    { name: 'facebook', icon: 'fa-facebook-official', classes: 'btn-facebook' },
+    // { name: 'facebook', icon: 'fa-facebook-official', classes: 'btn-facebook' },
     { name: 'google', icon: 'fa-google', classes: 'btn-google' },
   ]
+  public registrationForm: FormGroup;
 
-  constructor(private router: Router,
-    private toastr: ToastrService,
-    private authService: AuthService,
-  private userService: UserService,
-  public title: Title) { }
+  public showPassword: boolean = false;
+  public passReg = /^(?=.*[\d])(?=.*[!@#$%^&*])[\w!@#$%^&*]{6,16}$/;
 
-  ngOnInit(): void {
-    this.title.setTitle('Customer Register - Tai-Dye Studios | Creative Clothing &amp; Accessories')
+  public errorMsg: any = {
+    type: null,
+    msg: null
   }
 
-  registerNewUser(email: string, password: string, fname: string, lname: string) {
-    this.authService.createUserWithEmailAndPassword(email, password)
+  constructor(private router: Router,
+    public fb: FormBuilder,
+    private toastr: ToastrService,
+    private authService: AuthService,
+    private userService: UserService,
+    public title: Title) {
+    this.registrationForm = this.fb.group({
+      fName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
+      lName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
+      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+    })
+   }
+
+  ngOnInit(): void {
+    this.title.setTitle('Customer Register - Tai-Dye Studios | Creative Clothing & Accessories')
+  }
+
+  registerNewUser(form: any) {
+    this.authService.createUserWithEmailAndPassword(form.email, form.password)
       .then(success => {
         const profileData: UserProfile = {
-          fName: fname,
-          lName: lname,
-          email,
+          fName: form.fName,
+          lName: form.lName,
+          email: form.email,
           id: success.user.uid,
-          displayName: `${fname} ${lname}`,
+          displayName: `${form.fname} ${form.lname}`,
         }
         this.userService.createNewUser(profileData.id, profileData)
           .then(ready => {
@@ -47,7 +64,9 @@ export class RegisterComponent implements OnInit {
         })
       .catch(error => {
           // TODO: Add error message display
-          this.toastr.error(`Uh oh! ${error.message}`)
+        this.toastr.error(`Uh oh! ${error.message}`);
+        this.errorMsg.type = error.code;
+        this.errorMsg.msg = error.msg;
           console.log(`ERROR Registering Account!!`, error)
         });
   }
@@ -70,6 +89,10 @@ export class RegisterComponent implements OnInit {
         // TODO: Add error message display
         console.log('LOGIN ERROR', error)
       });
+  }
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
   }
 
 }

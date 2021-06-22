@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
-import { UserAccount, UserProfile, USER_PROFILE_DEFAULTS } from 'src/app/shared/classes/user';
+import { UserAccount, UserOrderHistory, UserProfile, USER_PROFILE_DEFAULTS } from 'src/app/shared/classes/user';
 
 
 @Injectable({
@@ -12,6 +12,7 @@ import { UserAccount, UserProfile, USER_PROFILE_DEFAULTS } from 'src/app/shared/
 export class UserService {
   UserProfile: Observable<UserProfile>;
   UserAccount: Observable<UserAccount>;
+  UserOrderHistory: Observable<UserOrderHistory>
   private userCollection: AngularFirestoreCollection<any>;
   constructor(private afs: AngularFirestore, private toastr: ToastrService) {
     this.userCollection = this.afs.collection<UserProfile>('users');
@@ -19,6 +20,10 @@ export class UserService {
 
   private get users(): Observable<UserProfile[]> {
     return this.userCollection.valueChanges({ idField: true });
+  }
+
+  public addUserOrder(userId: string, data: any) {
+    return this.afs.collection('users').doc(userId).collection('orders').add(data);
   }
 
   public getUserById(userId: string): Observable<any> {

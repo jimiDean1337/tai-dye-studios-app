@@ -321,6 +321,10 @@ hr.style1 {
     background-color: $orange;
 }
 
+.mustard {
+    background-color: $mustard;
+}
+
 .purple {
     background-color: $purple;
 }
@@ -691,6 +695,17 @@ button {
 .btn-theme {
     background-color: var(--theme-deafult);
     color: $white;
+}
+
+.btn-addon {
+    position: absolute;
+    right: 14px;
+    top: 34px;
+    padding: 2px;
+    z-index: 1;
+    height: 34px;
+    width: 38px;
+    font-size: 1.5rem;
 }
 
 
@@ -3416,22 +3431,6 @@ header {
         }
     }
 
-    .marijuana-tab {
-        .nav-link {
-            padding: 0;
-
-            &.active {
-                color: #dafe69;
-                background-color: transparent;
-            }
-        }
-
-        a.nav-link {
-            color: $white;
-            text-transform: uppercase;
-        }
-    }
-
     .tab-title2 {
         font-size: 24px;
         font-weight: 700;
@@ -4537,53 +4536,6 @@ header {
     }
 }
 
-
-/*=====================
-17.3.Electronics Demo CSS
-==========================*/
-
-.layout-8 {
-    padding: 0 80px;
-
-    .layout-8-bg {
-        background-size: cover;
-        background-attachment: fixed;
-        height: 100%;
-        width: 100%;
-        padding: 0 15px;
-        animation: 10s linear 0s normal none infinite animate;
-
-        .layout7-product {
-            .product-box {
-                .details-product {
-                    opacity: 1;
-                }
-
-                &:hover {
-                    .details-product {
-                        animation: none;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.white-bg {
-    background-color: $white;
-}
-
-@keyframes animate {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 0 500px;
-    }
-}
-
-
 /*=====================
     17.4.Fashion-3 Demo CSS
 ==========================*/
@@ -4608,19 +4560,6 @@ header {
             margin-right: -15px;
             padding-top: 200px;
             padding-bottom: 200px;
-        }
-    }
-}
-
-
-/*=====================
-    17.5.Beauty Demo css
-==========================*/
-
-.beauty-about {
-    .about-text {
-        p {
-            text-align: left;
         }
     }
 }
@@ -4710,19 +4649,6 @@ header {
     }
 }
 
-
-/*=====================
-    17.6..Flower Demo css
-==========================*/
-
-.flower-bg {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100%;
-    width: 100%;
-}
-
 .bg-block {
     background-repeat: no-repeat;
     background-size: cover;
@@ -4742,18 +4668,6 @@ header {
             margin-bottom: 30px;
         }
     }
-}
-
-
-/*=====================
-    17.7.Nursery Demo css
-==========================*/
-
-.layout-20 {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    padding: 50px;
 }
 
 
@@ -7431,6 +7345,17 @@ footer {
                 padding: 17px 25px;
                 margin-bottom: 30px;
                 height: inherit;
+            }
+
+            .btn-addon {
+                position: absolute;
+                right: 36px;
+                top: 166px;
+                padding: 2px;
+                z-index: 1;
+                height: 34px;
+                width: 38px;
+                font-size: 1.5rem;
             }
 
             .form-footer {
@@ -10709,20 +10634,6 @@ footer {
     float: left;
 }
 
-[dir="rtl"] {
-    .tools-parallax-product {
-        .owl-next {
-            left: -25px !important;
-            ;
-        }
-
-        .owl-prev {
-            right: -25px !important;
-            left: unset !important;
-        }
-    }
-}
-
 [dir="rtl"] .owl-prev {
     left: 1px;
     right: unset;
@@ -10851,16 +10762,6 @@ body.rtl {
         }
     }
 
-    .header-gym {
-        .main-menu {
-            .menu-left {
-                .navbar {
-                    padding: 20px 0 20px 45px;
-                }
-            }
-        }
-    }
-
     .main-menu {
         .menu-left {
             .navbar {
@@ -10919,55 +10820,6 @@ body.rtl {
                         margin-right: 0;
                         margin-left: 5px;
                     }
-                }
-            }
-        }
-    }
-
-    .gym-product {
-        .product-box {
-            .product-detail {
-
-                h6,
-                h4 {
-                    text-align: center;
-                }
-            }
-        }
-    }
-
-    .tools-grey {
-        .product-box {
-            .product-info {
-
-                h6,
-                h4 {
-                    text-align: center;
-                }
-            }
-
-            .cart-info {
-                left: 0 !important;
-                right: 0 !important;
-            }
-        }
-    }
-
-    .tools_product {
-        .media {
-            .br {
-                &.br-default {
-                    justify-content: flex-start;
-                }
-            }
-        }
-    }
-
-    .tools-parallax-product {
-        .tools-description {
-            .tools-form {
-                .btn-find {
-                    float: right;
                 }
             }
         }
@@ -11091,26 +10943,6 @@ body.rtl {
         h4,
         p {
             text-align: center;
-        }
-    }
-
-    .beauty-about {
-        .text-center {
-            text-align: left !important;
-        }
-    }
-
-    .beauty-about {
-        .about-text {
-            p {
-                text-align: right;
-            }
-        }
-
-        .service-block1 {
-            h5 {
-                text-align: center;
-            }
         }
     }
 
@@ -12530,6 +12362,17 @@ body.rtl {
                 label {
                     float: right;
                 }
+
+                .btn-addon {
+                    position: absolute;
+                    right: 36px;
+                    top: 165px;
+                    padding: 2px;
+                    z-index: 1;
+                    height: 34px;
+                    width: 38px;
+                    font-size: 1.5rem;
+                }
             }
         }
     }
@@ -12540,6 +12383,7 @@ body.rtl {
                 label {
                     float: right;
                 }
+
             }
         }
     }
@@ -13948,66 +13792,6 @@ body.rtl {
     }
 }
 
-.sticky-footer {
-    background-image: url("#{$assetspath}/tools-bg.jpg");
-
-    >section {
-        background-color: transparent !important;
-
-        p {
-            color: $grey-font;
-        }
-
-        .sub-title {
-            .footer-title {
-                &.active {
-                    .according-menu {
-                        font: normal normal normal 14px/1 $font-awesome;
-
-                        &.before {
-                            content: "\f068";
-                        }
-                    }
-                }
-            }
-
-            h4 {
-                color: $white;
-            }
-
-            li {
-                a {
-                    color: $grey-font;
-                }
-            }
-
-            .contact-list {
-                i {
-                    color: $grey-font;
-                }
-
-                li {
-                    color: $grey-font;
-                }
-            }
-        }
-
-        .footer-social {
-            i {
-                color: $grey-font;
-            }
-        }
-    }
-
-    >div.sub-footer {
-        background-color: #141111 !important;
-
-        p {
-            color: $grey8 !important;
-        }
-    }
-}
-
 .green-gradient {
     .top-header {
         background: var(--theme-deafult);
@@ -14148,40 +13932,6 @@ body.rtl {
 
         .tab-content-cls {
             width: 70%;
-        }
-    }
-}
-
-.border-box {
-    &.tools-grey {
-        .ribbon {
-            span {
-                background-image: linear-gradient(to right, var(--theme-gradient1), var(--theme-gradient2));
-            }
-        }
-
-        .product-box {
-            border-radius: 10px;
-            box-shadow: none;
-            border: 1px solid $round-border;
-
-            .cart-info {
-                a {
-                    &:hover {
-                        background-image: linear-gradient(to right, var(--theme-gradient1), var(--theme-gradient2));
-                    }
-                }
-
-                button {
-                    &:hover {
-                        background-image: linear-gradient(to right, var(--theme-gradient1), var(--theme-gradient2));
-                    }
-                }
-            }
-
-            .quick-view-part {
-                background-image: linear-gradient(to right, var(--theme-gradient1), var(--theme-gradient2));
-            }
         }
     }
 }

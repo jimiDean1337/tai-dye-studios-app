@@ -11,7 +11,7 @@
           alt="{{ product.images[0].alt }}" />
       </a>
     </div>
-    <div class="back" *ngIf="onHowerChangeImage">
+    <div class="back" *ngIf="onHoverChangeImage">
       <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
         <img [src]="ImageSrc ? ImageSrc : product.images[1].src" class="img-fluid lazy-loading"
           alt="{{ product.images[1].alt }}">
@@ -25,11 +25,14 @@
       </li>
     </ul>
     <div class="cart-info cart-wrap">
-      <a href="javascript:void(0)" title="Add to cart" (click)="CartModal.openModal(product)" *ngIf="cartModal">
+      <!-- <a href="javascript:void(0)" title="Add to cart" (click)="CartModal.openModal(product)" *ngIf="cartModal">
         <i class="ti-shopping-cart"></i>
       </a>
       <a href="javascript:void(0)" title="Add to cart" (click)="addToCart(product)" *ngIf="!cartModal">
         <i class="ti-shopping-cart"></i>
+      </a> -->
+      <a [routerLink]="['/shop/product/left/sidebar/', product?.title.replace(' ', '-')]" title="View Item">
+        <i class="ti-plus"></i>
       </a>
       <a href="javascript:void(0)" title="Add to Wishlist" (click)="addToWishlist(product)">
         <i class="ti-heart" aria-hidden="true"></i>
@@ -64,4 +67,4 @@
 </div>
 <app-skeleton-product-box *ngIf="loader"></app-skeleton-product-box>
 <app-quick-view #quickView [product]="product" [currency]="currency"></app-quick-view>
-<app-cart-modal #cartModal [product]="product" [currency]="currency" *ngIf="cartModal"></app-cart-modal>
+<!-- <app-cart-modal #cartModal [product]="product" [currency]="currency" *ngIf="cartModal"></app-cart-modal> -->

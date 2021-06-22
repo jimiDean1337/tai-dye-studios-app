@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -17,17 +18,27 @@ export class LoginComponent implements OnInit {
   };
 
   public authProviders: any = [
-    { name: 'facebook', icon: 'fa-facebook-official', classes: 'btn-facebook' },
+    // { name: 'facebook', icon: 'fa-facebook-official', classes: 'btn-facebook' },
     {name: 'google', icon: 'fa-google', classes: 'btn-google'},
   ]
+  loginForm: FormGroup;
+  public showPassword: boolean = false;
+  public passReg = /^(?=.*[\d])(?=.*[!@#$%^&*])[\w!@#$%^&*]{6,16}$/;
 
-  constructor(private router: Router, private authService: AuthService, private userService: UserService, public title: Title) { }
-
-  ngOnInit(): void {
-    this.title.setTitle('Customer Login - Tai-Dye Studios | Creative Clothing &amp; Accessories')
+  constructor(private router: Router, private authService: AuthService, private userService: UserService, public title: Title, public fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+    })
   }
 
-  loginWithEmailAndPassword(email: string, password: string) {
+  ngOnInit(): void {
+    this.title.setTitle('Customer Login - Tai-Dye Studios | Creative Clothing &Accessories')
+  }
+
+  loginWithEmailAndPassword() {
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
     this.authService.loginWithEmailAndPassword(email, password)
       .then((success) => {
         this.router.navigate(['/pages/dashboard'], {queryParams: {userId: success.user.uid}})
@@ -60,6 +71,10 @@ export class LoginComponent implements OnInit {
 
   goToRegistration() {
     this.router.navigate(['/pages/register']);
+  }
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
   }
 
 }
