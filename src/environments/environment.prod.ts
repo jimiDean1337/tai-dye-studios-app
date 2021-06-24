@@ -5,7 +5,7 @@ export const environment = {
   twitter_token: 'TWITTER_TOKEN',
   facebook_token: 'FACEBOOK_TOKEN',
   stripe_token: 'STRIPE_TOKEN',
-  paypal_token: 'AcNlbd9DD3m82qLVfP9J3hbf8FByrax5NMez84I6v4J7gdbsrCrrBPCQJjOISr6G216KJtGXCQpaROoM',
+  paypal_token: 'AbHE4suVcPRPFtWYaQ6FMTqmpbeC_qtsfie1TvD986qkV2iqhzPJn7wKbWVRbAHZnOW1dvPkwTLo-hNt',
   firebase_config: {
     apiKey: "AIzaSyDKFOGrdYVOQTT3DKAWftQZ0Gm5gxGHsDE",
     authDomain: "tai-dye-studios.firebaseapp.com",
