@@ -9,7 +9,7 @@
         <div class="row cart-buttons">
             <div class="col-3"></div>
             <div class="col-6">
-                <a [routerLink]="['/shop/collection/left/sidebar']" class="btn btn-solid">back to shop</a>
+                <a [routerLink]="['/shop/collection']" class="btn btn-solid">back to shop</a>
             </div>
             <div class="col-3"></div>
         </div>
@@ -30,12 +30,12 @@
                 <tbody *ngFor="let product of products">
                     <tr>
                         <td>
-                            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
+                            <a [routerLink]="['/shop/product/', product.title.replace(' ', '-')]">
                                 <img [src]="product.images[0].src" [alt]="product.images[0].alt">
                             </a>
                         </td>
                         <td>
-                            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">{{ product.title | titlecase }} - Size: {{product.size | uppercase}}</a>
+                            <a [routerLink]="['/shop/product/', product.title.replace(' ', '-')]">{{ product.title | titlecase }} - Size: {{product.size | uppercase}}</a>
                             <div class="mobile-cart-content row">
                                 <div class="col-xs-3">
                                     <div class="qty-box">
@@ -107,7 +107,7 @@
         </div>
         <div class="row cart-buttons" *ngIf='products.length'>
             <div class="col-6">
-                <a [routerLink]="['/shop/collection/left/sidebar']" class="btn btn-solid">continue shopping</a>
+                <a [routerLink]="['/shop/collection']" class="btn btn-solid">continue shopping</a>
             </div>
             <div class="col-6">
                 <a [routerLink]="['/shop/checkout']" class="btn btn-solid">check out</a>

@@ -26,11 +26,6 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { ProductBoxOneComponent } from './components/product/product-box-one/product-box-one.component';
-import { ProductBoxTwoComponent } from './components/product/product-box-two/product-box-two.component';
-import { ProductBoxThreeComponent } from './components/product/product-box-three/product-box-three.component';
-import { ProductBoxFourComponent } from './components/product/product-box-four/product-box-four.component';
-import { ProductBoxFiveComponent } from './components/product/product-box-five/product-box-five.component';
-import { ProductBoxVerticalComponent } from './components/product/product-box-vertical/product-box-vertical.component';
 import { ProductBoxVerticalSliderComponent } from './components/product/product-box-vertical-slider/product-box-vertical-slider.component';
 
 // Modals Components
@@ -42,13 +37,13 @@ import { CartVariationComponent } from './components/modal/cart-variation/cart-v
 import { VideoModalComponent } from './components/modal/video-modal/video-modal.component';
 import { SizeModalComponent } from './components/modal/size-modal/size-modal.component';
 import { AlertModalComponent } from './components/modal/alert-modal/alert-modal.component';
-import { AgeVerificationComponent } from './components/modal/age-verification/age-verification.component';
+// import { AgeVerificationComponent } from './components/modal/age-verification/age-verification.component';
 
 // Skeleton Loader Components
 import { SkeletonProductBoxComponent } from './components/skeleton/skeleton-product-box/skeleton-product-box.component';
 
 // Layout Box
-import { LayoutBoxComponent } from './components/layout-box/layout-box.component';
+// import { LayoutBoxComponent } from './components/layout-box/layout-box.component';
 
 // Tap To Top
 import { TapToTopComponent } from './components/tap-to-top/tap-to-top.component';
@@ -79,11 +74,6 @@ import { GuideModalComponent } from './components/modal/guide-modal/guide-modal.
     BreadcrumbComponent,
     CategoriesComponent,
     ProductBoxOneComponent,
-    ProductBoxTwoComponent,
-    ProductBoxThreeComponent,
-    ProductBoxFourComponent,
-    ProductBoxFiveComponent,
-    ProductBoxVerticalComponent,
     ProductBoxVerticalSliderComponent,
     NewsletterComponent,
     QuickViewComponent,
@@ -91,9 +81,9 @@ import { GuideModalComponent } from './components/modal/guide-modal/guide-modal.
     CartVariationComponent,
     VideoModalComponent,
     SizeModalComponent,
-    AgeVerificationComponent,
+    // AgeVerificationComponent,
     SkeletonProductBoxComponent,
-    LayoutBoxComponent,
+    // LayoutBoxComponent,
     TapToTopComponent,
     DiscountPipe,
     AccountMenuComponent,
@@ -138,11 +128,11 @@ import { GuideModalComponent } from './components/modal/guide-modal/guide-modal.
     BreadcrumbComponent,
     CategoriesComponent,
     ProductBoxOneComponent,
-    ProductBoxTwoComponent,
-    ProductBoxThreeComponent,
-    ProductBoxFourComponent,
-    ProductBoxFiveComponent,
-    ProductBoxVerticalComponent,
+    // ProductBoxTwoComponent,
+    // ProductBoxThreeComponent,
+    // ProductBoxFourComponent,
+    // ProductBoxFiveComponent,
+    // ProductBoxVerticalComponent,
     ProductBoxVerticalSliderComponent,
     NewsletterComponent,
     QuickViewComponent,
@@ -150,9 +140,9 @@ import { GuideModalComponent } from './components/modal/guide-modal/guide-modal.
     CartVariationComponent,
     VideoModalComponent,
     SizeModalComponent,
-    AgeVerificationComponent,
+    // AgeVerificationComponent,
     SkeletonProductBoxComponent,
-    LayoutBoxComponent,
+    // LayoutBoxComponent,
     TapToTopComponent,
     DiscountPipe,
     AccountMenuComponent,

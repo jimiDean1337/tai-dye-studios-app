@@ -92,10 +92,10 @@ export let CollectionSlider: any = {
     navSpeed: 300,
     responsive: {
         991: {
-            items: 4 
+            items: 4
         },
         767: {
-            items: 3    
+            items: 3
         },
         586: {
             items: 2
@@ -201,7 +201,7 @@ export let ProductSlider: any = {
         },
         420: {
             items: 2
-        }, 
+        },
         0: {
             items: 1
         }
@@ -239,8 +239,8 @@ export let ProductDetailsMainSlider: any = {
 
 // Product Details Thumb Slider
 export let ProductDetailsThumbSlider: any = {
-    items: 3,
+    items: 2,
     loop: true,
     margin: 10,
-    dots:false
+    dots: false
 }

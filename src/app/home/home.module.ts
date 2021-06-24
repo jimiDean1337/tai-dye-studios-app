@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 
-import { FashionOneComponent } from './fashion/fashion-one/fashion-one.component';
 import { FashionTwoComponent } from './fashion/fashion-two/fashion-two.component';
-import { FashionThreeComponent } from './fashion/fashion-three/fashion-three.component';
 
 // import { BagsComponent } from './bags/bags.component';
 
@@ -19,9 +17,9 @@ import { CollectionComponent } from './widgets/collection/collection.component';
 
 @NgModule({
   declarations: [
-    FashionOneComponent,
+    // FashionOneComponent,
     FashionTwoComponent,
-    FashionThreeComponent,
+    // FashionThreeComponent,
     // BagsComponent,
     // Widgets Components
     SliderComponent,

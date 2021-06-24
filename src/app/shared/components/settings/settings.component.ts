@@ -72,7 +72,7 @@ export class SettingsComponent implements OnInit {
   selectResult(item: any) {
     const url = String(item.item.title).replace(' ','-')
     console.log(url)
-    this.router.navigate(['/shop/product/left/sidebar/', url]).then(() => this.searchToggle())
+    this.router.navigate(['/shop/product/', url]).then(() => this.searchToggle())
   }
 
   // TODO: Refactor Search for more depth

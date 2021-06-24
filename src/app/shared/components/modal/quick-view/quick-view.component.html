@@ -56,7 +56,7 @@
                         </div>
                         <div class="product-buttons" [placement]="modal.clientWidth > 760 ? 'left': 'top'" [ngbPopover]="!selectedSize ? 'You must select your size before you can add to cart': ''" [popoverTitle]="'Select Size'" triggers="click">
                             <a href="javascript:void(0)" class="btn btn-solid" [class.disabled]="counter > product.stock || !selectedSize" (click)="addToCart(product, selectedSize)">add to cart</a>
-                            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]" class="btn btn-solid">view detail</a>
+                            <a [routerLink]="['/shop/product/', product.title.replace(' ', '-')]" class="btn btn-solid">view detail</a>
                         </div>
                     </div>
                 </div>
