@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Coupon } from 'src/app/shared/classes/coupon';
+import { Order } from 'src/app/shared/classes/order';
 
 @Injectable({
   providedIn: 'root'
@@ -13,29 +15,56 @@ export class DataService {
   Contacts: AngularFirestoreCollection<any>;
   ProductReviews: AngularFirestoreCollection<any>;
   Orders: AngularFirestoreCollection<any>;
-  constructor(private afs: AngularFirestore, private toastr: ToastrService) {}
+
+  Products: any;
+  Coupons: any;
+  constructor(private afs: AngularFirestore, private db: AngularFireDatabase, private toastr: ToastrService) {}
 
   private get usedCoupons() {
-    return this.UsedCoupons = this.afs.collection<any>('coupons');
+    return this.UsedCoupons = this.getCollectionByName<any>('coupons');
   }
   private get subscribers() {
-    return this.Subscribers = this.afs.collection<any>('subscribers');
+    return this.Subscribers = this.getCollectionByName<any>('subscribers');
   }
 
   private get contacts() {
-    return this.Contacts = this.afs.collection<any>('contacts');
+    return this.Contacts = this.getCollectionByName<any>('contacts');
   }
 
   private get productReviews() {
-    return this.Contacts = this.afs.collection<any>('product-reviews');
+    return this.Contacts = this.getCollectionByName<any>('product-reviews');
   }
 
   private get orders() {
-    return this.Orders = this.afs.collection<any>('orders');
+    return this.Orders = this.getCollectionByName<Order>('orders');
+  }
+
+  private get coupons() {
+    return this.Coupons = this.db.list<Coupon>('coupons'); /* Get Products from Firebase RT Database */
+  }
+
+  private getDocumentById<T = any>(collection: string, docId: string) {
+    return this.afs.collection<T>(collection).doc<T>(docId);
+  }
+
+  private getDbObject<T = any>() {
+
+  }
+
+  public getCollectionByName<T = any>(name: string) {
+    return this.afs.collection<T>(name);
+  }
+
+  public getDbListByName<T = any>(name: string) {
+    return this.db.list<T>(name);
+  }
+
+  public getCoupons() {
+    return this.coupons.valueChanges();
   }
 
   public addUsedCoupons(code: string) {
-    return this.usedCoupons.add(code);
+    return this.usedCoupons.add({coupon: code});
   }
 
   public addSubscriber(email: string) {
@@ -63,7 +92,7 @@ export class DataService {
   }
 
   public addOrder(data: any) {
-    data.timestamp = new Date();
+    // data.timestamp = new Date();
     return this.orders.add(data).then(() => {
       this.toastr.success('Your Order was Sent!')
     }).catch(error => {

@@ -3,7 +3,7 @@
 <section class="section-b-space">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <!-- <div class="col-lg-3">
                 <div class="account-sidebar" (click)="ToggleDashboard()">
                     <a hre="javascript:void(0)" class="popup-btn">
                         my account
@@ -28,15 +28,38 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="dashboard-right" *ngIf="UserProfile$ | async as profile">
+            </div> -->
+            <!-- <div class="col-lg-3">
+                <div *ngIf="UserOrders$ | async as Orders" class="account-sidebar" (click)="ToggleOrderHistory()">
+                    <a hre="javascript:void(0)" class="popup-btn">
+                        my orders
+                    </a>
+                </div>
+                <div class="dashboard-left animated" [ngClass]="showOrders ? 'slideInLeft open': 'slideOutLeft'">
+                    <div class="collection-mobile-back" (click)="ToggleOrderHistory()">
+                        <span class="filter-back">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i> back
+                        </span>
+                    </div>
+                    <div class="block-content">
+                        <h5>Order History</h5>
+                        <ul>
+                            <li *ngFor="let order of UserOrders$ | async">
+                                bs3-
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col">
+                <div class="dashboard-right" *ngIf="(UserProfile$ | async) as profile">
                     <div class="dashboard">
                         <div class="page-title">
                             <h2>My Dashboard</h2>
                         </div>
                         <div class="welcome-msg">
-                            <p>Hello, {{profile.displayName}}!</p>
+                            <h4>Hello, {{profile.fName | titlecase}}!</h4>
                             <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>
                         </div>
                         <div class="box-account box-info">
@@ -48,12 +71,13 @@
                                     <div class="box">
                                         <div class="box-title">
                                             <h3>Contact Information</h3>
-                                            <a href="javascript:void(0)">Edit</a>
+
+                                            <a [routerLink]="['/pages/profile']" [queryParams]="{userId: profile.id}" href="javascript:void(0)">Edit</a>
                                         </div>
                                         <div class="box-content">
-                                            <h6>{{profile.displayName}}</h6>
+                                            <h6>{{profile.fName | titlecase}} {{profile.lName | titlecase}}</h6>
                                             <h6>{{profile.email}}</h6>
-                                            <h6><a href="javascript:void(0)">Change Password</a></h6>
+                                            <h6>{{profile.phone}}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -75,26 +99,51 @@
                                 <div class="box">
                                     <div class="box-title">
                                         <h3>Address Book</h3>
-                                        <a href="javascript:void(0)">Manage Addresses</a>
+                                        <a [routerLink]="['/pages/profile']" [queryParams]="{userId: USER_ID}" href="javascript:void(0)">Manage Addresses</a>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <h6>Default Billing Address</h6>
                                             <address>
-                                                You have not set a default billing address.<br>
-                                                <a href="javascript:void(0)">Edit Address</a>
+                                                <p *ngIf="!profile.billing">You have not set a default billing address.</p>
+                                                {{profile.billing.street}} {{profile.billing.street2}}<br>
+                                                {{profile.billing.city}}, {{profile.billing.stateOrProvince}}<br>
+                                                {{profile.billing.zipcode}}<br>
+                                                <p>
+                                                    <!-- <a href="javascript:void(0)">Edit Billing Address</a> -->
+                                                </p>
                                             </address>
                                         </div>
                                         <div class="col-sm-6">
                                             <h6>Default Shipping Address</h6>
                                             <address>
-                                                You have not set a default shipping address.<br>
-                                                <a href="javascript:void(0)">Edit Address</a>
+                                                <p *ngIf="!profile.billing">You have not set a default shipping address.</p>
+                                                {{profile.address.street}} {{profile.address.street2}}<br>
+                                                {{profile.address.city}}, {{profile.address.stateOrProvince}}<br>
+                                                {{profile.address.zipcode}}<br>
+                                                <!-- <a href="javascript:void(0)">Edit Shipping Address</a> -->
                                             </address>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- <div *ngIf="UserOrders$ | async as orders">
+                                <div class="box">
+                                    <div class="box-title">
+                                        <h3>Order History</h3>
+                                        <a (click)="ToggleOrderHistory()" href="javascript:void(0)">View Orders</a>
+                                    </div>
+                                    <div class="box-content">
+                                        <ul>
+                                            <li *ngFor="let order of orders">
+                                                Total: {{order.grandTotal | currency
+                                                                            : productService?.Currency.currency
+                                                                            : 'symbol'}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

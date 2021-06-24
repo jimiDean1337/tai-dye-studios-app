@@ -11,14 +11,14 @@ import { ProductService } from '../../../services/product.service';
 export class ProductBoxVerticalSliderComponent implements OnInit {
 
   @Input() title: string = 'New Product'; // Default
-  @Input() type: string = 'fashion'; // Default Fashion
+  @Input() type: string = 'clothing'; // Default Clothing
 
   public products : Product[] = [];
 
   public NewProductSliderConfig: any = NewProductSlider;
 
-  constructor(public productService: ProductService) { 
-    this.productService.getProducts.subscribe(response => 
+  constructor(public productService: ProductService) {
+    this.productService.getProducts.subscribe(response =>
       this.products = response.filter(item => item.type == this.type)
     );
   }

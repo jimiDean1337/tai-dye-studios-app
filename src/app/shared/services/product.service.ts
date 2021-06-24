@@ -44,8 +44,8 @@ export class ProductService {
 
   // Product
   private get products(): Observable<Product[]> {
-    this.Products = this.http.get<Product[]>('assets/data/shop-products.json').pipe(map(data => data));
-    // this.Products = this.db.list<Product>('products').valueChanges(); /* Get Products from Firebase RT Database */
+    // this.Products = this.http.get<Product[]>('assets/data/shop-products.json').pipe(map(data => data));
+    this.Products = this.db.list<Product>('products').valueChanges(); /* Get Products from Firebase RT Database */
     this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
     return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
   }
@@ -282,6 +282,7 @@ export class ProductService {
     this.couponService.validateCoupon(couponCode).subscribe(results => {
       // console.log('Validation result: ', results)
       if (results.length) {
+        localStorage.setItem('coupon', results[0].code)
         this.CouponInvalid.next(false);
         this.Coupon = results[0];
       } else {
@@ -296,12 +297,25 @@ export class ProductService {
 
   /*
     ---------------------------------------------
+    ------------  Search Product  ---------------
+    ---------------------------------------------
+  */
+
+  public searchProducts(query: string): Observable<Product[]> {
+    console.log('Searching', query)
+    return this.getProducts.pipe(map(product =>
+      product.filter((item: Product) => item.title.includes(query))
+      ))
+  }
+
+  /*
+    ---------------------------------------------
     ------------  Filter Product  ---------------
     ---------------------------------------------
   */
 
   // Get Product Filter
-  public filterProducts(filter: any): Observable<Product[]> {
+  public filterProducts(filter: any[]): Observable<Product[]> {
     return this.products.pipe(map(product =>
       product.filter((item: Product) => {
         if (!filter.length) return true

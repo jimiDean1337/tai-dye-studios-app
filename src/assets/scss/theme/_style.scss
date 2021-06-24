@@ -1114,7 +1114,7 @@ header {
                 }
             }
 
-            button {
+            .btn {
                 position: absolute;
                 top: 10px;
                 background-color: transparent;
@@ -1122,6 +1122,12 @@ header {
                 font-size: 24px;
                 color: lighten($black, 46.5%);
                 right: 10px;
+            }
+
+            .search-results {
+                button {
+                    position: relative !important;
+                }
             }
         }
 
@@ -5690,7 +5696,7 @@ footer {
     cursor: pointer;
 
     &.top-cls {
-        bottom: 130px;
+        bottom: 100px;
     }
 }
 
@@ -8995,7 +9001,7 @@ footer {
 
         .form-group {
             position: relative;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
 
             h3 {
                 color: $grey4;
@@ -9127,6 +9133,20 @@ footer {
         }
     }
 
+    .btn-product-info {
+        position: absolute;
+        border-radius: 50%;
+        top: 95px;
+        left: 67px;
+        background: $theme-deafult;
+        &:hover, &:focus {
+            background: lighten($theme-deafult, 10) !important;
+        }
+        i {
+            color: $white;
+        }
+    }
+
     .sub-total {
         position: relative;
         border-bottom: 1px solid $round-border;
@@ -9171,6 +9191,8 @@ footer {
 
     .total {
         position: relative;
+        padding-top: 40px;
+        border-top: solid 1px #ddd;
         margin-bottom: 40px;
 
         li {
@@ -9204,6 +9226,10 @@ footer {
 }
 
 .payment-box {
+    [id^="zoid-paypal-buttons"] {
+        z-index: 8 !important;
+    }
+
     position: relative;
 
     .upper-box {

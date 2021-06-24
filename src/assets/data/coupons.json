@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "description": "OG Customer Discount for original and loyal customers.",
+        "description": "OG Customers Get og discounts, yo. Way to keep it gangsta'",
         "code": "OGCUST",
         "type": "CASH",
         "discount": 7.00,
@@ -10,7 +10,7 @@
     },
     {
         "id": 2,
-        "description": "Free Shipping For These Lucky Coupon Holders.",
+        "description": "Only the Coolest customers get the coolest discounts...Like free shipping.",
         "code": "FREESHIP",
         "type": "SHIPPING",
         "discount": 1,
@@ -19,7 +19,7 @@
     },
     {
         "id": 3,
-        "description": "New TDS Newsletter Subscribers Enjoy 10% Off Entire Purchase",
+        "description": "Study's have shown that our subscribers are better in every way. We couldn't agree more!.",
         "code": "ILUVTDS",
         "type": "PERCENTAGE",
         "discount": 0.1,
@@ -28,7 +28,7 @@
     },
     {
         "id": 4,
-        "description": "Test The TDS Web App And Enjoy 10% Off Entire Purchase.",
+        "description": "Wait! A discount for testing our web app!? It's awesome to save money doing something so fun! Right?!",
         "code": "TESTTDS",
         "type": "PERCENTAGE",
         "discount": 0.1,

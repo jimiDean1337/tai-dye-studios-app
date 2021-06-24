@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   loginWithProvider(provider: string) {
     this.authService.loginWithProvider(provider)
       .then((success) => {
-        console.log('Logged in w/ provider', success)
+        // console.log('Logged in w/ provider', success)
         this.userService.checkIfUserExists(success.user.uid).subscribe(exists => {
           if (exists) {
             this.router.navigate(['/pages/dashboard'], { queryParams: { userId: success.user.uid } })

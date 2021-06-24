@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { CookiesService } from 'src/app/core/services/cookies/cookies.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { UserProfile } from 'src/app/shared/classes/user';
 
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
     private toastr: ToastrService,
     private authService: AuthService,
     private userService: UserService,
+    private cookies: CookiesService,
     public title: Title) {
     this.registrationForm = this.fb.group({
       fName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
@@ -58,6 +60,7 @@ export class RegisterComponent implements OnInit {
         }
         this.userService.createNewUser(profileData.id, profileData)
           .then(ready => {
+            this.cookies.setCookieVal('USER_ID', profileData.id)
             this.router.navigate(['/pages/profile'], { queryParams: { userId: profileData.id}})
             this.toastr.success('Nice! You are registered')
           })
@@ -74,12 +77,13 @@ export class RegisterComponent implements OnInit {
   registerWithProvider(provider: string) {
     this.authService.loginWithProvider(provider)
       .then((success) => {
-        console.log('Logged in w/ provider', success)
+        // console.log('Logged in w/ provider', success)
         this.userService.checkIfUserExists(success.user.uid).subscribe(exists => {
           if (exists) {
             this.router.navigate(['/pages/dashboard'], { queryParams: { userId: success.user.uid } })
           } else {
             this.userService.createNewUserFromProvider(success.user.uid, provider, success).then(() => {
+              this.cookies.setCookieVal('USER_ID', success.user.uid)
               this.router.navigate(['/pages/profile'], { queryParams: { userId: success.user.uid } })
             })
           }

@@ -4,24 +4,55 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3>PERSONAL DETAIL</h3>
-                <form class="theme-form" name="profileDataForm" #profileDataForm="ngForm">
+                <h3>Profile Details</h3>
+                <form class="theme-form" name="profileForm">
                     <div class="form-row">
                         <div class="col-md-6">
                             <label for="fname">First Name</label>
-                            <input name="fname" [(ngModel)]="profileDataModel.fName" type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
+                            <input name="fname" [formControl]="profileForm.controls['fName']" type="text" class="form-control" id="profile-firstname" placeholder="Enter Your name" required>
+                            <div *ngIf="profileForm.controls.fName.touched && profileForm.controls.fName.errors?.required"
+                                class="text text-danger mb-3">
+                                First Name is required.
+                            </div>
+                            <div *ngIf="profileForm?.controls.fName.touched && profileForm?.controls.fName.errors?.pattern"
+                                class="text text-danger mb-3">
+                                Field may not contain non-alphabetic characters.
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label for="email">Last Name</label>
-                            <input name="lname" [(ngModel)]="profileDataModel.lName" type="text" class="form-control" id="last-name" placeholder="Email" required="">
+                            <input name="lname" [formControl]="profileForm.controls['lName']" type="text" class="form-control" id="profile-lastname" placeholder="Last Name" required>
+                            <div *ngIf="profileForm.controls.lName.touched && profileForm.controls.lName.errors?.required"
+                                class="text text-danger mb-3">
+                                Last Name is required.
+                            </div>
+                            <div *ngIf="profileForm?.controls.lName.touched && profileForm?.controls.lName.errors?.pattern"
+                                class="text text-danger mb-3">
+                                Last Name must be alphabet cahracters.
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label for="review">Phone number</label>
-                            <input name="phone" [(ngModel)]="profileDataModel.phone" type="text" class="form-control" id="review" placeholder="Enter your number" required="">
+                            <input name="phone" [formControl]="profileForm.controls['phone']" type="text" class="form-control" id="profile-phone" placeholder="Enter your number" required>
+                            <div *ngIf="profileForm?.controls.phone.touched && profileForm?.controls.phone.errors?.required"
+                                class="text text-danger mb-3">
+                                Phone No is required.
+                            </div>
+                            <div *ngIf="profileForm?.controls.phone.touched && profileForm?.controls.phone.errors?.pattern"
+                                class="text text-danger mb-3">
+                                Phone No is must be number.
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label for="email">Email</label>
-                            <input name="email" [(ngModel)]="profileDataModel.email" type="text" class="form-control" id="email" placeholder="Email" required="">
+                            <input name="email" [formControl]="profileForm.controls['email']" type="text" class="form-control" id="profile-email" placeholder="Email" required>
+                            <div *ngIf="profileForm?.controls.email.touched && profileForm?.controls.email.errors?.required"
+                                class="text text-danger mb-3">
+                                Email is required
+                            </div>
+                            <div *ngIf="profileForm?.controls.email.touched && profileForm?.controls.email.errors?.email" class="text text-danger mb-3">
+                                Invalid Email
+                            </div>
                         </div>
 
                     </div>
@@ -37,23 +68,23 @@
         <div class="row">
             <div class="col-sm-12">
                 <h3>SHIPPING ADDRESS</h3>
-                <form class="theme-form" name="profileShippingDataForm" #profileShippingDataForm="ngForm">
+                <form class="theme-form" name="profileShippingDataForm">
                     <div class="form-row">
                         <div class="col-md-6">
                             <label for="shippingAddress1">Address Line 1*</label>
-                            <input name="shippingAddress1" [(ngModel)]="profileDataModel.address.street" type="text" class="form-control" id="address-one" placeholder="Street Line 1" required="">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="address2">Address Line 2</label>
-                            <input name="address2" [(ngModel)]="profileDataModel.address.street2" type="text" class="form-control" id="address-two" placeholder="Street Line 2 - Apt/Suite #">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="zip-code">Zip Code *</label>
-                            <input name="zip-code" [(ngModel)]="profileDataModel.address.zipcode" type="text" class="form-control" id="zip-code" placeholder="zip-code" required="">
+                            <input name="street1" [formControl]="profileShippingForm.controls['street']" type="text" class="form-control" id="street1" placeholder="Street Line 1"  required>
+                            <div *ngIf="profileShippingForm?.controls.street.touched && profileShippingForm?.controls.street.errors?.required"
+                                class="text text-danger mb-3">
+                                Address is required
+                            </div>
+                            <div *ngIf="profileShippingForm?.controls.street.touched && profileShippingForm?.controls.street.errors?.maxlength"
+                                class="text text-danger mb-3">
+                                Maximum 50 character
+                            </div>
                         </div>
                         <div class="col-md-6 select_input">
                             <label for="country">Country *</label>
-                            <select name="country" [(ngModel)]="profileDataModel.address.country" class="form-control" size="1">
+                            <select name="country" [formControl]="profileShippingForm.controls['country']" class="form-control" size="1" required>
                                 <option value="USA">USA</option>
                                 <option value="Canada">Canada</option>
                                 <option value="Mexico">Mexico</option>
@@ -62,14 +93,119 @@
                         </div>
                         <div class="col-md-6">
                             <label for="city">City *</label>
-                            <input name="city" [(ngModel)]="profileDataModel.address.city" type="text" class="form-control" id="city" placeholder="City" required="">
+                            <input name="city" [formControl]="profileShippingForm.controls['city']" type="text" class="form-control" id="city" placeholder="City"  required>
+                            <div *ngIf="profileShippingForm?.controls.city.touched && profileShippingForm?.controls.city.errors?.required" class="text text-danger mb-3">
+                                City is required
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label for="stateOrProvince">Region/State *</label>
-                            <input name="stateOrProvince" [(ngModel)]="profileDataModel.address.stateOrProvince" type="text" class="form-control" id="shippingStateOrProvince" placeholder="Province/State" required="">
+                            <input name="stateOrProvince" [formControl]="profileShippingForm.controls['stateOrProvince']" type="text" class="form-control" id="shippingStateOrProvince" placeholder="Province/State" required>
+                            <div *ngIf="profileShippingForm?.controls.stateOrProvince.touched && profileShippingForm?.controls.stateOrProvince.errors?.required"
+                                class="text text-danger mb-3">
+                                State is required
+                            </div>
+
                         </div>
-                        <div class="col-md-12">
-                            <button class="btn btn-sm btn-solid" type="submit" (click)="updateProfile(profileDataModel.id, profileDataModel, profileDataForm)" [disabled]="profileShippingDataForm.invalid">Save setting</button>
+                        <div class="col-md-6">
+                            <label for="zip-code">Zip Code *</label>
+                            <input name="zip-code" [formControl]="profileShippingForm.controls['zipcode']" type="text" class="form-control" id="zip-code"
+                                placeholder="zip-code" required>
+                                <div *ngIf="profileShippingForm?.controls.zipcode.touched && profileShippingForm?.controls.zipcode.errors?.required"
+                                    class="text text-danger mb-3">
+                                    Postalcode is required
+                                </div>
+                                <div *ngIf="profileShippingForm?.controls.zipcode.touched && profileShippingForm?.controls.zipcode.errors?.pattern"
+                                    class="text text-danger mb-3">
+                                    Postalcode must be Numbers 0-9
+                                </div>
+                                <div *ngIf="profileShippingForm?.controls.zipcode.touched && profileShippingForm?.controls.zipcode.errors?.maxLength"
+                                    class="text text-danger mb-3">
+                                    Postalcode must be 5 digits
+                                </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->
+<!-- billing section start -->
+<section class="contact-page register-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Billing ADDRESS</h3>
+                <form class="theme-form" name="profileBillingForm">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="BillingAddress1">Street* <small> / Suite/Apt</small></label>
+                            <input name="street1" [formControl]="profileBillingForm.controls['street']" type="text"
+                                class="form-control" id="street1" placeholder="Street Line 1" required>
+                            <div *ngIf="profileBillingForm?.controls.street.touched && profileBillingForm?.controls.street.errors?.required"
+                                class="text text-danger mb-3">
+                                Address is required
+                            </div>
+                            <div *ngIf="profileBillingForm?.controls.street.touched && profileBillingForm?.controls.street.errors?.maxlength"
+                                class="text text-danger mb-3">
+                                Maximum 50 character
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 select_input">
+                            <label for="country">Country *</label>
+                            <select name="country" [formControl]="profileBillingForm.controls['country']"
+                                class="form-control" size="1" required>
+                                <option value="USA">USA</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="U.K.">U.K.</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="city">City *</label>
+                            <input name="city" [formControl]="profileBillingForm.controls['city']" type="text"
+                                class="form-control" id="city" placeholder="City" required>
+                            <div *ngIf="profileBillingForm?.controls.city.touched && profileBillingForm?.controls.city.errors?.required"
+                                class="text text-danger mb-3">
+                                City is required
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="stateOrProvince">Region/State *</label>
+                            <input name="stateOrProvince"
+                                [formControl]="profileBillingForm.controls['stateOrProvince']" type="text"
+                                class="form-control" id="BillingStateOrProvince" placeholder="Province/State" required>
+                            <div *ngIf="profileBillingForm?.controls.stateOrProvince.touched && profileBillingForm?.controls.stateOrProvince.errors?.required"
+                                class="text text-danger mb-3">
+                                State is required
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="zip-code">Zip Code *</label>
+                            <input name="zip-code" [formControl]="profileBillingForm.controls['zipcode']" type="text"
+                                class="form-control" id="zip-code" placeholder="zip-code" required>
+                            <div *ngIf="profileBillingForm?.controls.zipcode.touched && profileBillingForm?.controls.zipcode.errors?.required"
+                                class="text text-danger mb-3">
+                                Postalcode is required
+                            </div>
+                            <div *ngIf="profileBillingForm?.controls.zipcode.touched && profileBillingForm?.controls.zipcode.errors?.pattern"
+                                class="text text-danger mb-3">
+                                Postalcode must be Numbers 0-9
+                            </div>
+                            <div *ngIf="profileBillingForm?.controls.zipcode.touched && profileBillingForm?.controls.zipcode.errors?.maxLength"
+                                class="text text-danger mb-3">
+                                Postalcode must be 5 digits
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-secondary mr-2" type="button" (click)="cancel()">Cancel</button>
+                            <button class="btn btn-solid" type="button" (click)="updateProfile()"
+                                [disabled]="profileShippingForm?.invalid">Save</button>
                         </div>
                     </div>
                 </form>

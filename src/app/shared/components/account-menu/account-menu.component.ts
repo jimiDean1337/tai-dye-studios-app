@@ -28,7 +28,7 @@ export class AccountMenuComponent implements OnInit {
     this.userIsLoggedIn = this.authService.getLoggedInState();
     this.UserId = this.authService.getAuthData().pipe(map(data => {
       if (data) {
-        this.UserProfile = this.userService.getUserById(data.uid);
+        this.UserProfile = this.userService.getUserById(data.uid).valueChanges();
       }
       return data.uid;
     }));

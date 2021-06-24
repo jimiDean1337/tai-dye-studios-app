@@ -1,12 +1,15 @@
-import * as moment from 'moment';
-export function NewOrderTemplate(orderDetails: any) {
-    const deliveryDay = moment.unix(orderDetails.estimatedDeliveryDate).format('MMM/Do');
+import moment = require('moment');
+export function NewOrderTemplate(order: any) {
+    const m = moment;
+    const startdate = m();
+    const new_date = m(startdate).add(21, 'days');
+    const deliveryDay = new_date.format('MMMM Do YYYY');
 
-    const products: any = orderDetails.product.map((product: any) => {
+    const products: any = order.product.map((product: any) => {
         return `
         <tr>
             <td>
-                <img src="https://tai-dye-studios--tds-preview-15qqcwca.web.app/${product.images[0].src}" alt="${product.title}" width="80">
+                <img src="https://tai-dye-studios.com/${product.images[0].src}" alt="${product.title}" width="80">
             </td>
             <td valign="top" style="padding-left: 15px;">
                 <h5 style="margin-top: 15px;">${product.sku} </h5>
@@ -28,8 +31,8 @@ export function NewOrderTemplate(orderDetails: any) {
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="https://tai-dye-studios--tds-preview-15qqcwca.web.app/favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="https://tai-dye-studios--tds-preview-15qqcwca.web.app/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="https://tai-dye-studios.com/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="https://tai-dye-studios.com/favicon.ico" type="image/x-icon">
         <title>Tai-Dye Studios New Customer Order</title>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 
@@ -130,14 +133,14 @@ export function NewOrderTemplate(orderDetails: any) {
                         <table align="left" border="0" cellpadding="0" cellspacing="0" style="text-align: left;" width="100%">
                             <tr>
                                 <td style="text-align: center;">
-                                    <img src="https://tai-dye-studios--tds-preview-15qqcwca.web.app/assets/images/icon/logo-shirt_230x93.png" alt="" style=";margin-bottom: 30px;">
+                                    <img src="https://tai-dye-studios.com/assets/images/icon/logo-shirt_230x93.png" alt="" style=";margin-bottom: 30px;">
                                 </td>
                             </tr>
                            <tr>
                                 <td>
-                                    <p style="font-size: 14px;"><b>Customer Name: ${orderDetails.shippingDetails.firstname} ${orderDetails.shippingDetails.lastname},</b></p>
-                                    <p style="font-size: 14px;">A New Order Has Been Placed For ${orderDetails.forPickup ? 'Local Pickup' : 'Deliver'}.</p>
-                                    <p style="font-size: 14px;">Transaction ID : ${orderDetails.orderId} | Pickup: ${orderDetails.forPickup ? 'YES' : 'NO'}</p>
+                                    <p style="font-size: 14px;"><b>Customer Name: ${order.shippingDetails.firstname} ${order.shippingDetails.lastname},</b></p>
+                                    <p style="font-size: 14px;">A New Order Has Been Placed For ${order.forPickup ? 'Local Pickup' : 'Delivery'}.</p>
+                                    <p style="font-size: 14px;">Order ID : ${order.orderId}</p>
                                 </td>
                             </tr>
                         </table>
@@ -147,9 +150,9 @@ export function NewOrderTemplate(orderDetails: any) {
                                     <tr>
                                     <td style="background-color: #fafafa;border: 1px solid #ddd;padding: 15px;letter-spacing: 0.3px;width: 100%;">
                                         <h5 style="font-size: 16px; font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">Ship To</h5>
-                                        <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px; margin-top: 0;">Pickup: ${orderDetails.forPickup ? 'YES' : 'NO'}<br>
-                                        ${orderDetails.shippingDetails.firstname} ${orderDetails.shippingDetails.lastname}<br>${orderDetails.shippingDetails.address} <br>${orderDetails.shippingDetails.town}
-                                        ${orderDetails.shippingDetails.state}<br> ${orderDetails.shippingDetails.postalcode}<br>Phone: ${orderDetails.shippingDetails.phone}</p>
+                                        <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px; margin-top: 0;">
+                                        ${order.shippingDetails.firstname} ${order.shippingDetails.lastname}<br>${order.shippingDetails.street} <br>${order.shippingDetails.city}
+                                        ${order.shippingDetails.state}<br> ${order.shippingDetails.zipcode}<br>Phone: ${order.shippingDetails.phone}</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -167,14 +170,14 @@ export function NewOrderTemplate(orderDetails: any) {
                                     <p style="font-size: 14px;">Subtotal : </p>
                                 </td>
                                 <td class="m-t-5" colspan="2" align="right">
-                                    <b style>$${orderDetails.subTotal}</b>
+                                    <b style>$${order.subTotal}</b>
                                 </td>
                             <tr class="pad-left-right-space">
                                 <td colspan="2" align="left">
                                     <p style="font-size: 14px;">TAX :</p>
                                 </td>
                                 <td colspan="2" align="right">
-                                    <b>$${orderDetails.salesTax}</b>
+                                    <b>$${order.salesTax}</b>
                                 </td>
                             </tr>
                             <tr class="pad-left-right-space">
@@ -182,7 +185,7 @@ export function NewOrderTemplate(orderDetails: any) {
                                     <p style="font-size: 14px;">SHIPPING Charge :</p>
                                 </td>
                                 <td colspan="2" align="right">
-                                    <b>$${orderDetails.shippingTotal}</b>
+                                    <b>$${order.shippingTotal}</b>
                                 </td>
                             </tr>
                             <tr class="pad-left-right-space">
@@ -190,7 +193,7 @@ export function NewOrderTemplate(orderDetails: any) {
                                     <p style="font-size: 14px;">Discount :</p>
                                 </td>
                                 <td colspan="2" align="right">
-                                   <b> ${orderDetails.coupon ? orderDetails.coupon.save : '$0.00'}</b>
+                                   <b> ${order.coupon ? order.coupon.save : '$0.00'}</b>
                                 </td>
                             </tr>
                             <tr class="pad-left-right-space ">
@@ -198,12 +201,12 @@ export function NewOrderTemplate(orderDetails: any) {
                                     <p style="font-size: 14px;">Total :</p>
                                 </td>
                                 <td class="m-b-5" colspan="2" align="right">
-                                    <b>$${orderDetails.grandTotal}</b>
+                                    <b>$${order.grandTotal}</b>
                                 </td>
                             </tr>
                             <tr class="pad-left-right-space ">
                                 <td class="m-b-5" colspan="2" align="left">
-                                    <p style="font-size: 14px;">Est. Deliver Date :</p>
+                                    <p style="font-size: 14px;">${order.forPickup ? 'Est. Pickup Date' : 'Est. Delivery Date'} :</p>
                                 </td>
                                 <td class="m-b-5" colspan="2" align="right">
                                     <b>${deliveryDay}</b>

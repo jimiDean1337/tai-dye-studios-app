@@ -124,6 +124,8 @@
                   </div>
                   <div class="border-product">
                     <h6 class="product-title">product details</h6>
+                    <p><b>NOTE:</b> Colors may be inconsistent due to device screen and/or our suppliers</p>
+                    <br>
                     <p>{{ product.description.substring(0, 200)+'...' }}</p>
                   </div>
                   <div class="border-product">
@@ -138,9 +140,9 @@
                       </form>
                     </div>
                   </div>
-                  <div class="border-product">
+                  <!-- <div class="border-product">
                     <app-countdown [date]="'July 15 2021'"></app-countdown>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -154,8 +156,10 @@
                         <ng-template ngbTabContent>
                           <p>{{ product.description }}</p>
                         </ng-template>
+                        <!-- TODO: Product Video -->
+                        <!-- TODO: Product Review -->
                     </ngb-tab>
-                    <ngb-tab>
+                    <!-- <ngb-tab>
                         <ng-template ngbTabTitle>Video</ng-template>
                         <ng-template ngbTabContent>
                           <div class="mt-3 text-center">
@@ -173,11 +177,7 @@
                                   <label>Rating</label>
                                   <div class="media-body ml-3">
                                     <div class="rating">
-                                      <!-- <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i> -->
+
                                       <ngb-rating (rateChange)="reviewFormModel.reviewRating = $event" [max]="5" [(rate)]="reviewFormModel.reviewRating">
                                         <ng-template let-fill="fill" let-index="index">
                                           <i class="fa fa-star" [class.filled]="fill === 100"></i>
@@ -209,7 +209,7 @@
                             </div>
                           </form>
                         </ng-template>
-                    </ngb-tab>
+                    </ngb-tab> -->
                 </ngb-tabset>
               </div>
             </div>

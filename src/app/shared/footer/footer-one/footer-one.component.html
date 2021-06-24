@@ -97,9 +97,12 @@
 						</div>
 						<div class="footer-contant">
 						    <ul class="contact-list">
-						        <li><i class="fa fa-map-marker"></i>Tai-Dye Studios, Newark OH 43055</li>
-						        <li><i class="fa fa-phone"></i> 740-704-2859</li>
-						        <li><i class="fa fa-envelope-o"></i> <a href="mailto:hello@tai-dye-studios.com">hello@tai-dye-studios.com</a></li>
+						        <li>
+									<i class="fa fa-map-marker"></i>
+									{{contactInfo.company}} - {{contactInfo.address.city}}, {{contactInfo.address.stateOrProvince}} <br>
+									{{contactInfo.address.zipcode}}</li>
+						        <li><i class="fa fa-phone"></i> {{contactInfo.phone}} </li>
+						        <li><i class="fa fa-envelope-o"></i> <a [href]="'mailto:' + contactInfo.email.main">{{contactInfo.email.main}}</a></li>
 						        <!-- <li><i class="fa fa-fax"></i>Fax: 123456</li> -->
 						    </ul>
 						</div>
@@ -113,7 +116,7 @@
 			<div class="row">
                 <div class="col-xl-6 col-md-6 col-sm-12">
                   <div class="footer-end">
-                    <p><i class="fa fa-copyright" aria-hidden="true"></i> {{ today | date:'y'}} Tai-Dye Studios <br> Made with <i class="fa fa-heart text-danger"></i> by <a href="https://suremarketingsolutions.com">Sure Marketing
+                    <p><i class="fa fa-copyright" aria-hidden="true"></i> {{ today | date:'y'}} {{contactInfo.company}} <br> Made with <i class="fa fa-heart text-danger"></i> by <a href="https://suremarketingsolutions.com">Sure Marketing
 						Solutions</a></p>
                   </div>
                 </div>

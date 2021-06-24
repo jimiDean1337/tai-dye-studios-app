@@ -1,12 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Coupon } from '../classes/coupon';
-
-const state = {
-  coupon: JSON.parse(localStorage['coupon'] || '{}')
-}
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +11,11 @@ const state = {
 export class CouponService {
   Coupons: Observable<Coupon[]>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private db: AngularFireDatabase) { }
 
   private get coupons() {
-    this.Coupons = this.http.get<Coupon[]>('assets/data/coupons.json').pipe(map(data => data));
+    // this.Coupons = this.http.get<Coupon[]>('assets/data/coupons.json').pipe(map(data => data));
+    this.Coupons = this.db.list<Coupon>('coupons').valueChanges(); /* Get Products from Firebase RT Database */
     return this.Coupons = this.Coupons.pipe(map(coupons => coupons.filter(coupon => coupon.expiresOn > new Date() || coupon.expiresOn === 'never')))
   }
 

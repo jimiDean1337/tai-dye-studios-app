@@ -2,44 +2,89 @@
   <ul>
     <li class="onhover-div mobile-search search-widgets" id="search-widgets">
       <div (click)="searchToggle()">
-        <img src="assets/images/icon/search.png" class="img-fluid" alt="">
+        <img src="assets/images/icon/search.png" class="img-fluid" alt="" />
         <i class="ti-search"></i>
       </div>
-      <div id="search-overlay" class="search-overlay" [ngStyle]="{'display': search ? 'block' : 'none' }">
+      <div
+        id="search-overlay"
+        class="search-overlay"
+        [ngStyle]="{ display: search ? 'block' : 'none' }"
+      >
         <div>
-            <span class="closebtn" title="Close Overlay" (click)="searchToggle()">×</span>
-            <div class="overlay-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product">
-                                </div>
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
+          <span class="closebtn" title="Close Overlay" (click)="searchToggle()"
+            >×</span
+          >
+          <div class="overlay-content">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-12">
+                  <form>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="productSearch"
+                        [resultTemplate]="rt"
+                        name="productSearch"
+                        placeholder="Search a Product"
+                        [(ngModel)]="searchQuery"
+                        [ngbTypeahead]="Search"
+                        [showHint]="false"
+                        [editable]="true"
+                        (selectItem)="selectResult($event)"
+                      />
+                      <!-- <small *ngIf="searching" class="form-text text-muted">searching...</small>
+                                    <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div> -->
+                      <ng-template #rt let-r="result" let-t="term">
+                        <img
+                          [src]="r?.imgSrc"
+                          class="mr-1"
+                          style="width: 60px"
+                        />
+                        <ngb-highlight
+                          [result]="r.title"
+                          [term]="r.title"
+                        ></ngb-highlight>
+                      </ng-template>
                     </div>
+                    <button type="button" class="btn btn-primary">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </form>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </li>
     <!-- TODO: Complete language and currency options -->
     <li class="onhover-div mobile-setting">
-      <div><img src="assets/images/icon/setting.png" class="img-fluid" alt="setting">
-        <i class="ti-settings"></i></div>
+      <div>
+        <img
+          src="assets/images/icon/setting.png"
+          class="img-fluid"
+          alt="setting"
+        />
+        <i class="ti-settings"></i>
+      </div>
       <div class="show-div setting">
         <h6>language</h6>
         <ul>
           <li *ngFor="let language of languages">
-            <a href="javascript:void(0)" (click)="changeLanguage(language.code)">{{ language.name }}</a>
+            <a
+              href="javascript:void(0)"
+              (click)="changeLanguage(language.code)"
+              >{{ language.name }}</a
+            >
           </li>
         </ul>
         <h6>currency</h6>
         <ul class="list-inline">
           <li *ngFor="let currency of currencies">
-            <a href="javascript:void(0)" (click)="changeCurrency(currency)">{{ currency.name }}</a>
+            <a href="javascript:void(0)" (click)="changeCurrency(currency)">{{
+              currency.name
+            }}</a>
           </li>
         </ul>
       </div>
@@ -47,39 +92,66 @@
     <li class="onhover-div mobile-cart">
       <div>
         <a [routerLink]="['/shop/cart']">
-          <img src="assets/images/icon/cart.png" class="img-fluid" alt="">
+          <img src="assets/images/icon/cart.png" class="img-fluid" alt="" />
           <i class="ti-shopping-cart"></i>
         </a>
       </div>
       <span class="cart_qty_cls">{{ products.length }}</span>
-      <ul class="show-div shopping-cart" *ngIf='!products.length'>
+      <ul class="show-div shopping-cart" *ngIf="!products.length">
         <h5>Your cart is currently empty.</h5>
       </ul>
-      <ul class="show-div shopping-cart" *ngIf='products.length'>
+      <ul class="show-div shopping-cart" *ngIf="products.length">
         <li *ngFor="let product of products">
           <div class="media">
-            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
-              <img class="mr-3" [src]="product?.images[0].src" [alt]="product?.images[0].alt">
+            <a
+              [routerLink]="[
+                '/shop/product/left/sidebar/',
+                product.title.replace(' ', '-')
+              ]"
+            >
+              <img
+                class="mr-3"
+                [src]="product?.images[0].src"
+                [alt]="product?.images[0].alt"
+              />
             </a>
             <div class="media-body">
-              <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
+              <a
+                [routerLink]="[
+                  '/shop/product/left/sidebar/',
+                  product.title.replace(' ', '-')
+                ]"
+              >
                 <h4>{{ product?.title }}</h4>
               </a>
               <h4>
                 <span>
                   {{ product?.quantity }} x
-                  {{ product?.price * productService?.Currency.price | discount:product | currency:productService?.Currency.currency:'symbol' }}
+                  {{
+                    product?.price * productService?.Currency.price
+                      | discount: product
+                      | currency: productService?.Currency.currency:'symbol'
+                  }}
                 </span>
               </h4>
             </div>
           </div>
           <div class="close-circle" (click)="removeItem(product)">
-            <a href="javascript:void(0)"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <a href="javascript:void(0)"
+              ><i class="fa fa-times" aria-hidden="true"></i
+            ></a>
           </div>
         </li>
         <li>
           <div class="total">
-            <h5>subtotal : <span>{{ getTotal | async | currency:productService?.Currency.currency:'symbol' }}</span></h5>
+            <h5>
+              subtotal :
+              <span>{{
+                getTotal
+                  | async
+                  | currency: productService?.Currency.currency:'symbol'
+              }}</span>
+            </h5>
           </div>
         </li>
         <li>

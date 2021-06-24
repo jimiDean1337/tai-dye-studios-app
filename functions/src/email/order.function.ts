@@ -8,12 +8,12 @@ export function orderConfirmation() {
     return functions.firestore
         .document(`orders/{orderId}`)
         .onCreate((snap, context) => {
-        let orderDetails: any;
+        let order: any;
         if (snap.exists) {
-            orderDetails = snap.data();
-            return sendOrderConfirmation(orderDetails)
+            order = snap.data();
+            return sendOrderConfirmation(order)
                 .then(() => {
-                    return sendNewOrder(orderDetails)
+                    return sendNewOrder(order)
                 })
                 .catch((err: any) => console.log('error sending order confirmation', err));
         } else {
@@ -37,7 +37,7 @@ async function sendOrderConfirmation(orderDetails: any) {
 
 // Send Order Confirmation to Merchant
 async function sendNewOrder(orderDetails: any) {
-    console.log('Sending Order To Merchant', orderDetails)
+    // console.log('Sending Order To Merchant', orderDetails)
     const options: MailOptions = {
         from: `"Tai-Dye Studios" orders@tai-dye-studios.com`,
         to: ['orders@tai-dye-studios.com', 'tai@tai-dye-studios.com'],

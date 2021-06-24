@@ -34,9 +34,9 @@
                         </div>
                         <div class="footer-contant">
                             <ul class="contact-details">
-                                <li>Tai-Dye Studios - Zanesville, OH 43701</li>
-                                <li>Call Us: 740 704-2859</li>
-                                <li>Email Us: <a href="mailto: hello@tai-dye-studios.com">hello@tai-dye-studios.com.com</a></li>
+                                <li>{{contactInfo.company}} - {{contactInfo.address.city}}, {{contactInfo.address.stateOrProvince}} {{contactInfo.address.zipcode}}</li>
+                                <li>Call Us: {{contactInfo.phone}}</li>
+                                <li>Email Us: <a [href]="'mailto:'+ contactInfo.email.main">{{contactInfo.email.main}}</a></li>
                                 <!-- <li>Fax: 123456</li> -->
                             </ul>
                         </div>
@@ -57,10 +57,10 @@
 								</div>
 								<div class="footer-contant">
 									<ul>
-										<li><a href="javascript:void(0)">Womens Fashion</a></li>
-										<li><a href="javascript:void(0)">Mens Fashion</a></li>
-										<li><a href="javascript:void(0)">Kids Fashion</a></li>
-										<li><a href="javascript:void(0)">Featured</a></li>
+                                        <li><a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ category: 'clothing'}" href="javascript:void(0)">Womens Fashion</a></li>
+                                        <li><a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ category: 'clothing'}" href="javascript:void(0)">Mens Fashion</a></li>
+                                        <li><a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ category: 'clothing'}" href="javascript:void(0)">Kids Fashion</a></li>
+                                        <li><a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ category: 'clothing'}" href="javascript:void(0)">Featured</a></li>
 									</ul>
 								</div>
 							</div>
@@ -72,11 +72,11 @@
 								</div>
 								<div class="footer-contant">
 									<ul>
-										<li><a href="javascript:void(0)">shipping & return</a></li>
-										<li><a href="javascript:void(0)">secure shopping</a></li>
+										<li><a [routerLink]="['/pages/faq']" href="javascript:void(0)">shipping & return</a></li>
+										<li><a [routerLink]="['/pages/faq']" href="javascript:void(0)">secure shopping</a></li>
 										<li><a href="javascript:void(0)">gallary</a></li>
 										<li><a href="javascript:void(0)">affiliates</a></li>
-										<li><a href="javascript:void(0)">contacts</a></li>
+										<li><a [routerLink]="['/pages/contact']" href="javascript:void(0)">contacts</a></li>
 									</ul>
 								</div>
 							</div>
@@ -91,7 +91,7 @@
             <div class="row">
                 <div class="col-xl-6 col-md-6 col-sm-12">
                   <div class="footer-end">
-                    <p><i class="fa fa-copyright" aria-hidden="true"></i> {{ today | date:'y' }} Tia-Dye Studios | Made with <i class="fa fa-heart text-danger"></i> by <a href="https://suremarketingsolutions.com">Sure Marketing Solutions</a></p>
+                    <p><i class="fa fa-copyright" aria-hidden="true"></i> {{ today | date:'y' }} {{contactInfo.company}} | Made with <i class="fa fa-heart text-danger"></i> by <a href="https://suremarketingsolutions.com">Sure Marketing Solutions</a></p>
                   </div>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12">

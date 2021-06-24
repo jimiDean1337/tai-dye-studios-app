@@ -62,9 +62,11 @@
                                 </div>
                                 <div class="footer-contant">
                                     <ul class="contact-details">
-                                        <li>Tai-Dye Studios - Zanesville, OH 43701</li>
-                                        <li>Call Us: 740 704-2859</li>
-                                        <li>Email Us: <a href="mailto: hello@tai-dye-studios.com">hello@tai-dye-studios.com.com</a></li>
+                                        <li>{{contactInfo.company}} {{contactInfo.address.city}}, {{contactInfo.address.stateOrProvince}}
+                                        {{contactInfo.address.zipcode}}</li>
+                                        <li>Call Us: {{contactInfo.company}} {{contactInfo.address.city}}, {{contactInfo.address.stateOrProvince}}
+                                        {{contactInfo.address.zipcode}}</li>
+                                        <li>Email Us: <a [href]="'mailto:' + contactInfo.email.main">{{contactInfo.email.main}}</a></li>
                                         <!-- <li>Fax: 123456</li> -->
                                     </ul>
                                 </div>
@@ -111,7 +113,7 @@
                 <div class="col-xl-6 col-md-6 col-sm-12">
                     <div class="footer-end">
                         <p>
-                            <i class="fa fa-copyright" aria-hidden="true"></i> {{ today | date:'y'}} Tai-Dye Studios | Made with <i class="fa fa-heart text-danger"></i> by <a href="https://suremarketingsolutions.com">Sure
+                            <i class="fa fa-copyright" aria-hidden="true"></i> {{ today | date:'y'}} {{contactInfo.company}} | Made with <i class="fa fa-heart text-danger"></i> by <a href="https://suremarketingsolutions.com">Sure
                                 Marketing
                                 Solutions</a>
                         </p>

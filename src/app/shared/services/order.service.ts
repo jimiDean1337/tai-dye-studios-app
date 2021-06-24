@@ -28,8 +28,9 @@ export class OrderService {
   // Create order
   public createOrder(product: any, shippingDetails: any, orderId: any, subTotal: any, grandTotal: any, salesTax: any, shippingTotal: any, forPickup: boolean, orderDetails: any, coupon = null) {
     const userId: any = this.cookies.getCookieVal('USER_ID');
-    const orderDate = new Date();
-    const estimatedDeliveryDate = orderDate.setDate(orderDate.getDate() + 3 * 7);
+    const start_date = new Date();
+    const orderDate = start_date.setDate(start_date.getDate())
+    const estimatedDeliveryDate = start_date.setDate(start_date.getDate() + 3 * 7);
     const item = {
       orderDate,
       shippingDetails,
@@ -42,7 +43,7 @@ export class OrderService {
       shippingTotal,
       forPickup,
       orderDetails,
-      coupon: coupon
+      coupon
     };
     state.checkoutItems = item;
     localStorage.setItem("checkoutItems", JSON.stringify(item));

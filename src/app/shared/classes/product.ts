@@ -1,5 +1,6 @@
 // Products
 export interface Product {
+    [key: string]: any;
     id?: number;
     title?: string;
     description?: string;

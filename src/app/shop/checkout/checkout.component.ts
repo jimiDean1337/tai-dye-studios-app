@@ -9,7 +9,8 @@ import { OrderService } from "../../shared/services/order.service";
 import { Title } from '@angular/platform-browser';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { UserProfile } from 'src/app/shared/classes/user';
-import { map, scan } from 'rxjs/operators';
+import { map, scan, take } from 'rxjs/operators';
+import { CookiesService } from 'src/app/core/services/cookies/cookies.service';
 
 
 const state = {
@@ -24,41 +25,55 @@ const state = {
 export class CheckoutComponent implements OnInit {
   @ViewChild('paypal', { static: true }) Paypal: any;
   public checkoutForm: FormGroup;
-  public couponCode = new FormControl('', Validators.nullValidator);
-  public localPickup = new FormControl(false, Validators.nullValidator);
+  public couponCode = new FormControl('');
+  public localPickup = new FormControl(false);
   public products: Product[] = [];
   public payPalConfig: IPayPalConfig;
   public payment: string = 'Paypal';
   public shippingOptions: any = this.productService.Shipping;
-  User: UserProfile;
-  loadingPaymentConfig: boolean;
-  paymentConfigProgress: number;
-  paypalLoadingProgress: number = 0;
-  paypalLoading: boolean = false;
-  paypalLoadingComplete: boolean;
+  public User: UserProfile;
   constructor(private fb: FormBuilder,
     private ngZone: NgZone,
     public title: Title,
     public productService: ProductService,
+    private userService: UserService,
+    private cookies: CookiesService,
     private orderService: OrderService) {
     this.checkoutForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
       lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
       phone: ['', [Validators.required, Validators.pattern('[0-9]+')]],
       email: ['', [Validators.required, Validators.email]],
-      address: ['', [Validators.required, Validators.maxLength(50)]],
+      street: ['', [Validators.required, Validators.maxLength(50)]],
       country: ['', Validators.required],
-      town: ['', Validators.required],
+      city: ['', Validators.required],
       state: ['', Validators.required],
-      postalcode: ['', Validators.required],
+      zipcode: ['', Validators.required],
     })
   }
 
   ngOnInit(): void {
-    // this.userService.UserProfile.subscribe(user => {
-    //   console.log('User', user)
-    //   user = this.User
-    // })
+    const couponSet = localStorage.getItem('coupon');
+    if (couponSet) {
+      this.couponCode.patchValue(couponSet);
+      this.runCoupon(couponSet);
+    }
+    const userId = this.cookies.getCookieVal('USER_ID');
+    this.userService.getUserById(userId).valueChanges().pipe(take(1)).subscribe(user => {
+      // console.log('User', user)
+      const shipping = {
+        firstname: user.fName,
+        lastname: user.lName,
+        phone: user.phone,
+        email: user.email,
+        street: user.address.street,
+        country: user.address.country,
+        city: user.address.city,
+        state: user.address.stateOrProvince,
+        zipcode: user.address.zipcode
+      }
+      this.checkoutForm.patchValue({...shipping})
+    })
     let quantity = 0;
     this.title.setTitle('Checkout - Tai-Dye Studios | Creative Clothing & Accessories')
     this.productService.cartItems
@@ -123,6 +138,7 @@ export class CheckoutComponent implements OnInit {
 
 // Remove coupon
   public removeCoupon() {
+    this.couponCode.reset();
     this.productService.removeCoupon();
   }
 
@@ -154,10 +170,7 @@ export class CheckoutComponent implements OnInit {
         shippingTotal: this.getShippingTotal,
       }).subscribe(next => {
         // console.log('All Current Values', next)
-        localStorage.setItem('subTotal', JSON.stringify(next.subTotal));
-        if (!this.localPickup.value && next.subTotal < 99) {
-          next.shippingTotal = next.shippingTotal + 2.5;
-        }
+        // localStorage.setItem('subTotal', JSON.stringify(next.subTotal));
         const grandTotal = +Number(next.subTotal + next.salesTax + next.shippingTotal).toFixed(2);
         // console.log('Paypal', grandTotal, next.subTotal, next.salesTax, next.shippingTotal)
         this.payPalConfig = {
@@ -216,6 +229,7 @@ export class CheckoutComponent implements OnInit {
                 .then((orderDetails: any) => {
                   // console.log('onApprove - capture: ', orderDetails)
                   this.ngZone.run(() => {
+                    localStorage.removeItem('coupon');
                     this.orderService.createOrder(this.products, shippingDetails, data.orderID, next.subTotal, grandTotal, next.salesTax, next.shippingTotal, this.localPickup.value, orderDetails, this.productService.Coupon);
                   })
               }).catch(err => console.log('ERROR -order.capture!', err));

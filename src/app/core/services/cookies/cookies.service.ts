@@ -37,6 +37,7 @@ export class CookiesService {
   }
 
   setCookieVal(name: string, val: any, expires?: number | Date, path?: string, domain?: string, secure?: boolean, sameSite?: 'Lax' | 'None' | 'Strict') {
+    this.cookie.delete(name);
     this.cookie.set(name, val, expires || null, path || null, domain || null, secure || null, sameSite || null);
     this.cookies[name] = val;
   }

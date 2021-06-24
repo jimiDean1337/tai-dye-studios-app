@@ -4,9 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { first, map, shareReplay, switchMap, take } from 'rxjs/operators';
+import { map} from 'rxjs/operators';
 import { UserService } from '../user/user.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,23 @@ export class AuthService {
   // Get user auth data
   public getAuthData() {
     return this.auth;
+  }
+
+  // Send email verification when new user sign up
+  public SendVerificationMail() {
+    const actionSettings = {
+      url: 'https://tai-dye-studios.com',
+    }
+    return this.afAuth.currentUser.then((user) => {
+      return user.sendEmailVerification(actionSettings).then(() => {
+        return this.router.navigate(['/pages/profile'], {queryParams: {userId: user.uid}})
+      })
+    })
+
+  }
+
+  public resetPassword(email: string) {
+    return this.afAuth.sendPasswordResetEmail(email)
   }
 
   public createUserWithEmailAndPassword(email: string, password: string) {

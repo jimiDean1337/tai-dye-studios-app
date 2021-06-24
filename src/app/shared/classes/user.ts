@@ -1,12 +1,11 @@
+import { Order } from './order';
+
 export interface UserAddress {
     street?: string;
-    street2?: string;
-    aptOrSuit?: string;
     city?: string;
     stateOrProvince?: string;
     country?: string;
     zipcode?: string;
-    sameAsBilling?: boolean;
 }
 
 export interface PaymentMethod {
@@ -23,17 +22,12 @@ export class UserAccount {
     fullName?: string;
 }
 
-export class UserOrderHistory {
+export class UserOrderHistory implements Order {
     [key: string]: any;
-    shippingDetails?: any;
-    product?: any;
-    orderId?: any;
-    totalAmount?: any;
-    salesTax?: any;
-    shippingTotal?: any;
 }
 
 export class UserProfile {
+    [key: string]: any;
     id?: string;
     displayName?: string;
     fName?: string;
@@ -41,6 +35,7 @@ export class UserProfile {
     email?: string;
     phone?: string;
     address?: UserAddress;
+    billing?: UserAddress;
     photoURL?: string;
     isNewUser?: boolean = true;
     isActive?: boolean = true;
@@ -54,13 +49,17 @@ export const USER_PROFILE_DEFAULTS: UserProfile = {
     phone: '',
     address: {
         street: '',
-        street2: '',
-        aptOrSuit: '',
         city: '',
         stateOrProvince: '',
         country: '',
         zipcode: '',
-        sameAsBilling: true,
+    },
+    billing: {
+        street: '',
+        city: '',
+        stateOrProvince: '',
+        country: '',
+        zipcode: '',
     },
     photoURL: 'assets/images/icons/user-profile-default.png',
     isNewUser: true,

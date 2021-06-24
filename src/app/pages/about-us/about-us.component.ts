@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { TeamMemberProfile } from 'src/app/shared/classes/team';
+import { TEAM } from 'src/app/shared/data/team.data';
 import { TeamSlider, TestimonialSlider } from '../../shared/data/slider';
 
 @Component({
@@ -13,44 +15,24 @@ export class AboutUsComponent implements OnInit {
 
   // Testimonial Carousel
   public testimonial = [{
-    image: 'assets/images/testimonial/1.jpg',
-    name: 'Mark jkcno',
-    designation: 'Designer',
-    description: 'you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.',
+    image: 'assets/images/icon/user-profile-default.png',
+    name: 'Alanna Fluhart',
+    designation: 'Customer',
+    description: 'Tai-Dye Studios has wonderful shirts and stuff! Such soft quality T-shirts! My family has ordered a lot and I am ordering more! Highly recommend.',
   }, {
-    image: 'assets/images/testimonial/1.jpg',
-    name: 'Adegoke Yusuff',
-    designation: 'Content Writer',
-    description: 'you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.',
+    image: 'assets/images/icon/user-profile-default.png',
+    name: 'Alex Braniff',
+    designation: 'New User',
+    description: 'Very impressed with the printing quality. My shirts are one-of-a-kind, and I can\'t wait to see what you offer next!',
   }, {
-    image: 'assets/images/testimonial/1.jpg',
+    image: 'assets/images/icon/user-profile-default.png',
     name: 'John Shipmen',
-    designation: 'Lead Developer',
-    description: 'you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.',
+    designation: 'Anonymous',
+    description: 'My items were delivered on time and I received exactly what I purchased. Wayyy better than the last place I bought from XD Thanks!.',
   }]
 
   // Team
-  public team = [{
-    image: 'assets/images/team/1.jpg',
-    name: 'Tai Loughman',
-    designation: 'Designer'
-  }, {
-    image: 'assets/images/team/1.jpg',
-    name: 'Yo Mamma',
-    designation: 'Content Writer'
-  }, {
-    image: 'assets/images/team/1.jpg',
-    name: 'Jimi Flynn',
-    designation: 'Lead Developer'
-  }, {
-    image: 'assets/images/team/1.jpg',
-    name: 'Tai Loughman',
-    designation: 'CEO & Founder at Company'
-  }, {
-    image: 'assets/images/team/1.jpg',
-    name: 'Jimi Flynn',
-    designation: 'Lead Developer'
-  }]
+  public team: TeamMemberProfile[] = TEAM;
   constructor(public title: Title) { }
 
   ngOnInit(): void {

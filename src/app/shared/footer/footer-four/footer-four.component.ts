@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { WebsiteContactInfo } from '../../data/support.data';
 
 @Component({
   selector: 'app-footer-four',
@@ -11,6 +12,8 @@ export class FooterFourComponent implements OnInit {
   @Input() themeLogo: string = 'assets/images/icon/logo-shirt_230x93.png' // Default Logo
 
   public today: number = Date.now();
+
+  public contactInfo = WebsiteContactInfo;
 
   constructor() { }
 

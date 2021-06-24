@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
+import { Order } from 'src/app/shared/classes/order';
 import { UserAccount, UserOrderHistory, UserProfile, USER_PROFILE_DEFAULTS } from 'src/app/shared/classes/user';
 
 
@@ -10,42 +11,37 @@ import { UserAccount, UserOrderHistory, UserProfile, USER_PROFILE_DEFAULTS } fro
   providedIn: 'root'
 })
 export class UserService {
-  UserProfile: Observable<UserProfile>;
-  UserAccount: Observable<UserAccount>;
-  UserOrderHistory: Observable<UserOrderHistory>
-  private userCollection: AngularFirestoreCollection<any>;
+  private Users: AngularFirestoreCollection<any>;
   constructor(private afs: AngularFirestore, private toastr: ToastrService) {
-    this.userCollection = this.afs.collection<UserProfile>('users');
+    this.Users = this.afs.collection<UserProfile>('users');
   }
 
-  private get users(): Observable<UserProfile[]> {
-    return this.userCollection.valueChanges({ idField: true });
+  private get users() {
+    return this.Users;
   }
 
-  public addUserOrder(userId: string, data: any) {
-    return this.afs.collection('users').doc(userId).collection('orders').add(data);
+  public addUserOrder(userId: string, data: Order) {
+    return this.afs.collection('users').doc(userId).collection<Order>('orders').add(data);
   }
 
-  public getUserById(userId: string): Observable<any> {
-    return this.UserProfile = this.userCollection
-      .valueChanges({ idField: true })
-      .pipe(
-        map((users: UserProfile[]) => {
-          return users.filter((user: UserProfile) => user.id === userId)[0]
-        })
-      )
+  public getUserById(userId: string) {
+    return this.afs.collection<UserProfile>('users').doc(userId);
+  }
+
+  public getUserCollectionByName(userId: string, collectionName: string) {
+    return this.afs.collection(`users`).doc(userId).collection(collectionName);
   }
 
   public checkIfUserExists(userId: string) {
-    return this.users.pipe(map(users => {
+    return this.users.valueChanges({ idField: true }).pipe(map(users => {
       return users.filter((user: UserProfile) => user.id === userId).length > 0;
     }))
   }
 
   public createNewUser(id: string, data: UserProfile): Promise<void> {
     data.id = id;
-    console.log('user created', data)
-    return this.userCollection.doc(id).set({ ...USER_PROFILE_DEFAULTS, ...data })
+    // console.log('user created', data)
+    return this.Users.doc(id).set({ ...USER_PROFILE_DEFAULTS, ...data })
   }
 
   public createNewUserFromProvider(id: string, provider: string, providerData: any) {
@@ -59,7 +55,7 @@ export class UserService {
   }
 
   public updateUserProfile(id: string, data: UserProfile) {
-    return this.userCollection.doc(id).set({ ...data }, {merge: true})
+    return this.users.doc(id).set({ ...data }, {merge: true})
       .then(() => {
       this.toastr.success('Profile Updated!')
     })
