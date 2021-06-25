@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CookiesService } from 'src/app/core/services/cookies/cookies.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { UserAccount, UserProfile } from 'src/app/shared/classes/user';
+import { AlertModalComponent } from 'src/app/shared/components/modal/alert-modal/alert-modal.component';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 // import { AlertModalComponent } from 'src/app/shared/components/modal/alert-modal/alert-modal.component';
@@ -17,6 +18,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
+  @ViewChild('accountDeletionAlertModal', { static: true }) AccountDeleteAlertModal: AlertModalComponent;
 
   public UserProfile$: Observable<UserProfile>;
   public UserOrders$: any;
@@ -26,6 +28,21 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public closeResult: string;
   public USER_ID: string;
   public showOrders: boolean = false;
+
+  public
+  public userAccountDeleteOptions = {
+    content: `<h5>Are you sure you want to delete you customer account</h5 >`,
+    buttonOptions: {
+      resolve: {
+        value: 'Yes, Continue',
+        icon: ''
+      },
+      reject: {
+        value: 'Cancel',
+        icon: ''
+      }
+    }
+  }
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -71,6 +88,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       .then(() => {
         return this.router.navigate(['/pages/login']);
       })
+  }
+
+  deleteAccount() {
+    this.AccountDeleteAlertModal.openModal()
+      .then((result) => {
+        console.log(result)
+        if (!result) return;
+        this.userService.deleteUser(this.USER_ID)
+        .then(() => this.router.navigate(['/home']))
+    });
   }
 
   ToggleDashboard() {

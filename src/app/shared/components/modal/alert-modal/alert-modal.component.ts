@@ -12,8 +12,20 @@ import { CookiesService } from 'src/app/core/services/cookies/cookies.service';
   styleUrls: ['./alert-modal.component.scss']
 })
 export class AlertModalComponent implements OnInit {
-  @ViewChild('alertModal', { static: false }) AlertModal: TemplateRef<any>;
+  @ViewChild('alertModal', { static: true }) AlertModal: TemplateRef<any>;
   @Input() type: string;
+  @Input() class: string = 'exit-modal';
+  @Input() content: any = `<p>Are you sure?</p>`;
+  @Input() buttonOptions?: any = {
+    resolve: {
+      value: 'OK',
+      icon: ''
+    },
+    reject: {
+      value: 'Cancel',
+      icon: ''
+    }
+  }
   public modalOpen: boolean = false;
   public closeResult: string;
   modalRef: Promise<void>;
@@ -28,14 +40,14 @@ export class AlertModalComponent implements OnInit {
     console.log(`Modal Opening`);
     if (isPlatformBrowser(this.platformId)) { // For SSR
       console.log(`Modal Open`);
-      this.modalRef = this.modalService.open(this.AlertModal, {
-        size: 'xl',
+      return this.modalRef = this.modalService.open(this.AlertModal, {
+        size: 'lg',
         ariaLabelledBy: 'Alert-Modal',
         centered: true,
-        windowClass: 'QuickView'
+        backdrop: 'static',
+        windowClass: ''
       }).result.then((result) => {
-        console.log(`Modal Result ${result}`);
-        this.modalOpen = true;
+        return result;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       })

@@ -22,17 +22,17 @@ export class AuthService {
     }
 
     // Returns user auth data if logged in
-  private get auth() {
+  private get authState() {
     return this.Auth = this.afAuth.authState;
   }
 
   public getLoggedInState() {
-    return this.auth.pipe(map(user => !!user));
+    return this.authState.pipe(map(user => !!user));
   }
 
   // Get user auth data
   public getAuthData() {
-    return this.auth;
+    return this.authState;
   }
 
   // Send email verification when new user sign up

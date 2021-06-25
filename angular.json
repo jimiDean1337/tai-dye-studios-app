@@ -38,8 +38,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/scss/app.scss",
-              "src/styles.scss"
+              "src/assets/scss/app.scss"
             ],
             "scripts": [
               "node_modules/isotope-layout/dist/isotope.pkgd.min.js"

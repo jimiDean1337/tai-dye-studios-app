@@ -25,7 +25,7 @@ async function sendSubscriberWelcomeEmail(email: string) {
         from: `"Tai-Dye Studios" hello@tai-dye-studios.com`,
         to: email,
         subject: `👋 Thanks for subscribing to ${APP_NAME} updates!`,
-        text: `It's almost time! We are getting so close to launching🚀 our new, super easy-to-use online shop. You'll be able to find all of your favorites: 👕T-shirts, 💧water bottles, 🔑keychains, and so much 🔥more... ALL ONLINE!!\n\n Shop from anywhere, anytime!!\n\n Be sure to keep an eye on your inbox for updates on 🧨new items, 🤪cray cray deals, and ✨featured collections! \n\nThe first 50 customers get a *free gift 😉!!\n\n *while supplies last, purchase is neccessary`
+        text: `This is going to be a fantastic summer! Can you feel it?\n\nCompared to last year just about anything is better, but we really have a feeling about this year.\n\nAdd the fact that our online shop is officially up and running, we are offering FREE SHIPPING on orders over $100!!\n\nIt just doesn\'t get better than this....or does it???\n\nWe are giving all our subscribers 10% off their next purchase!!\n\n Use coupon code -- ILUVTDS --\n\nStay tuned for more exciting news, our very first newsletter, and be the first to hear about sales and featurd items!\n\nDon\'t miss out!`
     };
 
     // The user subscribed to updates and the newsletter, send welcome email to user.

@@ -144,6 +144,37 @@
                                     </div>
                                 </div>
                             </div> -->
+                            <div>
+                                <div class="box">
+                                    <div class="box-title">
+                                        <h3>Delete Account</h3>
+                                        <!-- <a [routerLink]="['/pages/profile']" [queryParams]="{userId: USER_ID}" href="javascript:void(0)">Manage
+                                            Addresses</a> -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h6>Delete account and all customer data</h6>
+                                            <address>
+                                                <p>
+                                                    <button class="btn btn-danger" (click)="deleteAccount()">Delete Account</button>
+                                                <p>
+                                                    <!-- <a href="javascript:void(0)">Edit Billing Address</a> -->
+                                                </p>
+                                            </address>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h6>Default Shipping Address</h6>
+                                            <address>
+                                                <p *ngIf="!profile.billing">You have not set a default shipping address.</p>
+                                                {{profile.address.street}} {{profile.address.street2}}<br>
+                                                {{profile.address.city}}, {{profile.address.stateOrProvince}}<br>
+                                                {{profile.address.zipcode}}<br>
+                                                <!-- <a href="javascript:void(0)">Edit Shipping Address</a> -->
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,3 +183,5 @@
     </div>
 </section>
 <!-- section end -->
+
+<app-alert-modal #accountDeletionAlertModal [type]="'Confirm Account Delete'" [content]="userAccountDeleteOptions.content" [buttonOptions]="userAccountDeleteOptions.buttonOptions"></app-alert-modal>

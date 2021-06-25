@@ -20,6 +20,10 @@ export class UserService {
     return this.Users;
   }
 
+  public deleteUser(userId: string) {
+    return this.getUserById(userId).delete();
+  }
+
   public addUserOrder(userId: string, data: Order) {
     return this.afs.collection('users').doc(userId).collection<Order>('orders').add(data);
   }

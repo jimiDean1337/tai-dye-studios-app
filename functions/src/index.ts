@@ -3,6 +3,8 @@ import { respondToContact } from './email/contact.function';
 import { respondToSubscriber } from './email/subscriber.function';
 import { handleScheduledNewsletter } from './schedulers/newsletter.scheduler';
 import { orderConfirmation } from './email/order.function';
+import { sendEmailVerification } from './email/email-verification.function';
+import { deleteUserAccount } from './email/account-deleted.function';
 
 
 // HTML Templates
@@ -10,6 +12,16 @@ import { orderConfirmation } from './email/order.function';
 
 // Init Firebase then return admin auth credentials
 const { admin } = initializeApp();
+
+/**
+ * method for verifying user email address
+ */
+exports.sendEmailVerification = sendEmailVerification(admin);
+
+/**
+ * method for deleting user
+ */
+exports.deleteUserAccount = deleteUserAccount(admin);
 
 /**
  * method for scheduling newsletter emails

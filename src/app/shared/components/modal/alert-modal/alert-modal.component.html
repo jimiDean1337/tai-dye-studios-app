@@ -1,27 +1,50 @@
 <!--modal popup start-->
-<ng-template id="alertModal" class="theme-modal" #alertModal let-modal>
-    <div class="modal-content">
-        <div class="modal-body modal8">
+<ng-template id="alertModal" #alertModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{type | uppercase}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.close(false)">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" [ngClass]="class">
+        <div class="helper-content">
+            <div [innerHTML]="content | safeHtml"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-secondary mr-3" (click)="modal.close(false)"><i *ngIf="buttonOptions.reject.icon" class="fa"
+                    [ngClass]="buttonOptions.reject.icon"></i>{{buttonOptions.reject.value}}</button>
+            <button class="btn btn-danger" (click)="modal.close(true)"><i *ngIf="buttonOptions.resolve.icon" class="fa"
+                    [ngClass]="buttonOptions.resolve.icon"></i>{{buttonOptions.resolve.value}}</button>
+        </div>
+    </div>
+    <!-- <div class="modal-content" [ngClass]="class" >
+        <div class="modal-body">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="modal-bg">
+                            <h3 class="text-left">{{type | uppercase}}</h3>
                             <button type="button" class="close" aria-label="Close"
                                 (click)="modal.dismiss('Cross click')">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             <div class="helper-content">
-                                <p>Qui amet proident cillum commodo pariatur excepteur sit consectetur cillum
-                                    consectetur in non. Laborum pariatur do elit aute culpa sint et est duis voluptate
-                                    consectetur. Id consequat duis culpa proident officia sint officia. Nulla commodo
-                                    tempor do ipsum anim in aute excepteur. Et proident reprehenderit laboris voluptate
-                                    consectetur adipisicing velit magna aliqua occaecat.</p>
+                                <div [innerHTML]="content | safeHtml"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="modal-f">
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-secondary mr-3"><i *ngIf="buttonOptions.reject.icon" class="fa"
+                    [ngClass]="buttonOptions.reject.icon"></i>{{buttonOptions.reject.value}}</button>
+                    <button class="btn btn-solid"><i *ngIf="buttonOptions.resolve.icon" class="fa" [ngClass]="buttonOptions.resolve.icon"></i>{{buttonOptions.resolve.value}}</button>
+            </div>
+        </div>
+    </div> -->
 </ng-template>
 <!--modal popup end-->
