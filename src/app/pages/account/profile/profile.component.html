@@ -1,4 +1,4 @@
-<app-breadcrumb [title]="'Profile'" [breadcrumb]="'Profile'"></app-breadcrumb>
+<app-breadcrumb [title]="'Profile'" [parent]="{name: 'Dashboard', link: '/pages/dashboard'}" [breadcrumb]="'Profile'"></app-breadcrumb>
 <!-- personal deatail section start -->
 <section class="contact-page register-page">
     <div class="container">
@@ -124,6 +124,12 @@
                                     Postalcode must be 5 digits
                                 </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-secondary mr-2" type="button" (click)="cancel()">Cancel</button>
+                                <button class="btn btn-solid" type="button" (click)="updateProfile()" [disabled]="profileShippingForm.invalid || profileForm.invalid">Save</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -132,7 +138,7 @@
 </section>
 <!-- Section ends -->
 <!-- billing section start -->
-<section class="contact-page register-page section-b-space">
+<!-- <section class="contact-page register-page section-b-space">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -201,18 +207,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-secondary mr-2" type="button" (click)="cancel()">Cancel</button>
-                            <button class="btn btn-solid" type="button" (click)="updateProfile()"
-                                [disabled]="profileShippingForm?.invalid">Save</button>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Section ends -->
 <!-- Start helper modal -->
 <app-guide-modal [type]="'helper'" [modalOptions]="helperModalOptions" [modalId]="'profileGuideModal'" [textOrTemplate]="guideModalContent" #profileHelper></app-guide-modal>

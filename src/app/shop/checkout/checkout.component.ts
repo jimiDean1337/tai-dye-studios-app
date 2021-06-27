@@ -1,6 +1,6 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { forkJoin, Observable } from 'rxjs';
+import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 import { environment } from '../../../environments/environment';
 import { Product } from "../../shared/classes/product";
@@ -12,11 +12,11 @@ import { UserProfile } from 'src/app/shared/classes/user';
 import { map, scan, take } from 'rxjs/operators';
 import { CookiesService } from 'src/app/core/services/cookies/cookies.service';
 
+// const state = {
+//   subTotal: JSON.parse(localStorage['subTotal'] || '{}'),
+//   localPickup: JSON.parse(localStorage['localPickup'] || 'false'),
+// }
 
-const state = {
-  subTotal: JSON.parse(localStorage['subTotal'] || '{}'),
-  localPickup: JSON.parse(localStorage['localPickup'] || 'false'),
-}
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -25,13 +25,14 @@ const state = {
 export class CheckoutComponent implements OnInit {
   @ViewChild('paypal', { static: true }) Paypal: any;
   public checkoutForm: FormGroup;
-  public couponCode = new FormControl('');
-  public localPickup = new FormControl(false);
+  public couponCode: FormControl = new FormControl('');
+  public localPickup: FormControl = new FormControl(false);
+  public useDefaultShippingAddress: FormControl = new FormControl(false);
   public products: Product[] = [];
   public payPalConfig: IPayPalConfig;
   public payment: string = 'Paypal';
-  public shippingOptions: any = this.productService.Shipping;
-  public User: UserProfile;
+  public shippingDetails: BehaviorSubject<any>;
+  public paypalLoading: boolean = false;
   constructor(private fb: FormBuilder,
     private ngZone: NgZone,
     public title: Title,
@@ -39,6 +40,7 @@ export class CheckoutComponent implements OnInit {
     private userService: UserService,
     private cookies: CookiesService,
     private orderService: OrderService) {
+    this.shippingDetails = new BehaviorSubject(null)
     this.checkoutForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
       lastname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
@@ -58,30 +60,15 @@ export class CheckoutComponent implements OnInit {
       this.couponCode.patchValue(couponSet);
       this.runCoupon(couponSet);
     }
-    const userId = this.cookies.getCookieVal('USER_ID');
-    this.userService.getUserById(userId).valueChanges().pipe(take(1)).subscribe(user => {
-      // console.log('User', user)
-      const shipping = {
-        firstname: user.fName,
-        lastname: user.lName,
-        phone: user.phone,
-        email: user.email,
-        street: user.address.street,
-        country: user.address.country,
-        city: user.address.city,
-        state: user.address.stateOrProvince,
-        zipcode: user.address.zipcode
-      }
-      this.checkoutForm.patchValue({...shipping})
-    })
     let quantity = 0;
     this.title.setTitle('Checkout - Tai-Dye Studios | Creative Clothing & Accessories')
     this.productService.cartItems
       .subscribe(response => this.products = response)
+      this.localPickup.valueChanges.subscribe(val => {
+        localStorage.setItem('localPickup', JSON.stringify(val))
+      })
+    this.updateShippingInfo(true)
     this.initPaypalConfig();
-    this.localPickup.valueChanges.subscribe(val => {
-      localStorage.setItem('localPickup', JSON.stringify(val))
-    })
   }
 
   // Get products cost
@@ -110,6 +97,40 @@ export class CheckoutComponent implements OnInit {
     }))
   }
 
+  public get getCustomerShippingAddress() {
+    const userId = this.cookies.getCookieVal('USER_ID');
+    return this.userService.getUserById(userId)
+      .valueChanges()
+      .pipe(map(user => {
+        return {
+          firstname: user.fName,
+          lastname: user.lName,
+          phone: user.phone,
+          email: user.email,
+          street: user.address.street,
+          country: user.address.country,
+          city: user.address.city,
+          state: user.address.stateOrProvince,
+          zipcode: user.address.zipcode
+        }
+      // console.log('User', user)
+    })
+    )
+  }
+
+  public changeShippingInfo(event: any) {
+    console.log(event)
+  }
+
+  public updateShippingInfo(useDefault: boolean, formValue?: any) {
+    this.useDefaultShippingAddress.patchValue(useDefault)
+    if (useDefault) {
+      this.getCustomerShippingAddress.subscribe(details => this.shippingDetails.next(details));
+    } else {
+      this.shippingDetails.next(formValue)
+    }
+  }
+
 // Validate and return coupon
   public runCoupon(couponCode: string) {
     this.productService.addCoupon(couponCode);
@@ -122,16 +143,7 @@ export class CheckoutComponent implements OnInit {
       coupon: this.productService.coupon
     }).pipe(map(next => {
       const coupon = next.coupon;
-      const type = coupon.type;
-      const discount = coupon.discount;
-      const subTotal = next.subTotal;
-      let qty = 0;
-      this.productService.cartItems.subscribe(products => {
-        products.map(product => {
-          qty += product.quantity;
-        })
-      })
-      return type === 'PERCENTAGE' ? +Number((subTotal * discount)).toFixed(2) : type === 'SHIPPING' ? +Number(2.50 + (2.5 * qty)).toFixed(2) : +Number(discount).toFixed(2);
+      return coupon.save;
     }))
 
   }
@@ -161,94 +173,94 @@ export class CheckoutComponent implements OnInit {
   } */
 
   // Paypal Payment Gateway Default
-  private initPaypalConfig(): void {
-    this.checkoutForm.valueChanges.subscribe(shippingDetails => {
-      // console.log('CheckoutForm Details', shippingDetails)
-      forkJoin({
-        subTotal: this.getSubTotal,
-        salesTax: this.getSalesTax,
-        shippingTotal: this.getShippingTotal,
-      }).subscribe(next => {
-        // console.log('All Current Values', next)
-        // localStorage.setItem('subTotal', JSON.stringify(next.subTotal));
-        const grandTotal = +Number(next.subTotal + next.salesTax + next.shippingTotal).toFixed(2);
-        // console.log('Paypal', grandTotal, next.subTotal, next.salesTax, next.shippingTotal)
-        this.payPalConfig = {
-            currency: this.productService.Currency.currency,
-            clientId: environment.paypal_token,
-            createOrderOnClient: (data) => < ICreateOrderRequest > {
-              intent: 'CAPTURE',
-              application_context: {
-                payment_method: {
-                  payee_preferred: 'IMMEDIATE_PAYMENT_REQUIRED',
-                  payer_selected: 'PAYPAL'
-                }
-              },
-              payer: {
-                email_address: shippingDetails.email,
-              },
-              purchase_units: [{
-                  amount: {
-                    currency_code: this.productService.Currency.currency,
-                    value: `${grandTotal}`,
-                  breakdown: {
-                    shipping: {
-                      currency_code: this.productService.Currency.currency,
-                      value: Number(next.shippingTotal).toFixed(2)
-                    },
-                    tax_total: {
-                      currency_code: this.productService.Currency.currency,
-                      value: Number(next.salesTax).toFixed(2)
-                    },
-                    item_total: {
-                        currency_code: this.productService.Currency.currency,
-                        value: Number(next.subTotal).toFixed(2)
-                    }
-                    }
+  private initPaypalConfig() {
+    this.paypalLoading = true;
+    setTimeout(() => {
+      this.paypalLoading = false;
+        forkJoin({
+          subTotal: this.getSubTotal,
+          salesTax: this.getSalesTax,
+          shippingTotal: this.getShippingTotal,
+          coupon: this.productService.coupon
+        }).subscribe(next => {
+          // console.log('All Current Values', next)
+          // localStorage.setItem('subTotal', JSON.stringify(next.subTotal));
+          const grandTotal = +Number(next.subTotal + next.salesTax + next.shippingTotal).toFixed(2);
+          // console.log('Paypal', grandTotal, next.subTotal, next.salesTax, next.shippingTotal)
+          this.payPalConfig = {
+              currency: this.productService.Currency.currency,
+              clientId: environment.paypal_token,
+              createOrderOnClient: (data) => < ICreateOrderRequest > {
+                intent: 'CAPTURE',
+                application_context: {
+                  payment_method: {
+                    payee_preferred: 'IMMEDIATE_PAYMENT_REQUIRED',
+                    payer_selected: 'PAYPAL'
                   }
-              }]
-          },
-            advanced: {
-              commit: 'true',
-              extraQueryParams: []
+                },
+                purchase_units: [{
+                    amount: {
+                      currency_code: this.productService.Currency.currency,
+                      value: `${grandTotal}`,
+                    breakdown: {
+                      shipping: {
+                        currency_code: this.productService.Currency.currency,
+                        value: Number(next.shippingTotal).toFixed(2)
+                      },
+                      tax_total: {
+                        currency_code: this.productService.Currency.currency,
+                        value: Number(next.salesTax).toFixed(2)
+                      },
+                      item_total: {
+                          currency_code: this.productService.Currency.currency,
+                          value: Number(next.subTotal).toFixed(2)
+                      }
+                      }
+                    }
+                }]
             },
-          style: {
-                color: 'blue',
-                label: 'pay',
-                layout: 'vertical',
-                size:  'responsive',
-                shape: 'rect',
-          },
+              advanced: {
+                commit: 'true',
+                extraQueryParams: []
+              },
+            style: {
+                  color: 'blue',
+                  label: 'pay',
+                  layout: 'vertical',
+                  size:  'responsive',
+                  shape: 'rect',
+            },
 
-            onApprove: (data, actions) => {
-              // console.log('onApprove - transaction was approved, but not authorized', data, actions);
-              // actions.order.get().then(details => {
-              //   console.log('onApprove - you can get full order details inside onApprove: ', details);
-              // }).catch(err => console.log('ERROR -order.get!', err));
-              return actions.order.capture()
-                .then((orderDetails: any) => {
-                  // console.log('onApprove - capture: ', orderDetails)
-                  this.ngZone.run(() => {
-                    localStorage.removeItem('coupon');
-                    this.orderService.createOrder(this.products, shippingDetails, data.orderID, next.subTotal, grandTotal, next.salesTax, next.shippingTotal, this.localPickup.value, orderDetails, this.productService.Coupon);
-                  })
-              }).catch(err => console.log('ERROR -order.capture!', err));
-            },
-            onClientAuthorization: (data) => {
-                // console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-            },
-            onCancel: (data, actions) => {
-                console.log('OnCancel', data, actions);
-            },
-            onError: err => {
-                console.log('OnError', err);
-            },
-            onClick: (data, actions) => {
-                console.log('onClick', data, actions);
-            }
-        };
-      })
-    })
+              onApprove: (data, actions) => {
+                // console.log('onApprove - transaction was approved, but not authorized', data, actions);
+                // actions.order.get().then(details => {
+                //   console.log('onApprove - you can get full order details inside onApprove: ', details);
+                // }).catch(err => console.log('ERROR -order.get!', err));
+                return actions.order.capture()
+                  .then((orderDetails: any) => {
+                    // console.log('onApprove - capture: ', orderDetails)
+                    this.ngZone.run(() => {
+                      localStorage.removeItem('coupon');
+                      this.orderService.createOrder(this.products, this.shippingDetails.getValue(), data.orderID, next.subTotal, grandTotal, next.salesTax, next.shippingTotal, this.localPickup.value, orderDetails, this.productService.Coupon);
+                    })
+                }).catch(err => console.log('ERROR -order.capture!', err));
+              },
+              onClientAuthorization: (data) => {
+                  // console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+              },
+              onCancel: (data, actions) => {
+                  console.log('OnCancel', data, actions);
+              },
+              onError: err => {
+                  console.log('OnError', err);
+              },
+              onClick: (data, actions) => {
+                  console.log('onClick', data, actions);
+              }
+          };
+        })
+    }, 2000)
+
   }
 
 }

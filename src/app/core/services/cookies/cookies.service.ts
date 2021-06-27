@@ -16,27 +16,35 @@ export class CookiesService {
     return this.cookie.check('COOKIE_CONSENT');
   }
 
-  init(): boolean {
+  public init(): boolean {
     return !this.checkCookieConsent();
   }
 
-  getCookieCache() {
+  public getCookieCache() {
     return this.cookies;
   }
 
-  checkCookie(name: string) {
+  public checkCookie(name: string) {
     return this.cookie.check(name);
   }
 
-  getCookieVal(name: string) {
+  public getCookieVal(name: string) {
     return this.cookie.get(name);
   }
 
-  setCookieConsent() {
+  public deleteCookie(name: string) {
+    return this.cookie.delete(name);
+  }
+
+  public deleteAllCookies() {
+    return this.cookie.deleteAll();
+  }
+
+  public setCookieConsent() {
     this.setCookieVal('COOKIE_CONSENT', 'true', Date.now() + 30, '/', '', true, 'Strict');
   }
 
-  setCookieVal(name: string, val: any, expires?: number | Date, path?: string, domain?: string, secure?: boolean, sameSite?: 'Lax' | 'None' | 'Strict') {
+  public setCookieVal(name: string, val: any, expires?: number | Date, path?: string, domain?: string, secure?: boolean, sameSite?: 'Lax' | 'None' | 'Strict') {
     this.cookie.delete(name);
     this.cookie.set(name, val, expires || null, path || null, domain || null, secure || null, sameSite || null);
     this.cookies[name] = val;

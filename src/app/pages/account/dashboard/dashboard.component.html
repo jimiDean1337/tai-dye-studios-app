@@ -44,7 +44,7 @@
                     <div class="block-content">
                         <h5>Order History</h5>
                         <ul>
-                            <li *ngFor="let order of UserOrders$ | async">
+                            <li *ngFor="let order of UserOrders | async">
                                 bs3-
                             </li>
 
@@ -53,14 +53,14 @@
                 </div>
             </div> -->
             <div class="col">
-                <div class="dashboard-right" *ngIf="(UserProfile$ | async) as profile">
+                <div class="dashboard-right" *ngIf="(UserProfile | async) as profile">
                     <div class="dashboard">
                         <div class="page-title">
-                            <h2>My Dashboard</h2>
+                            <h2>Account Dashboard</h2>
                         </div>
                         <div class="welcome-msg">
                             <h4>Hello, {{profile.fName | titlecase}}!</h4>
-                            <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>
+                            <p>From your Account Dashboard you can view a snapshot of your recent account information, as well as update your account when needed.</p>
                         </div>
                         <div class="box-account box-info">
                             <div class="box-head">
@@ -77,11 +77,12 @@
                                         <div class="box-content">
                                             <h6>{{profile.fName | titlecase}} {{profile.lName | titlecase}}</h6>
                                             <h6>{{profile.email}}</h6>
-                                            <h6>{{profile.phone}}</h6>
+                                            <h6 class="text-danger" *ngIf="!profile.phone"><a [routerLink]="['/pages/profile']" [queryParams]="{userId: profile.id}" href="javascript:void(0)">Add <i
+                                                    class="fa fa-phone"></i></a> &nbsp;You do not have a phone number saved</h6><h6>{{profile.phone}}</h6>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <!-- <div class="col-sm-6">
                                     <div class="box">
                                         <div class="box-title">
                                             <h3>Newsletters</h3>
@@ -93,84 +94,82 @@
                                             </p>
                                         </div>
                                     </div>
+                                </div> -->
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="box">
+                                        <div class="box-title">
+                                            <h3>Address Book</h3>
+                                            <a [routerLink]="['/pages/profile']" [queryParams]="{userId: USER_ID}" href="javascript:void(0)">Manage Addresses</a>
+                                        </div>
+                                        <div class="row">
+                                            <!-- <div class="col-sm-6">
+                                                <h6>Default Billing Address</h6>
+                                                <p class="text text-danger" *ngIf="!profile.billing.street"><a [routerLink]="['/pages/profile']" [queryParams]="{userId: profile.id}" href="javascript:void(0)">Add <i
+                                                        class="fa fa-map-marker"></i></a> &nbsp;You have not set a default billing address.</p>
+                                                <address *ngIf="profile.billing.street">
+                                                    {{profile.billing.street}} {{profile.billing.street2}}<br>
+                                                    {{profile.billing.city}}, {{profile.billing.stateOrProvince}}<br>
+                                                    {{profile.billing.zipcode}}<br>
+                                                    <p>
+                                                        <a href="javascript:void(0)">Edit Billing Address</a>
+                                                    </p>
+                                                </address>
+                                            </div> -->
+                                            <div class="col-sm-6">
+                                                <h6>Default Shipping Address</h6>
+                                                <p class="text text-danger" *ngIf="!profile.address.street"><a [routerLink]="['/pages/profile']" [queryParams]="{userId: profile.id}" href="javascript:void(0)">Add <i
+                                                        class="fa fa-map-marker"></i></a> &nbsp;You have not set a default shipping address.</p>
+                                                <address *ngIf="profile.address.street">
+                                                    {{profile.address.street}} {{profile.address.street2}}<br>
+                                                    {{profile.address.city}}, {{profile.address.stateOrProvince}}<br>
+                                                    {{profile.address.zipcode}}<br>
+                                                    <!-- <a href="javascript:void(0)">Edit Shipping Address</a> -->
+                                                </address>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="box">
-                                    <div class="box-title">
-                                        <h3>Address Book</h3>
-                                        <a [routerLink]="['/pages/profile']" [queryParams]="{userId: USER_ID}" href="javascript:void(0)">Manage Addresses</a>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <h6>Default Billing Address</h6>
-                                            <address>
-                                                <p *ngIf="!profile.billing">You have not set a default billing address.</p>
-                                                {{profile.billing.street}} {{profile.billing.street2}}<br>
-                                                {{profile.billing.city}}, {{profile.billing.stateOrProvince}}<br>
-                                                {{profile.billing.zipcode}}<br>
-                                                <p>
-                                                    <!-- <a href="javascript:void(0)">Edit Billing Address</a> -->
-                                                </p>
-                                            </address>
+                            <div class="row">
+                                <!-- <div *ngIf="UserOrders | async as orders" class="col-sm-6">
+                                    <div class="box">
+                                        <div class="box-title">
+                                            <h3>Order History</h3>
+                                            <a (click)="ToggleOrderHistory()" href="javascript:void(0)">View Orders</a>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <h6>Default Shipping Address</h6>
-                                            <address>
-                                                <p *ngIf="!profile.billing">You have not set a default shipping address.</p>
-                                                {{profile.address.street}} {{profile.address.street2}}<br>
-                                                {{profile.address.city}}, {{profile.address.stateOrProvince}}<br>
-                                                {{profile.address.zipcode}}<br>
-                                                <!-- <a href="javascript:void(0)">Edit Shipping Address</a> -->
-                                            </address>
+                                        <div class="box-content">
+                                            <ul>
+                                                <li *ngFor="let order of orders">
+                                                    Total: {{order.grandTotal | currency
+                                                                                : productService?.Currency.currency
+                                                                                : 'symbol'}}
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+
                             </div>
-                            <!-- <div *ngIf="UserOrders$ | async as orders">
-                                <div class="box">
-                                    <div class="box-title">
-                                        <h3>Order History</h3>
-                                        <a (click)="ToggleOrderHistory()" href="javascript:void(0)">View Orders</a>
-                                    </div>
-                                    <div class="box-content">
-                                        <ul>
-                                            <li *ngFor="let order of orders">
-                                                Total: {{order.grandTotal | currency
-                                                                            : productService?.Currency.currency
-                                                                            : 'symbol'}}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div>
-                                <div class="box">
-                                    <div class="box-title">
-                                        <h3>Delete Account</h3>
-                                        <!-- <a [routerLink]="['/pages/profile']" [queryParams]="{userId: USER_ID}" href="javascript:void(0)">Manage
-                                            Addresses</a> -->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <h6>Delete account and all customer data</h6>
-                                            <address>
-                                                <p>
-                                                    <button class="btn btn-danger" (click)="deleteAccount()">Delete Account</button>
-                                                <p>
-                                                    <!-- <a href="javascript:void(0)">Edit Billing Address</a> -->
-                                                </p>
-                                            </address>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="box">
+                                        <div class="box-title">
+                                            <h3>Account Actions</h3>
+                                            <!-- <a [routerLink]="['/pages/profile']" [queryParams]="{userId: USER_ID}" href="javascript:void(0)">Manage
+                                                Addresses</a> -->
                                         </div>
-                                        <div class="col-sm-6">
-                                            <h6>Default Shipping Address</h6>
-                                            <address>
-                                                <p *ngIf="!profile.billing">You have not set a default shipping address.</p>
-                                                {{profile.address.street}} {{profile.address.street2}}<br>
-                                                {{profile.address.city}}, {{profile.address.stateOrProvince}}<br>
-                                                {{profile.address.zipcode}}<br>
-                                                <!-- <a href="javascript:void(0)">Edit Shipping Address</a> -->
-                                            </address>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h6>Delete account and all customer data</h6>
+                                                    <p>
+                                                        <button class="btn btn-danger" (click)="deleteAccount()">Delete Account</button>
+                                                    <p>
+                                                        <!-- <a href="javascript:void(0)">Edit Billing Address</a> -->
+                                                    </p>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

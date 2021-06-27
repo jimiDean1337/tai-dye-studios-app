@@ -61,11 +61,12 @@
                   <a href="javascript:void(0)" (click)="removeItem(product)" class="icon mr-3">
                     <i class="ti-close"></i>
                   </a>
-                  <a href="javascript:void(0)" (click)="addToCart(product)" class="cart">
+                  <a href="javascript:void(0)" (click)="quickView.openModal()" class="cart">
                     <i class="ti-shopping-cart"></i>
                   </a>
               </td>
             </tr>
+            <app-quick-view #quickView [product]="product" [currency]="productService.Currency"></app-quick-view>
           </tbody>
         </table>
       </div>

@@ -34,6 +34,7 @@ import { MasonryGridThreeComponent } from './portfolio/masonry-grid-three/masonr
 import { MasonryGridFourComponent } from './portfolio/masonry-grid-four/masonry-grid-four.component';
 import { MasonryFullWidthComponent } from './portfolio/masonry-full-width/masonry-full-width.component';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'forget/password',
     component: ForgetPasswordComponent
+  },
+  {
+    path: 'verify-email',
+    component: VerifyEmailComponent
   },
   {
     path: 'profile',

@@ -7354,14 +7354,8 @@ footer {
             }
 
             .btn-addon {
-                position: absolute;
                 right: 36px;
-                top: 166px;
-                padding: 2px;
-                z-index: 1;
-                height: 34px;
-                width: 38px;
-                font-size: 1.5rem;
+                top: 169px;
             }
 
             .form-footer {
@@ -12387,17 +12381,6 @@ body.rtl {
             .theme-form {
                 label {
                     float: right;
-                }
-
-                .btn-addon {
-                    position: absolute;
-                    right: 36px;
-                    top: 165px;
-                    padding: 2px;
-                    z-index: 1;
-                    height: 34px;
-                    width: 38px;
-                    font-size: 1.5rem;
                 }
             }
         }

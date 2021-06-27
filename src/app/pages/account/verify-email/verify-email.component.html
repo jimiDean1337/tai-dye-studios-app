@@ -1,0 +1,15 @@
+<app-breadcrumb [title]="'Verify Email'" [breadcrumb]="'Verify Email'"></app-breadcrumb>
+
+<!-- Section start -->
+<section class="login-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <img src="assets/images/icon/email.png" class="img-fluid mb-4">
+                <h3><strong>Verify {{accountInfo.email}}</strong></h3>
+                <p>Please check your email and click the provided link.</p>
+                <p>Then refresh this page &nbsp;<button class="btn btn-solid" (click)="refreshPage()">Refresh Page <i class="fa fa-refresh"></i></button></p>
+            </div>
+        </div>
+    </div>
+</section>

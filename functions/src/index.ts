@@ -5,6 +5,7 @@ import { handleScheduledNewsletter } from './schedulers/newsletter.scheduler';
 import { orderConfirmation } from './email/order.function';
 import { sendEmailVerification } from './email/email-verification.function';
 import { deleteUserAccount } from './email/account-deleted.function';
+import { passwordReset } from './email/password-reset.function';
 
 
 // HTML Templates
@@ -17,6 +18,11 @@ const { admin } = initializeApp();
  * method for verifying user email address
  */
 exports.sendEmailVerification = sendEmailVerification(admin);
+
+/**
+ * method for password reset
+ */
+exports.passwordReset = passwordReset(admin);
 
 /**
  * method for deleting user

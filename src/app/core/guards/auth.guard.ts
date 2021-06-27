@@ -30,6 +30,9 @@ export class AuthGuard implements CanActivate, CanLoad {
             console.log(`ACCESS DENIED! Login to access ${url}`)
             this.router.navigate(['/pages/login']);
             return false;
+          } else if (loggedIn && !loggedIn.emailVerified) {
+            this.router.navigate(['/pages/verify-email']);
+            return false;
           } else {
             return true;
           }

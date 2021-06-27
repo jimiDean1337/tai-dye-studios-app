@@ -8,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BreadcrumbComponent implements OnInit {
 
   @Input() title : string;
-  @Input() breadcrumb : string;
+  @Input() breadcrumb: string;
+  @Input() parent?: {name: string, link: string, params?: any};
 
   constructor() {
   }

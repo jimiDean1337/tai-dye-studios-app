@@ -20,10 +20,10 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild('accountDeletionAlertModal', { static: true }) AccountDeleteAlertModal: AlertModalComponent;
 
-  public UserProfile$: Observable<UserProfile>;
-  public UserOrders$: any;
-  public UserWishlist$: any;
-  public UserCoupons$: any;
+  public UserProfile: Observable<UserProfile>;
+  public UserOrders: any;
+  public UserWishlist: any;
+  public UserCoupons: any;
   public openDashboard: boolean = false;
   public closeResult: string;
   public USER_ID: string;
@@ -52,10 +52,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     private userService: UserService,
     private accountService: AccountService,
   public title: Title) {
-    this.UserProfile$ = this.route.queryParams.pipe(
+    this.UserProfile = this.route.queryParams.pipe(
       switchMap((params: Params) => {
         this.USER_ID = params.userId;
-        if (!this.cookies.checkCookie('USER_ID') || this.cookies.getCookieVal('USER_ID') !== this.USER_ID) {
+        if (!this.cookies.checkCookie('USER_ID')) {
           this.cookies.setCookieVal('USER_ID', params.userId)
         }
         return this.userService.getUserById(this.USER_ID).valueChanges()
@@ -71,11 +71,13 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (!this.cookies.checkCookie('ORIENTATION_COMPLETE')) {
-      this.router.navigate(['/pages/profile'], {
-        queryParams: { userId: this.USER_ID }
-      })
-    }
+    this.UserProfile.subscribe(user => {
+      if (!user.orientationComplete) {
+        this.router.navigate(['/pages/profile'], {
+          queryParams: { userId: this.USER_ID }
+        })
+      }
+    })
   }
 
   public getUserOrders() {
@@ -95,8 +97,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       .then((result) => {
         console.log(result)
         if (!result) return;
+        this.authService.deleteUserAuth()
+        .then(() => {
         this.userService.deleteUser(this.USER_ID)
-        .then(() => this.router.navigate(['/home']))
+          .then(() => {
+            this.logout().then(() => {
+                  console.log('Logged Out')
+                  this.cookies.deleteAllCookies();
+                })
+            })
+          })
     });
   }
 

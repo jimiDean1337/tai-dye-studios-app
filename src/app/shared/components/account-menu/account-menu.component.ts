@@ -25,7 +25,7 @@ export class AccountMenuComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.userIsLoggedIn = this.authService.getLoggedInState();
+    this.userIsLoggedIn = this.authService.getLoggedInState().pipe(map(user => !!user));
     this.UserId = this.authService.getAuthData().pipe(map(data => {
       if (data) {
         this.UserProfile = this.userService.getUserById(data.uid).valueChanges();

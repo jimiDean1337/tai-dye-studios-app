@@ -11,6 +11,11 @@
                             <label for="email">email</label>
                             <input [formControl]="loginForm.controls['email']" type="email" class="form-control" id="regEmail"
                                 name="email" placeholder="Email" autocomplete="off">
+                                <div *ngIf="loginError.message"
+                                    class="text text-danger mb-3">
+                                    {{loginError.message}}
+                                    <button class="rounded-circle shadow-sm bg-light-gray text-dark btn btn-link btn-small" (click)="clearLoginError()">x</button>
+                                </div>
                             <div *ngIf="loginForm?.controls.email.touched && loginForm.controls.email.errors?.required"
                                 class="text text-danger mb-3">
                                 Email is required.
@@ -37,7 +42,11 @@
                                 (!@#$%^&*).
                             </div>
                         </div>
-                        <button class="btn btn-solid" [disabled]="loginForm.invalid" (click)="loginWithEmailAndPassword()">Login</button>
+                        <div class="d-flex justify-content-start align-items-center">
+
+                            <button class="btn btn-solid mr-3" [disabled]="loginForm.invalid" (click)="loginWithEmailAndPassword()">Login</button>
+                            <a class="btn btn-link" [routerLink]="['/pages/forget/password']">Forgot Password</a>
+                        </div>
                         <div class="form-footer">
                             <span>Or Login with social platforms</span>
                             <ul class="social">

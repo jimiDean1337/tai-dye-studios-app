@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   public getLoggedInState() {
-    return this.authState.pipe(map(user => !!user));
+    return this.authState;
   }
 
   // Get user auth data
@@ -35,21 +35,10 @@ export class AuthService {
     return this.authState;
   }
 
-  // Send email verification when new user sign up
-  public SendVerificationMail() {
-    const actionSettings = {
-      url: 'https://tai-dye-studios.com',
-    }
-    return this.afAuth.currentUser.then((user) => {
-      return user.sendEmailVerification(actionSettings).then(() => {
-        return this.router.navigate(['/pages/profile'], {queryParams: {userId: user.uid}})
-      })
+  public deleteUserAuth() {
+    return this.afAuth.currentUser.then(user => {
+      user.delete();
     })
-
-  }
-
-  public resetPassword(email: string) {
-    return this.afAuth.sendPasswordResetEmail(email)
   }
 
   public createUserWithEmailAndPassword(email: string, password: string) {

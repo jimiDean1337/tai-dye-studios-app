@@ -48,21 +48,28 @@ export class RegisterComponent implements OnInit {
     this.title.setTitle('Customer Register - Tai-Dye Studios | Creative Clothing & Accessories')
   }
 
-  registerNewUser(form: any) {
-    this.authService.createUserWithEmailAndPassword(form.email, form.password)
+  async registerNewUser(form: any) {
+    await this.authService.createUserWithEmailAndPassword(form.email, form.password)
       .then(success => {
+        // console.log('creating user: ', success)
         const profileData: UserProfile = {
           fName: form.fName,
           lName: form.lName,
+          password: form.password,
           email: form.email,
           id: success.user.uid,
-          displayName: `${form.fname} ${form.lname}`,
+          displayName: form.fname + ' ' + form.lname,
         }
-        this.userService.createNewUser(profileData.id, profileData)
+        this.userService.createNewUser(success.user.uid, profileData)
           .then(ready => {
+          // console.log('Registration: ', success)
             this.cookies.setCookieVal('USER_ID', profileData.id)
-            this.router.navigate(['/pages/profile'], { queryParams: { userId: profileData.id}})
-            this.toastr.success('Nice! You are registered')
+            if (success && success.user.emailVerified) {
+              this.toastr.success('Nice! You are registered')
+              this.router.navigate(['/pages/profile'], { queryParams: { userId: profileData.id}})
+            } else {
+              this.router.navigate(['/pages/verify-email'], { queryParams: { userId: profileData.id } })
+            }
           })
         })
       .catch(error => {

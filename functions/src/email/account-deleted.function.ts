@@ -31,7 +31,7 @@ async function sendAccountDeletionNotification(email: string, name: string) {
         from: `"Tai-Dye Studios" support@tai-dye-studios.com`,
         to: email,
         subject: `Account Deleted from ${APP_NAME}!`,
-        text: `${name}, you have deleted your account.\n\n${APP_NAME} has removed your customer account and profile from our database.`
+        text: `${name}, you have deleted your account.\n\n${APP_NAME} has removed your customer account and profile from our database.\n\nYou can come back any time and re-register to enjoy our amazing creative items that are perfect for everyone.`
     };
 
     // The user subscribed to updates and the newsletter, send welcome email to user.

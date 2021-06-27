@@ -26,7 +26,7 @@ export class OrderService {
   }
 
   // Create order
-  public createOrder(product: any, shippingDetails: any, orderId: any, subTotal: any, grandTotal: any, salesTax: any, shippingTotal: any, forPickup: boolean, orderDetails: any, coupon = null) {
+  public async createOrder(product: any, shippingDetails: any, orderId: any, subTotal: any, grandTotal: any, salesTax: any, shippingTotal: any, forPickup: boolean, orderDetails: any, coupon = null) {
     const userId: any = this.cookies.getCookieVal('USER_ID');
     const start_date = new Date();
     const orderDate = start_date.setDate(start_date.getDate())
@@ -47,10 +47,10 @@ export class OrderService {
     };
     state.checkoutItems = item;
     localStorage.setItem("checkoutItems", JSON.stringify(item));
-    localStorage.removeItem("cartItems");
-    localStorage.removeItem("subTotal");
-    return this.router.navigate(['/shop/checkout/success', orderId]).then(success => {
+    return await this.router.navigate(['/shop/checkout/success', orderId]).then(success => {
       if (success) {
+        localStorage.removeItem("cartItems");
+        localStorage.removeItem("subTotal");
         this.dataService.addOrder(item);
         this.userService.addUserOrder(userId, item)
         if (coupon) {

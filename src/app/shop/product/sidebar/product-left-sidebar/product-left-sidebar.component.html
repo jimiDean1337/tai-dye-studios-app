@@ -1,4 +1,4 @@
-<app-breadcrumb [title]="product?.title" [breadcrumb]="'Product'"></app-breadcrumb>
+<app-breadcrumb [title]="product?.title" [parent]="{name: 'Shop', link: '/shop/collection'}" [breadcrumb]="'Product'"></app-breadcrumb>
 <!-- section start -->
 <section class="section-b-space" #productsSection>
   <div class="collection-wrapper">

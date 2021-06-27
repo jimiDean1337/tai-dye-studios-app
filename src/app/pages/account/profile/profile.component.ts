@@ -79,6 +79,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       const userId = params.userId;
       this.UserProfile = this.userService.getUserById(userId).valueChanges()
         this.UserProfile.subscribe(profile => {
+          // console.log('User Profile Retrieved: ', profile)
         const profileFormData = {
           fName: profile.fName || '',
           lName: profile.lName || '',
@@ -92,26 +93,33 @@ export class ProfileComponent implements OnInit, AfterViewInit {
           country: profile.address.country || '',
           zipcode: profile.address.zipcode || ''
           }
-          const profileBillingFormData = {
-            street: profile.billing.street || '',
-            city: profile.billing.city || '',
-            stateOrProvince: profile.billing.stateOrProvince || '',
-            country: profile.billing.country || '',
-            zipcode: profile.billing.zipcode || ''
-          }
+          // const profileBillingFormData = {
+          //   street: profile.billing.street || '',
+          //   city: profile.billing.city || '',
+          //   stateOrProvince: profile.billing.stateOrProvince || '',
+          //   country: profile.billing.country || '',
+          //   zipcode: profile.billing.zipcode || ''
+          // }
         this.profileForm.patchValue({...profileFormData});
           this.profileShippingForm.patchValue({ ...profileShippingFormData });
-        this.profileBillingForm.patchValue({...profileBillingFormData});
+        // this.profileBillingForm.patchValue({...profileBillingFormData});
       })
     });
   }
 
   ngAfterViewInit() {
-    if (!this.cookies.checkCookie('ORIENTATION_COMPLETE') || this.cookies.getCookieVal('ORIENTATION_COMPLETE') === 'false') {
-      this.ProfileHelper.openModal().then(results => {
-        this.cookies.setCookieVal('ORIENTATION_COMPLETE', results)
-      });
-    }
+    this.UserProfile.subscribe(u => {
+      if (!u.orientationComplete) {
+        this.ProfileHelper.openModal().then(results => {
+          u.orientationComplete = results
+          this.userService.updateUserProfile(u.id , u)
+          // this.cookies.setCookieVal('ORIENTATION_COMPLETE', results)
+        });
+
+      }
+    })
+    // if (!this.cookies.checkCookie('ORIENTATION_COMPLETE') || this.cookies.getCookieVal('ORIENTATION_COMPLETE') === 'false') {
+    // }
   }
 
   public cancel() {
@@ -121,9 +129,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   public updateProfile(): void {
     const userId = this.cookies.getCookieVal('USER_ID')
-    const data = {address: {...this.profileShippingForm.value}, billing: {...this.profileBillingForm.value}, ...this.profileForm.value};
+    const data = {address: {...this.profileShippingForm.value}, ...this.profileForm.value};
     // console.log('profile updating...', data)
-    this.userService.updateUserProfile(userId, data).then(() => {
+    this.userService.updateUserProfile(userId, {...data}).then(() => {
       this.router.navigate(['/pages/dashboard'], { queryParams: { userId: userId } })
     });
   }

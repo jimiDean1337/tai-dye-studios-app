@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { Order } from 'src/app/shared/classes/order';
 import { UserAccount, UserOrderHistory, UserProfile, USER_PROFILE_DEFAULTS } from 'src/app/shared/classes/user';
 
@@ -13,11 +13,10 @@ import { UserAccount, UserOrderHistory, UserProfile, USER_PROFILE_DEFAULTS } fro
 export class UserService {
   private Users: AngularFirestoreCollection<any>;
   constructor(private afs: AngularFirestore, private toastr: ToastrService) {
-    this.Users = this.afs.collection<UserProfile>('users');
   }
 
   private get users() {
-    return this.Users;
+    return this.Users = this.afs.collection<UserProfile>('users');
   }
 
   public deleteUser(userId: string) {
@@ -42,10 +41,22 @@ export class UserService {
     }))
   }
 
+  public checkForUserByEmail(email: string) {
+    return this.afs.collection<UserProfile>('users').valueChanges()
+      .pipe(
+        map(users => users.filter(user => user.email === email)),
+        map(users => !!users.length)
+    )
+  }
+
+  resetPassword(email: string) {
+    return this.afs.collection('password-resets').add({ email, timestamp: new Date() })
+  }
+
   public createNewUser(id: string, data: UserProfile): Promise<void> {
     data.id = id;
     // console.log('user created', data)
-    return this.Users.doc(id).set({ ...USER_PROFILE_DEFAULTS, ...data })
+    return this.users.doc(id).set({ ...USER_PROFILE_DEFAULTS, ...data })
   }
 
   public createNewUserFromProvider(id: string, provider: string, providerData: any) {

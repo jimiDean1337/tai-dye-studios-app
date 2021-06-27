@@ -26,7 +26,6 @@ export class ProductService {
   public Products: Observable<Product[]>;
   public Coupon: Coupon | null;
   public CartQuantity: number = 0;
-  public Shipping = {qty: 0, ship: true, cost: 5};
   CouponInvalid: BehaviorSubject<boolean>;
 
   constructor(private http: HttpClient,
@@ -292,6 +291,7 @@ export class ProductService {
   }
 
   public removeCoupon() {
+    localStorage.removeItem('coupon')
     this.Coupon = null;
   }
 
@@ -305,7 +305,7 @@ export class ProductService {
     console.log('Searching', query)
     return this.getProducts.pipe(map(product =>
       product.filter((item: Product) => item.title.includes(query))
-      ))
+    ))
   }
 
   /*
