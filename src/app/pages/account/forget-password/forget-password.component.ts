@@ -25,7 +25,7 @@ export class ForgetPasswordComponent implements OnInit {
 
   public sendPasswordResetEmail(email: string) {
     this.userService.checkForUserByEmail(email).pipe(take(1)).subscribe(results => {
-      console.log('Email Found: ', results)
+      // console.log('Email Found: ', results)
       if (!results) {
         this.userNotFound = true;
         this.toastr.error('No record of an account with this email. Please try again')

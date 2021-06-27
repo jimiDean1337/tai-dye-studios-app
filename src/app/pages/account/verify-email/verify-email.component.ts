@@ -21,7 +21,7 @@ export class VerifyEmailComponent implements OnInit {
               user
             }
             if (user.emailVerified) {
-              console.log(user)
+              // console.log(user)
               this.router.navigate(['/pages/profile'], {queryParams: {userId: user.uid}})
             }
           })

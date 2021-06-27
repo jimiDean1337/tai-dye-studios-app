@@ -95,7 +95,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   deleteAccount() {
     this.AccountDeleteAlertModal.openModal()
       .then((result) => {
-        console.log(result)
+        // console.log(result)
         if (!result) return;
         this.authService.deleteUserAuth()
         .then(() => {
