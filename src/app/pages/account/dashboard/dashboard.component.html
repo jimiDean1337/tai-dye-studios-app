@@ -75,10 +75,9 @@
                                             <a [routerLink]="['/pages/profile']" [queryParams]="{userId: profile.id}" href="javascript:void(0)">Edit</a>
                                         </div>
                                         <div class="box-content">
-                                            <h6>{{profile.fName | titlecase}} {{profile.lName | titlecase}}</h6>
-                                            <h6>{{profile.email}}</h6>
-                                            <h6 class="text-danger" *ngIf="!profile.phone"><a [routerLink]="['/pages/profile']" [queryParams]="{userId: profile.id}" href="javascript:void(0)">Add <i
-                                                    class="fa fa-phone"></i></a> &nbsp;You do not have a phone number saved</h6><h6>{{profile.phone}}</h6>
+                                            <h6><strong>Name:</strong> &nbsp;{{profile.fName | titlecase}} {{profile.lName | titlecase}}</h6>
+                                            <h6><strong>Email:</strong> &nbsp;{{profile.email | lowercase}}</h6>
+                                            <h6 *ngIf="profile.phone"><strong>Phone:</strong>&nbsp;{{profile.phone}}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -104,26 +103,11 @@
                                             <a [routerLink]="['/pages/profile']" [queryParams]="{userId: USER_ID}" href="javascript:void(0)">Manage Addresses</a>
                                         </div>
                                         <div class="row">
-                                            <!-- <div class="col-sm-6">
-                                                <h6>Default Billing Address</h6>
-                                                <p class="text text-danger" *ngIf="!profile.billing.street"><a [routerLink]="['/pages/profile']" [queryParams]="{userId: profile.id}" href="javascript:void(0)">Add <i
-                                                        class="fa fa-map-marker"></i></a> &nbsp;You have not set a default billing address.</p>
-                                                <address *ngIf="profile.billing.street">
-                                                    {{profile.billing.street}} {{profile.billing.street2}}<br>
-                                                    {{profile.billing.city}}, {{profile.billing.stateOrProvince}}<br>
-                                                    {{profile.billing.zipcode}}<br>
-                                                    <p>
-                                                        <a href="javascript:void(0)">Edit Billing Address</a>
-                                                    </p>
-                                                </address>
-                                            </div> -->
                                             <div class="col-sm-6">
                                                 <h6>Default Shipping Address</h6>
-                                                <p class="text text-danger" *ngIf="!profile.address.street"><a [routerLink]="['/pages/profile']" [queryParams]="{userId: profile.id}" href="javascript:void(0)">Add <i
-                                                        class="fa fa-map-marker"></i></a> &nbsp;You have not set a default shipping address.</p>
-                                                <address *ngIf="profile.address.street">
-                                                    {{profile.address.street}} {{profile.address.street2}}<br>
-                                                    {{profile.address.city}}, {{profile.address.stateOrProvince}}<br>
+                                                <address>
+                                                    {{profile.address.street | titlecase}} {{profile.address.street2 | titlecase}}<br>
+                                                    {{profile.address.city | titlecase}}, {{profile.address.stateOrProvince | titlecase}}<br>
                                                     {{profile.address.zipcode}}<br>
                                                     <!-- <a href="javascript:void(0)">Edit Shipping Address</a> -->
                                                 </address>

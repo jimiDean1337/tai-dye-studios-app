@@ -70,11 +70,32 @@ export class UserService {
   }
 
   public updateUserProfile(id: string, data: UserProfile) {
+    data = this.formatData(data);
     return this.users.doc(id).set({ ...data }, {merge: true})
       .then(() => {
       this.toastr.success('Profile Updated!')
     })
       .catch(error => this.errorHandler(error, 'Could not update! Try again.'))
+  }
+
+  private formatData(data) {
+    for (let prop in data) {
+      const thisProp = prop;
+      if (typeof data[prop] !== 'string') {
+        for (let i in data[thisProp]) {
+          const thatProp = i;
+          data[thisProp][thatProp] = String(data[thisProp][i]).toUpperCase();
+        }
+      } else {
+        data[thisProp] = String(data[prop]).toUpperCase();
+      }
+    }
+    data.phone = this.formatPhoneNumber(data.phone);
+    return data;
+  }
+
+  private formatPhoneNumber(phone: string) {
+    return `${phone}`.replace(/(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
   }
 
   private createUserFromGoogleProvider(id: string, user: any, additionalUserInfo: any): UserProfile {
