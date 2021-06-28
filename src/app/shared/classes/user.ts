@@ -54,13 +54,6 @@ export const USER_PROFILE_DEFAULTS: UserProfile = {
         country: '',
         zipcode: '',
     },
-    billing: {
-        street: '',
-        city: '',
-        stateOrProvince: '',
-        country: '',
-        zipcode: '',
-    },
     photoURL: 'assets/images/icons/user-profile-default.png',
     isNewUser: true,
     isActive: true,
