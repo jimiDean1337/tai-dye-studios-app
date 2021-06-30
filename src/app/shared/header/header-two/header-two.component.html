@@ -1,5 +1,5 @@
 <!-- header start -->
-<header class="sticky" [ngClass]="[class, stick && sticky ? 'slideInDown':'']" [class.fixed]="stick && sticky">
+<header class="sticky" [ngClass]="class" [class.fixed]="stick && sticky">
     <div class="mobile-fix-option"></div>
     <div class="top-header top-header-dark2" *ngIf="topbar">
         <div class="container">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="absolute-logo">
                         <div class="brand-logo">
-                            <a [routerLink]="['/home/fashion']">
+                            <a [routerLink]="['/home']">
                                 <img [src]="themeLogo" alt="logo">
                             </a>
                         </div>

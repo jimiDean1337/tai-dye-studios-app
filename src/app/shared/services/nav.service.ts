@@ -69,18 +69,18 @@ export class NavService {
 		},
 		{
 			title: 'bags', type: 'sub', active: false, children: [
-			  { path: '/home/fashion', title: 'shopping bags', type: 'link' },
+			  { path: '/home', title: 'shopping bags', type: 'link' },
 			]
 		},
 		{
 			title: 'Accessories', type: 'sub', active: false, children: [
-			  { path: '/home/fashion', title: 'water bottles', type: 'link' },
-			  { path: '/home/fashion', title: 'caps and hats', type: 'link' },
-			  { path: '/home/fashion', title: 'key chains', type: 'link' },
+			  { path: '/home', title: 'water bottles', type: 'link' },
+			  { path: '/home', title: 'caps and hats', type: 'link' },
+			  { path: '/home', title: 'key chains', type: 'link' },
 			]
 		},
 		{
-			path: '/home/fashion', title: 'designs and graphics', type: 'link'
+			path: '/home', title: 'designs and graphics', type: 'link'
 		},
 	];
 
