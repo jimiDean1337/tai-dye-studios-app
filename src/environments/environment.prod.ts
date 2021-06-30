@@ -1,7 +1,7 @@
 /* TODO: Set live paypal_token */
 export const environment = {
   production: true,
-  instagram_token: 'INSTA_TOKEN',
+  instagram_token: 'IGQVJWSHdITG1HUEtXVVZAvNS13MXdRNnJLSkpKZAEhHYmRHSUkwMlZAPUTlpbFlRVjQxTjJXUzRBSGFKWktwejhseUtud09tUmVmWVhyOGZA0TnU4ZAGYyOG9pUXFzc3JXVGhSbGJYUHpkX21ESXROSF9qcQZDZD',
   twitter_token: 'TWITTER_TOKEN',
   facebook_token: 'FACEBOOK_TOKEN',
   stripe_token: 'STRIPE_TOKEN',
