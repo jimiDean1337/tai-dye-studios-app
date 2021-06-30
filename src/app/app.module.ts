@@ -38,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoadingBarRouterModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      progressBar: false,
+      progressBar: true,
       enableHtml: true,
     }),
     TranslateModule.forRoot({
