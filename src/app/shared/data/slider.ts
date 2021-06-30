@@ -1,3 +1,5 @@
+import { OwlOptions } from 'ngx-owl-carousel-o';
+
 // Home Slider
 export let HomeSlider: any = {
     loop: true,
@@ -47,19 +49,17 @@ export let BlogSlider: any = {
 };
 
 // Insta Slider
-export let InstaSlider: any = {
+export let InstaSlider: OwlOptions = {
     loop: true,
     dots: false,
     navSpeed: 300,
     responsive: {
+        0: {
+            dots: true,
+            items: 1
+        },
         740: {
             items: 3
-        },
-        940: {
-            items: 6
-        },
-        1200: {
-            items: 6
         }
     }
 };

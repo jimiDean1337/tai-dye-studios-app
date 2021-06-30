@@ -4,9 +4,9 @@
 /* TODO: Set Paypal token */
 export const environment = {
   production: false,
-  instagram_token: '44e191a4280520c9ab25a39acd85fae5',
+  instagram_token: 'IGQVJWSHdITG1HUEtXVVZAvNS13MXdRNnJLSkpKZAEhHYmRHSUkwMlZAPUTlpbFlRVjQxTjJXUzRBSGFKWktwejhseUtud09tUmVmWVhyOGZA0TnU4ZAGYyOG9pUXFzc3JXVGhSbGJYUHpkX21ESXROSF9qcQZDZD',
   twitter_token: 'TWITTER_TOKEN',
-  facebook_token: 'FACEBOOK_TOKEN',
+  facebook_token: 'EAADzL5jBZAMEBAI8y8UDHFhf9FS0V0MvUYiMv7UyD2zGnMnB0SJjQPI9UOapdLAk6hkrRoixWAwZBsVA6qLQfJqC1gS3FGgZBXqH5h58mfOkDR34cH2wYLaltrpcvG5xisOGjXZCouwMam0Yz3ejZBhKuz7ZCgZAzW5UHdZAGPNZCmKCR59gZBNZB1MI1frYzyqTZAgeZAk2XJeRaK5zCcd77Xbyd',
   stripe_token: 'STRIPE_TOKEN',
   paypal_token: 'AcNlbd9DD3m82qLVfP9J3hbf8FByrax5NMez84I6v4J7gdbsrCrrBPCQJjOISr6G216KJtGXCQpaROoM',
   firebase_config: {

@@ -12,7 +12,7 @@ export class InstagramService {
 
   // Instagram Array
   public get getInstagramData() {
-    return this.http.get('https://graph.instagram.com/v11/?access_token=' + environment.instagram_token + '/media');
+    return this.http.get(`https://graph.instagram.com/17841448602975001/media?fields=id,link,media_url,permalink,caption&access_token=${environment.instagram_token}`);
   }
 
 }

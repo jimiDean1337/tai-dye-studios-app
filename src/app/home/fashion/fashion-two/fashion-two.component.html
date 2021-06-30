@@ -1,4 +1,4 @@
-<app-header-two [themeLogo]="themeLogo" [sticky]="true"></app-header-two>
+<app-header-two [class]="'animated'" [themeLogo]="themeLogo" [sticky]="true"></app-header-two>
 
 <!-- Home slider start-->
 <section class="p-0">
@@ -18,7 +18,7 @@
             <div class="col-md-6" *ngFor="let collection of collections1">
                 <a [routerLink]="['/shop/collection']" [queryParams]="{ category: 'clothing'}">
                     <div class="collection-banner p-left text-left">
-                        <img [src]="collection.image" class="img-fluid" alt="collection-banner">
+                        <img [src]="collection.image" [alt]="collection.alt | titlecase" class="img-fluid" alt="collection-banner">
                         <div class="contain-banner">
                             <div>
                                 <h4>{{collection.save}}</h4>
@@ -37,7 +37,7 @@
             <div class="col-md-6" *ngFor="let collection of collections2">
                 <a [routerLink]="['/shop/collection']" [queryParams]="{ category: 'clothing'}">
                     <div class="collection-banner p-left text-left">
-                        <img [src]="collection.image" class="img-fluid" alt="collection-banner">
+                        <img [src]="collection.image"[alt]="collection.alt | titlecase" class="img-fluid" alt="collection-banner">
                         <div class="contain-banner">
                             <div>
                                 <h4>{{collection.save}}</h4>
@@ -61,8 +61,8 @@
     <div class="container">
         <div class="row">
             <div class="col theme-tab">
-                <ngb-tabset [justify]="'center'" [type]="'pills'" class="tabs tab-title">
-                    <ngb-tab *ngFor="let collection of productCollections">
+                <ngb-tabset role="tablist" [justify]="'center'" [type]="'pills'" class="tabs tab-title">
+                    <ngb-tab *ngFor="let collection of productCollections" role="tab">
                         <ng-template ngbTabTitle>{{collection}}</ng-template>
                         <ng-template ngbTabContent>
                             <div class="no-slider row">
@@ -123,17 +123,8 @@
 <!-- product slider end -->
 
 <!-- Instagram section -->
-<section class="instagram">
-    <div class="container-fluid ">
-        <div class="row">
-            <div class="col-md-12 p-0">
-                <!-- <h2 class="title-borderless"># instagram</h2> -->
-                <!-- TODO: Add Instagram API -->
-                <!-- <app-instagram></app-instagram> -->
-            </div>
-        </div>
-    </div>
-</section>
+<!-- TODO: Add Instagram API -->
+<app-instagram></app-instagram>
 <!-- Instagram section End -->
 <app-newsletter></app-newsletter>
 <app-footer-two [themeLogo]="themeLogo"></app-footer-two>

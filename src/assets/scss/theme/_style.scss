@@ -1848,6 +1848,17 @@ header {
         width: 100%;
     }
 
+    .caption {
+        // font-size: 1.5em;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0.5em;
+        font-weight: 700;
+        // color: $gray-800;
+    }
+
     .overlay {
         transition: .5s ease;
         opacity: 0;
@@ -9133,9 +9144,12 @@ footer {
         top: 95px;
         left: 67px;
         background: $theme-deafult;
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
             background: lighten($theme-deafult, 10) !important;
         }
+
         i {
             color: $white;
         }

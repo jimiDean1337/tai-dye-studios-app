@@ -7,25 +7,25 @@ Services: @critical
             ✔ Other @done(21-06-01 01:35)
         ✔ Logout @done(21-06-01 01:34)
         ✔ Registration @done(21-06-01 01:34)
-        ☐ Password Reset
+        ✔ Password Reset @done(21-06-29 11:38)
 
     User:
         ✔ Create @done(21-06-01 01:35)
         ✔ Read @done(21-06-01 01:35)
         ✔ Update @done(21-06-01 01:35)
-        ☐ Delete
+        ✔ Delete @done(21-06-29 11:38)
 
     Data:
         ✔ Users @done(21-06-01 01:35)
         ✔ Contacts @done(21-06-01 01:35)
         ✔ Subscribers @done(21-06-01 01:35)
         ✔ Products @done(21-06-01 01:35)
-        ☐ Other
+        ✔ Other @done(21-06-29 11:38)
 
     Other: @critical
         ✘ Image Download @cancelled(21-06-01 01:35)
         ☐ Reviews @started(21-06-01 01:35)
-        ☐ Search @started(21-06-01 01:35)
+        ✔ Search @started(21-06-01 01:35) @done(21-06-29 11:38) @lasted(4w10h3m40s)
         ☐ Lookbook @started(21-06-01 01:35)
 
     Analytics: @critical
@@ -37,8 +37,8 @@ Services: @critical
 
 Assets: @high
     ☐ Products Data
-        ☐ Generate data for every product that will be sold
-        ☐ Enter generated data into Products Firestore database
+        ✔ Generate data for every product that will be sold @done(21-06-29 11:38)
+        ✔ Enter generated data into Products Firestore database @done(21-06-29 11:38)
     ☐ Product Images
         ✔ Take high quality photos of every product w/ variations @done(21-06-05 04:19)
         ✔ Meet resolution requirements @done(21-06-05 04:19)
@@ -48,7 +48,7 @@ Assets: @high
 UI/UX/Markup: @critical
     ☐ Generate accurate sitemap for reference
     ☐ Create UI flow chart
-    ☐ Complete text/copy/content for every site page
+    ☐ Complete text/copy/content for every site page @started(21-06-29 11:39)
         ☐ SEO focused
         ☐ Spell checking
 

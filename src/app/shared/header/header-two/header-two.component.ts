@@ -26,9 +26,9 @@ export class HeaderTwoComponent implements OnInit {
   onWindowScroll() {
     let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (number >= 150 && window.innerWidth > 400) {
-      this.stick = true;
+      this.stick = this.sticky ? true:false;
     } else {
-      this.stick = false;
+      this.stick = this.sticky ? false:true;
     }
   }
 

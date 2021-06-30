@@ -12,65 +12,67 @@ export class MasonryFullWidthComponent implements OnInit, AfterViewInit  {
   public galleryFilter: string = 'all'
   public ButtonsConfig: any = ButtonsConfiguration;
   public GalleryConfig: any = PlainGalleryConfiguration;
-  
+
   public Images;
-  
+
   public AllImage = [
-    new Image(1, { img: 'assets/images/portfolio/1.jpg' }),
-    new Image(2, { img: 'assets/images/portfolio/2.jpg' }),
-    new Image(3, { img: 'assets/images/portfolio/3.jpg' }),
-    new Image(4, { img: 'assets/images/portfolio/4.jpg' }),
-    new Image(5, { img: 'assets/images/portfolio/5.jpg' }),
-    new Image(6, { img: 'assets/images/portfolio/6.jpg' }),
-    new Image(7, { img: 'assets/images/portfolio/7.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/8.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/9.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/10.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/11.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/12.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/13.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/14.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/15.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/16.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/17.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/18.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/19.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/20.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/21.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/22.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/23.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/24.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/25.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/26.jpg' })
+    new Image(1, { img: 'assets/images/product/tshirts/1_front.jpg' }),
+    new Image(2, { img: 'assets/images/product/tshirts/2_front.jpg' }),
+    new Image(3, { img: 'assets/images/product/tshirts/3_front.jpg' }),
+    new Image(4, { img: 'assets/images/product/tshirts/4_front.jpg' }),
+    new Image(5, { img: 'assets/images/product/tshirts/5_front.jpg' }),
+    new Image(6, { img: 'assets/images/product/tshirts/6_front.jpg' }),
+    new Image(7, { img: 'assets/images/product/tshirts/7_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/8_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/9_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/10_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/11_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/12_front.jpg' }),
   ];
 
   public FashionImage = [
-    new Image(1, { img: 'assets/images/portfolio/1.jpg' }),
-    new Image(2, { img: 'assets/images/portfolio/2.jpg' }),
-    new Image(3, { img: 'assets/images/portfolio/3.jpg' }),
-    new Image(4, { img: 'assets/images/portfolio/4.jpg' }),
-    new Image(5, { img: 'assets/images/portfolio/5.jpg' }),
-    new Image(6, { img: 'assets/images/portfolio/6.jpg' }),
-    new Image(7, { img: 'assets/images/portfolio/7.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/8.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/9.jpg' })
+    new Image(1, { img: 'assets/images/product/tshirts/1_front.jpg' }),
+    new Image(2, { img: 'assets/images/product/tshirts/2_front.jpg' }),
+    new Image(3, { img: 'assets/images/product/tshirts/3_front.jpg' }),
+    new Image(4, { img: 'assets/images/product/tshirts/4_front.jpg' }),
+    new Image(5, { img: 'assets/images/product/tshirts/5_front.jpg' }),
+    new Image(6, { img: 'assets/images/product/tshirts/6_front.jpg' }),
+    new Image(7, { img: 'assets/images/product/tshirts/7_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/8_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/9_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/10_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/11_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/12_front.jpg' }),
   ]
-  
+
   public ShoesImages = [
-    new Image(8, { img: 'assets/images/portfolio/14.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/15.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/16.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/17.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/18.jpg' })
+    new Image(1, { img: 'assets/images/product/tshirts/1_front.jpg' }),
+    new Image(2, { img: 'assets/images/product/tshirts/2_front.jpg' }),
+    new Image(3, { img: 'assets/images/product/tshirts/3_front.jpg' }),
+    new Image(4, { img: 'assets/images/product/tshirts/4_front.jpg' }),
+    new Image(5, { img: 'assets/images/product/tshirts/5_front.jpg' }),
+    new Image(6, { img: 'assets/images/product/tshirts/6_front.jpg' }),
+    new Image(7, { img: 'assets/images/product/tshirts/7_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/8_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/9_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/10_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/11_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/12_front.jpg' }),
   ]
-  
+
   public WatchImages = [
-    new Image(8, { img: 'assets/images/portfolio/21.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/22.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/23.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/24.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/25.jpg' }),
-    new Image(8, { img: 'assets/images/portfolio/26.jpg' })
+    new Image(1, { img: 'assets/images/product/tshirts/1_front.jpg' }),
+    new Image(2, { img: 'assets/images/product/tshirts/2_front.jpg' }),
+    new Image(3, { img: 'assets/images/product/tshirts/3_front.jpg' }),
+    new Image(4, { img: 'assets/images/product/tshirts/4_front.jpg' }),
+    new Image(5, { img: 'assets/images/product/tshirts/5_front.jpg' }),
+    new Image(6, { img: 'assets/images/product/tshirts/6_front.jpg' }),
+    new Image(7, { img: 'assets/images/product/tshirts/7_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/8_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/9_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/10_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/11_front.jpg' }),
+    new Image(8, { img: 'assets/images/product/tshirts/12_front.jpg' }),
   ]
 
   constructor() { }
@@ -80,7 +82,7 @@ export class MasonryFullWidthComponent implements OnInit, AfterViewInit  {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(function(){ 
+    setTimeout(function(){
         // vanilla JS
         var grid = document.querySelector('.isotopeContainer');
         new (<any>window).Isotope( grid, {
@@ -92,8 +94,8 @@ export class MasonryFullWidthComponent implements OnInit, AfterViewInit  {
 
   openImage(image) {
     const index: number = this.getCurrentIndexCustomLayout(image, this.Images);
-    this.GalleryConfig = Object.assign({}, this.GalleryConfig, { 
-        layout: new AdvancedLayout(index, true) 
+    this.GalleryConfig = Object.assign({}, this.GalleryConfig, {
+        layout: new AdvancedLayout(index, true)
     });
   }
 
@@ -102,21 +104,21 @@ export class MasonryFullWidthComponent implements OnInit, AfterViewInit  {
   };
 
   filter(term) {
-    
+
     if(term == 'all') {
       this.Images = this.AllImage
-    } else if(term == 'fashion') {
+    } else if(term == 'mens') {
       this.Images = this.FashionImage
-    } else if(term == 'shoes') {
+    } else if(term == 'womens') {
       this.Images = this.ShoesImages
-    } else if(term == 'watch') {
+    } else if(term == 'kids') {
       this.Images = this.WatchImages
     }
 
     this.galleryFilter = term
 
     // For isotop layout
-    setTimeout(function(){ 
+    setTimeout(function(){
       // vanilla JS
       var grid = document.querySelector('.isotopeContainer');
       new (<any>window).Isotope( grid, { filter: '.'+term });

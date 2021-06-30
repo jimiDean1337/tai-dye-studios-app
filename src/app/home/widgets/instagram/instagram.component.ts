@@ -8,11 +8,14 @@ import { InstaSlider } from '../../../shared/data/slider';
   styleUrls: ['./instagram.component.scss']
 })
 export class InstagramComponent implements OnInit {
-  
+
   public instagram: any;
 
-  constructor(private instaService: InstagramService) { 
-  	this.instaService.getInstagramData.subscribe(response => this.instagram = response);
+  constructor(private instaService: InstagramService) {
+    this.instaService.getInstagramData.subscribe(response => {
+      // console.log('Insta: ' ,response)
+      this.instagram = response
+    });
   }
 
   ngOnInit(): void {

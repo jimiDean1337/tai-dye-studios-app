@@ -10,9 +10,9 @@
                 <div class="filter-container isotopeFilters">
                     <ul class="list-inline filter">
                         <li [class.active]="galleryFilter == 'all'"><a href="javascript:void(0)" (click)="filter('all')">All </a></li>
-                        <li [class.active]="galleryFilter == 'fashion'"><a href="javascript:void(0)" (click)="filter('fashion')">Fashion</a></li>
-                        <li [class.active]="galleryFilter == 'shoes'"><a href="javascript:void(0)" (click)="filter('shoes')">Shoes</a></li>
-                        <li [class.active]="galleryFilter == 'watch'"><a href="javascript:void(0)" (click)="filter('watch')">Watch</a></li>
+                        <li [class.active]="galleryFilter == 'fashion'"><a href="javascript:void(0)" (click)="filter('mens')">Mens</a></li>
+                        <li [class.active]="galleryFilter == 'shoes'"><a href="javascript:void(0)" (click)="filter('womens')">Womens</a></li>
+                        <li [class.active]="galleryFilter == 'watch'"><a href="javascript:void(0)" (click)="filter('kids')">Kids</a></li>
                     </ul>
                 </div>
             </div>
@@ -36,9 +36,9 @@
            </div>
         </div>
     </div>
-    <ks-modal-gallery [id]="200" 
+    <ks-modal-gallery [id]="200"
         [modalImages]="Images"
-        [plainGalleryConfig]="GalleryConfig" 
+        [plainGalleryConfig]="GalleryConfig"
         [buttonsConfig]="ButtonsConfig">
     </ks-modal-gallery>
 </section>
