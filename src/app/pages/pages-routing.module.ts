@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 import { WishlistComponent } from './account/wishlist/wishlist.component';
 import { CartComponent } from './account/cart/cart.component';
 import { DashboardComponent } from './account/dashboard/dashboard.component';
@@ -35,6 +35,10 @@ import { MasonryGridFourComponent } from './portfolio/masonry-grid-four/masonry-
 import { MasonryFullWidthComponent } from './portfolio/masonry-full-width/masonry-full-width.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { VerifyEmailComponent } from './account/verify-email/verify-email.component';
+import { map } from 'rxjs/operators';
+
+// const adminOnly = () => hasCustomClaim('admin');
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['pages/login']);
 
 const routes: Routes = [
   {
@@ -48,12 +52,11 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'login',
     component: LoginComponent
-    // TODO: Add CanDeactivate Guard
   },
   {
     path: 'register',
@@ -70,7 +73,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [AuthGuard]
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'contact',
@@ -79,7 +82,7 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
-    canActivate: [AuthGuard]
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'aboutus',

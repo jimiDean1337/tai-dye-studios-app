@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { CookiesService } from 'src/app/core/services/cookies/cookies.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { UserProfile } from 'src/app/shared/classes/user';
@@ -40,7 +40,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     backdrop: 'static',
     keyboard: false,
     centered: true,
-    container: 'form.theme-form',
   }
 
   constructor(private router: Router,
@@ -57,13 +56,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     })
 
     this.profileShippingForm = this.fb.group({
-      street: [''],
-      city: [''],
-      stateOrProvince: [''],
-      country: [''],
-      zipcode: [''],
-    })
-    this.profileBillingForm = this.fb.group({
       street: [''],
       city: [''],
       stateOrProvince: [''],
@@ -93,33 +85,19 @@ export class ProfileComponent implements OnInit, AfterViewInit {
           country: profile.address.country || '',
           zipcode: profile.address.zipcode || ''
           }
-          // const profileBillingFormData = {
-          //   street: profile.billing.street || '',
-          //   city: profile.billing.city || '',
-          //   stateOrProvince: profile.billing.stateOrProvince || '',
-          //   country: profile.billing.country || '',
-          //   zipcode: profile.billing.zipcode || ''
-          // }
+
         this.profileForm.patchValue({...profileFormData});
-          this.profileShippingForm.patchValue({ ...profileShippingFormData });
-        // this.profileBillingForm.patchValue({...profileBillingFormData});
+        this.profileShippingForm.patchValue({ ...profileShippingFormData });
       })
     });
   }
 
   ngAfterViewInit() {
-    this.UserProfile.subscribe(u => {
-      if (!u.orientationComplete) {
-        this.ProfileHelper.openModal().then(results => {
-          u.orientationComplete = results
-          this.userService.updateUserProfile(u.id , u)
-          // this.cookies.setCookieVal('ORIENTATION_COMPLETE', results)
-        });
-
-      }
-    })
-    // if (!this.cookies.checkCookie('ORIENTATION_COMPLETE') || this.cookies.getCookieVal('ORIENTATION_COMPLETE') === 'false') {
-    // }
+        this.UserProfile.pipe(take(1)).subscribe(user => {
+          if (user && user.isNewUser) {
+            this.ProfileHelper.openModal()
+          }
+        })
   }
 
   public cancel() {
@@ -130,6 +108,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   public updateProfile(): void {
     const userId = this.cookies.getCookieVal('USER_ID')
     const data = {address: {...this.profileShippingForm.value}, ...this.profileForm.value};
+    data.isNewUser = false;
     // console.log('profile updating...', data)
     this.userService.updateUserProfile(userId, {...data}).then(() => {
       this.router.navigate(['/pages/dashboard'], { queryParams: { userId: userId } })

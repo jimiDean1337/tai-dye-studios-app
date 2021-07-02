@@ -52,12 +52,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     private userService: UserService,
     private accountService: AccountService,
   public title: Title) {
+    this.cookies.deleteCookie('USER_ID');
     this.UserProfile = this.route.queryParams.pipe(
       switchMap((params: Params) => {
         this.USER_ID = params.userId;
-        if (!this.cookies.checkCookie('USER_ID')) {
-          this.cookies.setCookieVal('USER_ID', params.userId)
-        }
+        this.cookies.setCookieVal('USER_ID', params.userId)
         return this.userService.getUserById(this.USER_ID).valueChanges()
       })
     )
@@ -72,7 +71,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.UserProfile.subscribe(user => {
-      if (!user.orientationComplete) {
+      if (user && user.isNewUser) {
         this.router.navigate(['/pages/profile'], {
           queryParams: { userId: this.USER_ID }
         })
@@ -92,22 +91,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       })
   }
 
-  deleteAccount() {
-    this.AccountDeleteAlertModal.openModal()
-      .then((result) => {
-        // console.log(result)
-        if (!result) return;
-        this.authService.deleteUserAuth()
-        .then(() => {
-        this.userService.deleteUser(this.USER_ID)
-          .then(() => {
-            this.logout().then(() => {
-                  console.log('Logged Out')
-                  this.cookies.deleteAllCookies();
-                })
-            })
-          })
-    });
+  public async deleteAccount() {
+    const result = await this.AccountDeleteAlertModal.openModal()
+    if (!result) return;
+    await this.userService.deleteUser(this.USER_ID);
+    setTimeout(() => {
+      this.authService.deleteUserAuth().then(() => {
+        this.cookies.deleteAllCookies();
+        this.logout();
+      });
+    },0)
   }
 
   ToggleDashboard() {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 import { ProductLeftSidebarComponent } from './product/sidebar/product-left-sidebar/product-left-sidebar.component';
 import { CollectionLeftSidebarComponent } from './collection/collection-left-sidebar/collection-left-sidebar.component';
 
@@ -13,8 +13,7 @@ import { SuccessComponent } from './checkout/success/success.component';
 import { Resolver } from '../shared/services/resolver.service';
 import { AuthGuard } from '../core/guards/auth.guard';
 
-/* TODO: Change default component to: ProductLeftSidebarComponent and default path to: product/:slug */
-/* TODO: Change all links in app to: product/:slug */
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['pages/login']);
 const routes: Routes = [
   {
     path: 'product/:slug',
@@ -42,12 +41,12 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
-    canActivate: [AuthGuard]
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'checkout/success/:id',
     component: SuccessComponent,
-    canActivate: [AuthGuard]
+    ...canActivate(redirectUnauthorizedToLogin)
   }
 ];
 

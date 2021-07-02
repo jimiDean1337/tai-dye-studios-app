@@ -11,11 +11,6 @@
                             <label for="email">email</label>
                             <input [formControl]="loginForm.controls['email']" type="email" class="form-control" id="regEmail"
                                 name="email" placeholder="Email" autocomplete="off">
-                                <div *ngIf="loginError.message"
-                                    class="text text-danger mb-3">
-                                    {{loginError.message}}
-                                    <button class="rounded-circle shadow-sm bg-light-gray text-dark btn btn-link btn-small" (click)="clearLoginError()">x</button>
-                                </div>
                             <div *ngIf="loginForm?.controls.email.touched && loginForm.controls.email.errors?.required"
                                 class="text text-danger mb-3">
                                 Email is required.
@@ -41,6 +36,16 @@
                                 Password must be 6-16 characters, and include at least ONE letter AND ONE number AND ONE special character
                                 (!@#$%^&*).
                             </div>
+                        </div>
+                        <div *ngIf="loginError.message">
+                            <div class="d-flex justify-content-start border border-danger p-3 mb-3">
+                                <div class="text text-danger">
+                                    {{loginError.message}} Try something else.
+                                </div>
+                                <button class="text-dark btn btn-link btn-small"
+                                    (click)="clearLoginError()">ok</button>
+                            </div>
+
                         </div>
                         <div class="d-flex justify-content-start align-items-center">
 
