@@ -94,13 +94,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   public async deleteAccount() {
     const result = await this.AccountDeleteAlertModal.openModal()
     if (!result) return;
-    await this.userService.deleteUser(this.USER_ID);
-    setTimeout(() => {
-      this.authService.deleteUserAuth().then(() => {
-        this.cookies.deleteAllCookies();
-        this.logout();
-      });
-    },0)
+    return await this.userService.deleteUser(this.USER_ID).then(() => {
+      console.log('user db deleted')
+      this.cookies.deleteAllCookies();
+      setTimeout(() => {
+        return this.authService.deleteUserAuth().then(() => {
+          this.logout();
+        });
+      },0)
+    });
   }
 
   ToggleDashboard() {

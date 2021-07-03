@@ -14,9 +14,10 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class ForgetPasswordComponent implements OnInit {
 
-  email: FormControl = new FormControl('', [Validators.required,Validators.email])
-  userNotFound: boolean = false;
-  resetLinkSent: boolean = false;
+  public email: FormControl = new FormControl('', [Validators.required,Validators.email])
+  public userNotFound: boolean = false;
+  public resetLinkSent: boolean = false;
+  public resetCountDown: number;
   constructor(public title: Title, private router: Router, private toastr: ToastrService, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -24,15 +25,19 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   public sendPasswordResetEmail(email: string) {
+    this.resetCountDown = 5;
     this.userService.checkForUserByEmail(email).pipe(take(1)).subscribe(results => {
       // console.log('Email Found: ', results)
       if (!results) {
         this.userNotFound = true;
-        this.toastr.error('No record of an account with this email. Please try again')
+        this.toastr.error(`No active account with this email found`)
+        setInterval(() => {
+          this.resetCountDown--;
+        }, 1000)
         setTimeout(() => {
           this.email.reset();
           this.userNotFound = false;
-        }, 2000)
+        }, 5000)
       } else {
         this.userService.resetPassword(email).then(() => {
           this.resetLinkSent = true;
