@@ -1,6 +1,6 @@
 # Tai-Dye Studios Shop
 
-This is version 0.0.1 of an online ecommerce web app built to sell and market Tai-Dye Studios
+This is version 0.1.1 of an online ecommerce web app built to sell and market Tai-Dye Studios
 
 ## Development
 

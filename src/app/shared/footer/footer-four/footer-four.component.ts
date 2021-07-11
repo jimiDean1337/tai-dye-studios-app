@@ -9,7 +9,7 @@ import { WebsiteContactInfo } from '../../data/support.data';
 export class FooterFourComponent implements OnInit {
 
   @Input() class: string = 'footer-light' // Default class
-  @Input() themeLogo: string = 'assets/images/icon/logo-shirt_230x93.png' // Default Logo
+  @Input() themeLogo: string = 'assets/images/icon/logo.png' // Default Logo
 
   public today: number = Date.now();
 

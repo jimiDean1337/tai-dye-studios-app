@@ -9,7 +9,7 @@ import { WebsiteContactInfo } from '../../data/support.data';
 export class HeaderTwoComponent implements OnInit {
 
   @Input() class: string;
-  @Input() themeLogo: string = 'assets/images/icon/logo-shirt_230x93.png'; // Default Logo
+  @Input() themeLogo: string = 'assets/images/icon/logo.png'; // Default Logo
   @Input() topbar: boolean = true; // Default True
   @Input() sticky: boolean = false; // Default false
   public contactInfo = WebsiteContactInfo;

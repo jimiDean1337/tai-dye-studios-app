@@ -12,7 +12,7 @@ export class FooterThreeComponent implements OnInit {
   @Input() class: string; // Default class
   @Input() mainFooter: boolean = true; // Default true
   @Input() subFooter: boolean = false; // Default false
-  @Input() themeLogo: string = 'assets/images/icon/logo-shirt_230x93.png'; // Default Logo
+  @Input() themeLogo: string = 'assets/images/icon/logo.png'; // Default Logo
 
   public contactInfo = WebsiteContactInfo;
   public today: number = Date.now();

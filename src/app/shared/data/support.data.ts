@@ -1,5 +1,6 @@
 export const WebsiteContactInfo = {
     company: 'Tai-Dye Studios',
+    business: 'Mama T\'s Barnett Entertainment LLC',
     phone: '(740) -  299 - 4147',
     address: {
         city: 'Zanesville',

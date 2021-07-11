@@ -15,7 +15,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class FashionTwoComponent implements OnInit {
   @ViewChild('newsletterModal', { static: true }) newsletter: NewsletterComponent;
-  public themeLogo: string = 'assets/images/icon/logo-shirt_230x93.png'; // Change Logo
+  public themeLogo: string = 'assets/images/icon/logo.png'; // Change Logo
 
   public products : Product[] = [];
   public productCollections: any[] = [];
