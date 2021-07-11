@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, Input, AfterViewI
 import { isPlatformBrowser } from '@angular/common';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from 'src/app/core/services/data/data.service';
+import { EmailValidator, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-newsletter',
@@ -15,15 +16,30 @@ export class NewsletterComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public closeResult: string;
   public modalOpen: boolean = false;
+  subscriberError = false;
+  public embeddedSubscriberForm: FormGroup;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object,
-    private modalService: NgbModal, private dataService: DataService) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, public fb: FormBuilder,
+    private modalService: NgbModal, private dataService: DataService) {
+      this.embeddedSubscriberForm = this.fb.group({
+        email: ['', new EmailValidator()]
+      })
+
+    }
 
   ngOnInit(): void {
   }
 
   addSubscriber(email: string) {
-    this.dataService.addSubscriber(email);
+    this.subscriberError = false;
+    this.dataService.addSubscriber(email).subscribe(result => {
+      if (!result) {
+        this.embeddedSubscriberForm.reset()
+        this.subscriberError = true;
+      } else {
+        this.modalService.dismissAll();
+      }
+    });
   }
 
   ngAfterViewInit(): void {

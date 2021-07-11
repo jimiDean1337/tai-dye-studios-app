@@ -3,8 +3,11 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import { filter, map, skipWhile, switchMap, takeUntil, takeWhile } from 'rxjs/operators';
 import { Coupon } from 'src/app/shared/classes/coupon';
 import { Order } from 'src/app/shared/classes/order';
+
+export interface Subscriber { timestamp: any, email: string }
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +27,7 @@ export class DataService {
     return this.UsedCoupons = this.getCollectionByName<any>('coupons');
   }
   private get subscribers() {
-    return this.Subscribers = this.getCollectionByName<any>('subscribers');
+    return this.Subscribers = this.getCollectionByName<Subscriber>('subscribers');
   }
 
   private get contacts() {
@@ -43,13 +46,13 @@ export class DataService {
     return this.Coupons = this.db.list<Coupon>('coupons'); /* Get Products from Firebase RT Database */
   }
 
-  private getDocumentById<T = any>(collection: string, docId: string) {
-    return this.afs.collection<T>(collection).doc<T>(docId);
-  }
+  // private getDocumentById<T = any>(collection: string, docId: string) {
+  //   return this.afs.collection<T>(collection).doc<T>(docId);
+  // }
 
-  private getDbObject<T = any>() {
+  // private getDbObject<T = any>() {
 
-  }
+  // }
 
   public getCollectionByName<T = any>(name: string) {
     return this.afs.collection<T>(name);
@@ -69,16 +72,24 @@ export class DataService {
 
   public addSubscriber(email: string) {
     // TODO: Add FormBuilder to component for validation
-    const data = {
-      timestamp: new Date(),
-      email: email.toLowerCase()
-    }
-    return this.testString(email) ? this.subscribers.add(data).then(() => {
-      this.toastr.success('Subscribed to Newsletter!');
-    }) : () => {
-      this.toastr.error('Email was not valid, try again.')
-      return Promise.reject();
-    };
+    return this.subscribers
+      .valueChanges()
+      .pipe(
+        map(subscribers => subscribers.map(subscriber => subscriber.email)),
+        map(emails => emails.includes(email)),
+        map(exists => {
+          if (exists) return false;
+          if (!exists) {
+            console.log('Adding Subscriber')
+            const data = {
+              timestamp: new Date(),
+              email: email.toLowerCase()
+            }
+            this.subscribers.add(data).then(() => this.toastr.success('You are subscribed!'));
+            return true;
+          }
+        })
+      )
   }
 
   public addContact(data: any) {

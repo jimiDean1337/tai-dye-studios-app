@@ -10,15 +10,18 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             <div class="offer-content"><img src="assets/images/offer-banner-1.png" class="img-fluid" alt="">
-                                <h2>get the newsletter</h2>
-                                <h4 class="text-center">Subscribe and save</h4>
-                                <form class="auth-form needs-validation" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                <h2>Get The Newsletter</h2>
+                                <h4 class="text-center">includes updates, special offers and *VIP savings!</h4>
+                                <form [formGroup]="embeddedSubscriberForm" class="auth-form needs-validation" id="embedded-subscribe-form" name="embedded-subscribe-form" target="_blank">
                                     <div class="form-group mx-sm-3">
-                                        <input type="text" class="form-control" name="EMAIL" #email id="mce-EMAIL" placeholder="Enter your email" required="required">
-                                        <button type="button" class="btn btn-solid" id="mc-submit" (click)="addSubscriber(email.value);modal.close(email.value)">subscribe</button>
+                                        <input type="email" class="form-control" name="EMAIL" [formControl]="embeddedSubscriberForm.controls['email']" id="mce-EMAIL" placeholder="Enter your email" required="required">
+                                        <button type="button" class="btn btn-solid" id="mc-submit" (click)="addSubscriber(embeddedSubscriberForm.value.email)" [disabled]="embeddedSubscriberForm.invalid">subscribe</button>
                                     </div>
+                                    <p class="text text-danger mt-3 text-center" *ngIf="subscriberError">
+                                        Oops! You're already subscribed!
+                                    </p>
                                 </form>
-                                <p class="text-center mt-5 mb-0">Your data will only be used to help Tai-Dye Studios give you a better shopping experience.</p>
+                                    <p class="text-center mt-3 mb-0" style="font-size: .8em;">*Savings availabe for a limited time to subscribers only</p>
                             </div>
                         </div>
                     </div>

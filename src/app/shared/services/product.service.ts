@@ -7,6 +7,7 @@ import { Product } from '../classes/product';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Coupon } from '../classes/coupon';
 import { CouponService } from './coupon.service';
+import { environment } from 'src/environments/environment';
 
 const state = {
   products: JSON.parse(localStorage['products'] || '[]'),
@@ -43,8 +44,12 @@ export class ProductService {
 
   // Product
   private get products(): Observable<Product[]> {
-    // this.Products = this.http.get<Product[]>('assets/data/shop-products.json').pipe(map(data => data));
-    this.Products = this.db.list<Product>('products').valueChanges(); /* Get Products from Firebase RT Database */
+    if (environment.production) {
+      /* Get Products from Firebase RT Database */
+      this.Products = this.db.list<Product>('products').valueChanges();
+    } else if (!environment.production) {
+      this.Products = this.http.get<Product[]>('assets/data/shop-products.json').pipe(map(data => data));
+    }
     this.Products.subscribe(next => { localStorage['products'] = JSON.stringify(next) });
     return this.Products = this.Products.pipe(startWith(JSON.parse(localStorage['products'] || '[]')));
   }
