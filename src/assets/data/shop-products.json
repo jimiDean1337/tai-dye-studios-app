@@ -114,7 +114,7 @@
         "category": "Women",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "hot",
@@ -215,7 +215,7 @@
         "category": "All",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "featured",
@@ -228,7 +228,7 @@
             "2xl",
             "3xl",
             "red",
-            "white",
+            "deepskyblue",
             "blue"
         ],
         "variants": [
@@ -237,7 +237,7 @@
                 "id": 3,
                 "sku": "T301-S",
                 "size": "s",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 311,
                 "price": 22
             },
@@ -246,7 +246,7 @@
                 "id": 3,
                 "sku": "T301-M",
                 "size": "m",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 311,
                 "price": 22
             },
@@ -255,7 +255,7 @@
                 "id": 3,
                 "sku": "T301-L",
                 "size": "l",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 312,
                 "price": 22
             },
@@ -264,7 +264,7 @@
                 "id": 3,
                 "sku": "T301-XL",
                 "size": "xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 312,
                 "price": 22
             },
@@ -273,7 +273,7 @@
                 "id": 3,
                 "sku": "T301-XXL",
                 "size": "2xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 312,
                 "price": 25
             },
@@ -282,7 +282,7 @@
                 "id": 3,
                 "sku": "T301-XXXL",
                 "size": "3xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 312,
                 "price": 22
             }
@@ -322,7 +322,7 @@
         "category": "Men",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "featured",
@@ -333,6 +333,7 @@
             "xl",
             "2xl",
             "3xl",
+            "crimson",
             "red",
             "white",
             "blue"
@@ -343,7 +344,7 @@
                 "id": 4,
                 "sku": "T401-S",
                 "size": "s",
-                "color": "red",
+                "color": "crimson",
                 "image_id": 411,
                 "price": 22
             },
@@ -352,7 +353,7 @@
                 "id": 4,
                 "sku": "T401-M",
                 "size": "m",
-                "color": "red",
+                "color": "crimson",
                 "image_id": 411,
                 "price": 22
             },
@@ -361,7 +362,7 @@
                 "id": 4,
                 "sku": "T401-L",
                 "size": "l",
-                "color": "red",
+                "color": "crimson",
                 "image_id": 411,
                 "price": 22
             },
@@ -370,7 +371,7 @@
                 "id": 4,
                 "sku": "T401-XL",
                 "size": "xl",
-                "color": "red",
+                "color": "crimson",
                 "image_id": 411,
                 "price": 22
             },
@@ -379,7 +380,7 @@
                 "id": 4,
                 "sku": "T401-XXL",
                 "size": "2xl",
-                "color": "red",
+                "color": "crimson",
                 "image_id": 411,
                 "price": 25
             },
@@ -388,7 +389,7 @@
                 "id": 4,
                 "sku": "T401-XXXL",
                 "size": "3xl",
-                "color": "red",
+                "color": "crimson",
                 "image_id": 411,
                 "price": 27
             }
@@ -428,7 +429,7 @@
         "category": "Women",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "featured",
@@ -534,7 +535,7 @@
         "category": "Women",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "featured",
@@ -547,7 +548,7 @@
             "2xl",
             "3xl",
             "red",
-            "maroon"
+            "plum"
         ],
         "variants": [
             {
@@ -555,7 +556,7 @@
                 "id": 6,
                 "sku": "T601-S",
                 "size": "s",
-                "color": "maroon",
+                "color": "plum",
                 "image_id": 611,
                 "price": 22
             },
@@ -564,7 +565,7 @@
                 "id": 6,
                 "sku": "T601-M",
                 "size": "m",
-                "color": "maroon",
+                "color": "plum",
                 "image_id": 611,
                 "price": 22
             },
@@ -573,7 +574,7 @@
                 "id": 6,
                 "sku": "T601-L",
                 "size": "l",
-                "color": "maroon",
+                "color": "plum",
                 "image_id": 611,
                 "price": 22
             },
@@ -582,7 +583,7 @@
                 "id": 6,
                 "sku": "T601-XL",
                 "size": "xl",
-                "color": "maroon",
+                "color": "plum",
                 "image_id": 611,
                 "price": 22
             },
@@ -591,7 +592,7 @@
                 "id": 6,
                 "sku": "T601-XXL",
                 "size": "2xl",
-                "color": "maroon",
+                "color": "plum",
                 "image_id": 611,
                 "price": 25
             },
@@ -600,7 +601,7 @@
                 "id": 6,
                 "sku": "T601-XXXL",
                 "size": "3xl",
-                "color": "maroon",
+                "color": "plum",
                 "image_id": 611,
                 "price": 27
             }
@@ -640,7 +641,7 @@
         "category": "Women",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "featured",
@@ -746,7 +747,7 @@
         "category": "All",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "featured",
@@ -768,7 +769,7 @@
                 "id": 8,
                 "sku": "T801-S",
                 "size": "s",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 811,
                 "price": 22
             },
@@ -777,7 +778,7 @@
                 "id": 8,
                 "sku": "T801-M",
                 "size": "m",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 811,
                 "price": 22
             },
@@ -786,7 +787,7 @@
                 "id": 8,
                 "sku": "T801-L",
                 "size": "l",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 812,
                 "price": 22
             },
@@ -795,7 +796,7 @@
                 "id": 8,
                 "sku": "T801-XL",
                 "size": "xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 812,
                 "price": 22
             },
@@ -804,7 +805,7 @@
                 "id": 8,
                 "sku": "T801-XXL",
                 "size": "2xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 812,
                 "price": 25
             },
@@ -813,7 +814,7 @@
                 "id": 8,
                 "sku": "T801-XXXL",
                 "size": "3xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 812,
                 "price": 22
             }
@@ -853,7 +854,7 @@
         "category": "Women",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "featured",
@@ -866,7 +867,8 @@
             "3xl",
             "red",
             "white",
-            "blue"
+            "blue",
+            "palevioletred"
         ],
         "variants": [
             {
@@ -874,7 +876,7 @@
                 "id": 9,
                 "sku": "T901-S",
                 "size": "s",
-                "color": "red",
+                "color": "palevioletred",
                 "image_id": 911,
                 "price": 22
             },
@@ -883,7 +885,7 @@
                 "id": 9,
                 "sku": "T401-M",
                 "size": "m",
-                "color": "red",
+                "color": "palevioletred",
                 "image_id": 911,
                 "price": 22
             },
@@ -892,7 +894,7 @@
                 "id": 9,
                 "sku": "T901-L",
                 "size": "l",
-                "color": "red",
+                "color": "palevioletred",
                 "image_id": 911,
                 "price": 22
             },
@@ -901,7 +903,7 @@
                 "id": 9,
                 "sku": "T901-XL",
                 "size": "xl",
-                "color": "red",
+                "color": "palevioletred",
                 "image_id": 911,
                 "price": 22
             },
@@ -910,7 +912,7 @@
                 "id": 9,
                 "sku": "T901-XXL",
                 "size": "2xl",
-                "color": "red",
+                "color": "palevioletred",
                 "image_id": 911,
                 "price": 25
             },
@@ -919,7 +921,7 @@
                 "id": 9,
                 "sku": "T901-XXXL",
                 "size": "3xl",
-                "color": "red",
+                "color": "palevioletred",
                 "image_id": 911,
                 "price": 27
             }
@@ -958,7 +960,7 @@
         "category": "Women",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "hot",
@@ -1062,7 +1064,7 @@
         "category": "Men",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "hot",
@@ -1074,7 +1076,7 @@
             "2xl",
             "3xl",
             "white",
-            "indigo"
+            "dodgerblue"
         ],
         "variants": [
             {
@@ -1082,7 +1084,7 @@
                 "id": 11,
                 "sku": "T1101-S",
                 "size": "s",
-                "color": "indigo",
+                "color": "dodgerblue",
                 "image_id": 1111,
                 "price": 22
             },
@@ -1091,7 +1093,7 @@
                 "id": 11,
                 "sku": "T1101-M",
                 "size": "m",
-                "color": "indigo",
+                "color": "dodgerblue",
                 "image_id": 1111,
                 "price": 22
             },
@@ -1100,7 +1102,7 @@
                 "id": 11,
                 "sku": "T1101-L",
                 "size": "l",
-                "color": "indigo",
+                "color": "dodgerblue",
                 "image_id": 1111,
                 "price": 22
             },
@@ -1109,7 +1111,7 @@
                 "id": 11,
                 "sku": "T1101-XL",
                 "size": "xl",
-                "color": "indigo",
+                "color": "dodgerblue",
                 "image_id": 1111,
                 "price": 22
             },
@@ -1118,7 +1120,7 @@
                 "id": 11,
                 "sku": "T1101-XXL",
                 "size": "2xl",
-                "color": "indigo",
+                "color": "dodgerblue",
                 "image_id": 1111,
                 "price": 25
             },
@@ -1127,7 +1129,7 @@
                 "id": 11,
                 "sku": "T1101-XXXL",
                 "size": "3xl",
-                "color": "indigo",
+                "color": "dodgerblue",
                 "image_id": 1111,
                 "price": 27
             }
@@ -1167,7 +1169,7 @@
         "category": "Men",
         "price": 22,
         "sale": false,
-        "stock": 5,
+        "stock": 100,
         "new": true,
         "tags": [
             "featured",
@@ -1180,7 +1182,7 @@
             "2xl",
             "3xl",
             "black",
-            "blue"
+            "deepskyblue"
         ],
         "variants": [
             {
@@ -1188,7 +1190,7 @@
                 "id": 12,
                 "sku": "T1201-S",
                 "size": "s",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 1211,
                 "price": 22
             },
@@ -1197,7 +1199,7 @@
                 "id": 12,
                 "sku": "T1201-M",
                 "size": "m",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 1211,
                 "price": 22
             },
@@ -1206,7 +1208,7 @@
                 "id": 12,
                 "sku": "T1201-L",
                 "size": "l",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 1212,
                 "price": 22
             },
@@ -1215,7 +1217,7 @@
                 "id": 12,
                 "sku": "T1201-XL",
                 "size": "xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 1212,
                 "price": 22
             },
@@ -1224,7 +1226,7 @@
                 "id": 12,
                 "sku": "T1201-XXL",
                 "size": "2xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 1212,
                 "price": 25
             },
@@ -1233,7 +1235,7 @@
                 "id": 12,
                 "sku": "T1201-XXXL",
                 "size": "3xl",
-                "color": "blue",
+                "color": "deepskyblue",
                 "image_id": 1212,
                 "price": 22
             }
@@ -1255,6 +1257,644 @@
                 "src": "assets/images/product/tshirts/12_back.jpg",
                 "variant_id": [
                     1201
+                ]
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Race Mom Wife Life Graphic Tee",
+        "description": "Race Mom Wife Life Graphic Tee",
+        "type": "clothing",
+        "brand": "none",
+        "collection": [
+            "new products",
+            "best sellers",
+            "featured products"
+        ],
+        "category": "Women",
+        "price": 22,
+        "sale": false,
+        "stock": 100,
+        "new": true,
+        "tags": [
+            "featured",
+            "new",
+            "hot",
+            "s",
+            "m",
+            "l",
+            "xl",
+            "2xl",
+            "3xl",
+            "dodgerblue",
+            "blue"
+        ],
+        "variants": [
+            {
+                "variant_id": 1301,
+                "id": 13,
+                "sku": "T1301-S",
+                "size": "s",
+                "color": "dodgerblue",
+                "image_id": 1311,
+                "price": 22
+            },
+            {
+                "variant_id": 1302,
+                "id": 13,
+                "sku": "T1301-M",
+                "size": "m",
+                "color": "dodgerblue",
+                "image_id": 1311,
+                "price": 22
+            },
+            {
+                "variant_id": 1303,
+                "id": 13,
+                "sku": "T1301-L",
+                "size": "l",
+                "color": "dodgerblue",
+                "image_id": 1312,
+                "price": 22
+            },
+            {
+                "variant_id": 1304,
+                "id": 13,
+                "sku": "T1301-XL",
+                "size": "xl",
+                "color": "dodgerblue",
+                "image_id": 1312,
+                "price": 22
+            },
+            {
+                "variant_id": 1305,
+                "id": 13,
+                "sku": "T1301-XXL",
+                "size": "2xl",
+                "color": "dodgerblue",
+                "image_id": 1312,
+                "price": 25
+            },
+            {
+                "variant_id": 1306,
+                "id": 13,
+                "sku": "T1301-XXXL",
+                "size": "3xl",
+                "color": "dodgerblue",
+                "image_id": 1312,
+                "price": 22
+            }
+        ],
+        "images": [
+            {
+                "image_id": 1311,
+                "id": 13,
+                "alt": "front",
+                "src": "assets/images/product/tshirts/13_front.jpg",
+                "variant_id": [
+                    1301
+                ]
+            },
+            {
+                "image_id": 1312,
+                "id": 13,
+                "alt": "back",
+                "src": "assets/images/product/tshirts/13_back.jpg",
+                "variant_id": [
+                    1301
+                ]
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Sorry, We're Racing Graphic Tee",
+        "description": "Sorry, We're Racing Graphic Tee",
+        "type": "clothing",
+        "brand": "none",
+        "collection": [
+            "new products",
+            "best sellers",
+            "featured products"
+        ],
+        "category": "All",
+        "price": 22,
+        "sale": false,
+        "stock": 100,
+        "new": true,
+        "tags": [
+            "featured",
+            "new",
+            "hot",
+            "s",
+            "m",
+            "l",
+            "xl",
+            "2xl",
+            "3xl",
+            "saphire",
+            "darkcyan",
+            "blue"
+        ],
+        "variants": [
+            {
+                "variant_id": 1401,
+                "id": 14,
+                "sku": "T1401-S",
+                "size": "s",
+                "color": "darkcyan",
+                "image_id": 1411,
+                "price": 22
+            },
+            {
+                "variant_id": 1402,
+                "id": 14,
+                "sku": "T1401-M",
+                "size": "m",
+                "color": "darkcyan",
+                "image_id": 1411,
+                "price": 22
+            },
+            {
+                "variant_id": 1403,
+                "id": 14,
+                "sku": "T1401-L",
+                "size": "l",
+                "color": "darkcyan",
+                "image_id": 1412,
+                "price": 22
+            },
+            {
+                "variant_id": 1404,
+                "id": 14,
+                "sku": "T1401-XL",
+                "size": "xl",
+                "color": "darkcyan",
+                "image_id": 1412,
+                "price": 22
+            },
+            {
+                "variant_id": 1405,
+                "id": 14,
+                "sku": "T1401-XXL",
+                "size": "2xl",
+                "color": "darkcyan",
+                "image_id": 1412,
+                "price": 25
+            },
+            {
+                "variant_id": 1406,
+                "id": 14,
+                "sku": "T1401-XXXL",
+                "size": "3xl",
+                "color": "darkcyan",
+                "image_id": 1412,
+                "price": 22
+            }
+        ],
+        "images": [
+            {
+                "image_id": 1411,
+                "id": 14,
+                "alt": "front",
+                "src": "assets/images/product/tshirts/14_front.jpg",
+                "variant_id": [
+                    1401
+                ]
+            },
+            {
+                "image_id": 1412,
+                "id": 14,
+                "alt": "back",
+                "src": "assets/images/product/tshirts/14_back.jpg",
+                "variant_id": [
+                    1401
+                ]
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Cheetah Finish Line Graphic Tee",
+        "description": "Cheetah Finish Line Graphic Tee",
+        "type": "clothing",
+        "brand": "none",
+        "collection": [
+            "new products",
+            "best sellers",
+            "featured products"
+        ],
+        "category": "Women",
+        "price": 22,
+        "sale": false,
+        "stock": 100,
+        "new": true,
+        "tags": [
+            "featured",
+            "new",
+            "hot",
+            "s",
+            "m",
+            "l",
+            "xl",
+            "2xl",
+            "3xl",
+            "coral",
+            "pink"
+        ],
+        "variants": [
+            {
+                "variant_id": 1501,
+                "id": 15,
+                "sku": "T1501-S",
+                "size": "s",
+                "color": "coral",
+                "image_id": 1511,
+                "price": 22
+            },
+            {
+                "variant_id": 1502,
+                "id": 15,
+                "sku": "T1501-M",
+                "size": "m",
+                "color": "coral",
+                "image_id": 1511,
+                "price": 22
+            },
+            {
+                "variant_id": 1503,
+                "id": 15,
+                "sku": "T1501-L",
+                "size": "l",
+                "color": "coral",
+                "image_id": 1512,
+                "price": 22
+            },
+            {
+                "variant_id": 1504,
+                "id": 15,
+                "sku": "T1501-XL",
+                "size": "xl",
+                "color": "coral",
+                "image_id": 1512,
+                "price": 22
+            },
+            {
+                "variant_id": 1505,
+                "id": 15,
+                "sku": "T1501-XXL",
+                "size": "2xl",
+                "color": "coral",
+                "image_id": 1512,
+                "price": 25
+            },
+            {
+                "variant_id": 1506,
+                "id": 15,
+                "sku": "T1501-XXXL",
+                "size": "3xl",
+                "color": "coral",
+                "image_id": 1512,
+                "price": 22
+            }
+        ],
+        "images": [
+            {
+                "image_id": 1511,
+                "id": 15,
+                "alt": "front",
+                "src": "assets/images/product/tshirts/15_front.jpg",
+                "variant_id": [
+                    1501
+                ]
+            },
+            {
+                "image_id": 1512,
+                "id": 15,
+                "alt": "back",
+                "src": "assets/images/product/tshirts/15_back.jpg",
+                "variant_id": [
+                    1501
+                ]
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Dirty Weekend Graphic Tee",
+        "description": "Dirty Weekend Graphic Tee",
+        "type": "clothing",
+        "brand": "none",
+        "collection": [
+            "new products",
+            "best sellers",
+            "featured products"
+        ],
+        "category": "All",
+        "price": 22,
+        "sale": false,
+        "stock": 100,
+        "new": true,
+        "tags": [
+            "featured",
+            "new",
+            "hot",
+            "s",
+            "m",
+            "l",
+            "xl",
+            "2xl",
+            "3xl",
+            "indigo",
+            "steelblue",
+            "blue"
+        ],
+        "variants": [
+            {
+                "variant_id": 1601,
+                "id": 16,
+                "sku": "T1601-S",
+                "size": "s",
+                "color": "steelblue",
+                "image_id": 1611,
+                "price": 22
+            },
+            {
+                "variant_id": 1602,
+                "id": 16,
+                "sku": "T1601-M",
+                "size": "m",
+                "color": "steelblue",
+                "image_id": 1611,
+                "price": 22
+            },
+            {
+                "variant_id": 1603,
+                "id": 16,
+                "sku": "T1601-L",
+                "size": "l",
+                "color": "steelblue",
+                "image_id": 1612,
+                "price": 22
+            },
+            {
+                "variant_id": 1604,
+                "id": 16,
+                "sku": "T1601-XL",
+                "size": "xl",
+                "color": "steelblue",
+                "image_id": 1612,
+                "price": 22
+            },
+            {
+                "variant_id": 1605,
+                "id": 16,
+                "sku": "T1601-XXL",
+                "size": "2xl",
+                "color": "steelblue",
+                "image_id": 1612,
+                "price": 25
+            },
+            {
+                "variant_id": 1606,
+                "id": 16,
+                "sku": "T1601-XXXL",
+                "size": "3xl",
+                "color": "steelblue",
+                "image_id": 1612,
+                "price": 22
+            }
+        ],
+        "images": [
+            {
+                "image_id": 1611,
+                "id": 16,
+                "alt": "front",
+                "src": "assets/images/product/tshirts/16_front.jpg",
+                "variant_id": [
+                    1601
+                ]
+            },
+            {
+                "image_id": 1612,
+                "id": 16,
+                "alt": "back",
+                "src": "assets/images/product/tshirts/16_back.jpg",
+                "variant_id": [
+                    1601
+                ]
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "title": "Racing Weekend Graphic Tee",
+        "description": "Racing Weekend Graphic Tee",
+        "type": "clothing",
+        "brand": "none",
+        "collection": [
+            "new products",
+            "best sellers",
+            "featured products"
+        ],
+        "category": "Women",
+        "price": 22,
+        "sale": false,
+        "stock": 100,
+        "new": true,
+        "tags": [
+            "featured",
+            "new",
+            "hot",
+            "s",
+            "m",
+            "l",
+            "xl",
+            "2xl",
+            "3xl",
+            "pink"
+        ],
+        "variants": [
+            {
+                "variant_id": 1701,
+                "id": 17,
+                "sku": "T1701-S",
+                "size": "s",
+                "color": "pink",
+                "image_id": 1711,
+                "price": 22
+            },
+            {
+                "variant_id": 1702,
+                "id": 17,
+                "sku": "T1701-M",
+                "size": "m",
+                "color": "pink",
+                "image_id": 1711,
+                "price": 22
+            },
+            {
+                "variant_id": 1703,
+                "id": 17,
+                "sku": "T1701-L",
+                "size": "l",
+                "color": "pink",
+                "image_id": 1712,
+                "price": 22
+            },
+            {
+                "variant_id": 1704,
+                "id": 17,
+                "sku": "T1701-XL",
+                "size": "xl",
+                "color": "pink",
+                "image_id": 1712,
+                "price": 22
+            },
+            {
+                "variant_id": 1705,
+                "id": 17,
+                "sku": "T1701-XXL",
+                "size": "2xl",
+                "color": "pink",
+                "image_id": 1712,
+                "price": 25
+            },
+            {
+                "variant_id": 1706,
+                "id": 17,
+                "sku": "T1701-XXXL",
+                "size": "3xl",
+                "color": "pink",
+                "image_id": 1712,
+                "price": 22
+            }
+        ],
+        "images": [
+            {
+                "image_id": 1711,
+                "id": 17,
+                "alt": "front",
+                "src": "assets/images/product/tshirts/17_front.jpg",
+                "variant_id": [
+                    1701
+                ]
+            },
+            {
+                "image_id": 1712,
+                "id": 17,
+                "alt": "back",
+                "src": "assets/images/product/tshirts/17_back.jpg",
+                "variant_id": [
+                    1701
+                ]
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Racing Is My Favorite Season Hoodie",
+        "description": "Racing Is My Favorite Season Hoodie",
+        "type": "clothing",
+        "brand": "none",
+        "collection": [
+            "new products",
+            "best sellers",
+            "featured products"
+        ],
+        "category": "All",
+        "price": 40,
+        "sale": false,
+        "stock": 100,
+        "new": true,
+        "tags": [
+            "featured",
+            "new",
+            "hot",
+            "s",
+            "m",
+            "l",
+            "xl",
+            "2xl",
+            "3xl",
+            "red",
+            "crimson",
+            "heatherspred"
+        ],
+        "variants": [
+            {
+                "variant_id": 1801,
+                "id": 18,
+                "sku": "T1801-S",
+                "size": "s",
+                "color": "crimson",
+                "image_id": 1811,
+                "price": 40
+            },
+            {
+                "variant_id": 1802,
+                "id": 18,
+                "sku": "T1701-M",
+                "size": "m",
+                "color": "crimson",
+                "image_id": 1811,
+                "price": 40
+            },
+            {
+                "variant_id": 1803,
+                "id": 18,
+                "sku": "T1801-L",
+                "size": "l",
+                "color": "crimson",
+                "image_id": 1812,
+                "price": 40
+            },
+            {
+                "variant_id": 1804,
+                "id": 18,
+                "sku": "T1801-XL",
+                "size": "xl",
+                "color": "crimson",
+                "image_id": 1812,
+                "price": 40
+            },
+            {
+                "variant_id": 1805,
+                "id": 18,
+                "sku": "T1801-XXL",
+                "size": "2xl",
+                "color": "crimson",
+                "image_id": 1812,
+                "price": 45
+            },
+            {
+                "variant_id": 1806,
+                "id": 18,
+                "sku": "T1801-XXXL",
+                "size": "3xl",
+                "color": "crimson",
+                "image_id": 1812,
+                "price": 47
+            }
+        ],
+        "images": [
+            {
+                "image_id": 1811,
+                "id": 18,
+                "alt": "front",
+                "src": "assets/images/product/hoodies/18_front.jpg",
+                "variant_id": [
+                    1801
+                ]
+            },
+            {
+                "image_id": 1812,
+                "id": 18,
+                "alt": "back",
+                "src": "assets/images/product/hoodies/18_back.jpg",
+                "variant_id": [
+                    1801
                 ]
             }
         ]

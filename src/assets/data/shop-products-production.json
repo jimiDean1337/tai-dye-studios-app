@@ -1,0 +1,1552 @@
+[
+  {
+  "brand" : "none",
+  "category" : "Women",
+  "collection" : [ "new products" ],
+  "description" : "Sunrise, Sunburn, Sunset, Repeat Graphic Tee",
+  "id" : 1,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 1,
+    "image_id" : 111,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F1_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 101 ]
+  }, {
+    "alt" : "back",
+    "id" : 1,
+    "image_id" : 111,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F1_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 101 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : true,
+  "stock" : 100,
+  "tags" : [ "new", "s", "m", "l", "xl", "2xl", "3xl", "coral", "white", "pink" ],
+  "title" : "Sunrise, Sunburn, Sunset, Repeat Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "coral",
+    "id" : 1,
+    "image_id" : 111,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T101-S",
+    "variant_id" : 101
+  }, {
+    "color" : "coral",
+    "id" : 1,
+    "image_id" : 111,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T101-M",
+    "variant_id" : 101
+  }, {
+    "color" : "coral",
+    "id" : 1,
+    "image_id" : 111,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T101-L",
+    "variant_id" : 101
+  }, {
+    "color" : "coral",
+    "id" : 1,
+    "image_id" : 111,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T101-XL",
+    "variant_id" : 101
+  }, {
+    "color" : "coral",
+    "id" : 1,
+    "image_id" : 111,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T101-XXL",
+    "variant_id" : 101
+  }, {
+    "color" : "coral",
+    "id" : 1,
+    "image_id" : 111,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T101-XXXL",
+    "variant_id" : 101
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "Women",
+  "collection" : [ "new products", "best sellers" ],
+  "description" : "I'm Not a Morning Person- Blonde Graphic Tee",
+  "id" : 2,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 2,
+    "image_id" : 211,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F2_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 201 ]
+  }, {
+    "alt" : "back",
+    "id" : 2,
+    "image_id" : 212,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F2_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 201 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : false,
+  "stock" : 100,
+  "tags" : [ "hot", "new", "s", "m", "l", "xl", "2xl", "3xl", "white", "pink" ],
+  "title" : "I'm Not a Morning Person - Blonde Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "pink",
+    "id" : 2,
+    "image_id" : 211,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T201-S",
+    "variant_id" : 201
+  }, {
+    "color" : "pink",
+    "id" : 2,
+    "image_id" : 211,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T201-M",
+    "variant_id" : 202
+  }, {
+    "color" : "pink",
+    "id" : 2,
+    "image_id" : 211,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T201-L",
+    "variant_id" : 203
+  }, {
+    "color" : "pink",
+    "id" : 2,
+    "image_id" : 211,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T201-XL",
+    "variant_id" : 204
+  }, {
+    "color" : "pink",
+    "id" : 2,
+    "image_id" : 211,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T201-XXL",
+    "variant_id" : 205
+  }, {
+    "color" : "pink",
+    "id" : 2,
+    "image_id" : 211,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T201-XXXL",
+    "variant_id" : 206
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "All",
+  "collection" : [ "new products", "best sellers", "featured products" ],
+  "description" : "Home of the Free Graphic Tee",
+  "id" : 3,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 3,
+    "image_id" : 311,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F3_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 301 ]
+  }, {
+    "alt" : "back",
+    "id" : 3,
+    "image_id" : 312,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F3_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 301 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : false,
+  "stock" : 100,
+  "tags" : [ "featured", "new", "hot", "s", "m", "l", "xl", "2xl", "3xl", "red", "white", "blue", "deepskyblue" ],
+  "title" : "Home of the Free Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "deepskyblue",
+    "id" : 3,
+    "image_id" : 311,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T301-S",
+    "variant_id" : 301
+  }, {
+    "color" : "deepskyblue",
+    "id" : 3,
+    "image_id" : 311,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T301-M",
+    "variant_id" : 302
+  }, {
+    "color" : "deepskyblue",
+    "id" : 3,
+    "image_id" : 312,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T301-L",
+    "variant_id" : 303
+  }, {
+    "color" : "deepskyblue",
+    "id" : 3,
+    "image_id" : 312,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T301-XL",
+    "variant_id" : 304
+  }, {
+    "color" : "deepskyblue",
+    "id" : 3,
+    "image_id" : 312,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T301-XXL",
+    "variant_id" : 305
+  }, {
+    "color" : "deepskyblue",
+    "id" : 3,
+    "image_id" : 312,
+    "price" : 22,
+    "size" : "3xl",
+    "sku" : "T301-XXXL",
+    "variant_id" : 306
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "Men",
+  "collection" : [ "new products", "best sellers", "featured products" ],
+  "description" : "The Red White & Blue Graphic Tee",
+  "id" : 4,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 4,
+    "image_id" : 411,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F4_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 401 ]
+  }, {
+    "alt" : "back",
+    "id" : 4,
+    "image_id" : 412,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F4_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 401 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : false,
+  "stock" : 100,
+  "tags" : [ "featured", "new", "s", "m", "l", "xl", "2xl", "3xl", "red", "white", "blue", "crimson" ],
+  "title" : "The Red White & Blue Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "crimson",
+    "id" : 4,
+    "image_id" : 411,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T401-S",
+    "variant_id" : 401
+  }, {
+    "color" : "crimson",
+    "id" : 4,
+    "image_id" : 411,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T401-M",
+    "variant_id" : 402
+  }, {
+    "color" : "crimson",
+    "id" : 4,
+    "image_id" : 411,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T401-L",
+    "variant_id" : 403
+  }, {
+    "color" : "crimson",
+    "id" : 4,
+    "image_id" : 411,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T401-XL",
+    "variant_id" : 404
+  }, {
+    "color" : "crimson",
+    "id" : 4,
+    "image_id" : 411,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T401-XXL",
+    "variant_id" : 405
+  }, {
+    "color" : "crimson",
+    "id" : 4,
+    "image_id" : 411,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T401-XXXL",
+    "variant_id" : 406
+  } ]
+},
+ {
+  "brand" : "none",
+  "category" : "Women",
+  "collection" : [ "new products", "best sellers", "featured products" ],
+  "description" : "Sunflower Bling Graphic Tee",
+  "id" : 5,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 5,
+    "image_id" : 511,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F5_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 501 ]
+  }, {
+    "alt" : "back",
+    "id" : 5,
+    "image_id" : 512,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F5_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 501 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : true,
+  "stock" : 100,
+  "tags" : [ "featured", "hot", "new", "s", "m", "l", "xl", "2xl", "3xl", "yellow", "mustard" ],
+  "title" : "Sunflower Bling Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "mustard",
+    "id" : 5,
+    "image_id" : 511,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T501-S",
+    "variant_id" : 501
+  }, {
+    "color" : "mustard",
+    "id" : 5,
+    "image_id" : 511,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T501-M",
+    "variant_id" : 502
+  }, {
+    "color" : "mustard",
+    "id" : 5,
+    "image_id" : 511,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T501-L",
+    "variant_id" : 503
+  }, {
+    "color" : "mustard",
+    "id" : 5,
+    "image_id" : 511,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T501-XL",
+    "variant_id" : 504
+  }, {
+    "color" : "mustard",
+    "id" : 5,
+    "image_id" : 511,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T501-XXL",
+    "variant_id" : 505
+  }, {
+    "color" : "mustard",
+    "id" : 5,
+    "image_id" : 511,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T501-XXXL",
+    "variant_id" : 506
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "Women",
+  "collection" : [ "new products", "best sellers", "featured products" ],
+  "description" : "Jesus take the wheel Graphic Tee",
+  "id" : 6,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 6,
+    "image_id" : 611,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F6_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 601 ]
+  }, {
+    "alt" : "back",
+    "id" : 6,
+    "image_id" : 612,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F6_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 601 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : false,
+  "stock" : 100,
+  "tags" : [ "featured", "hot", "new", "s", "m", "l", "xl", "2xl", "3xl", "red", "maroon", "plum" ],
+  "title" : "Jesus take the wheel Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "plum",
+    "id" : 6,
+    "image_id" : 611,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T601-S",
+    "variant_id" : 601
+  }, {
+    "color" : "plum",
+    "id" : 6,
+    "image_id" : 611,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T601-M",
+    "variant_id" : 602
+  }, {
+    "color" : "plum",
+    "id" : 6,
+    "image_id" : 611,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T601-L",
+    "variant_id" : 603
+  }, {
+    "color" : "plum",
+    "id" : 6,
+    "image_id" : 611,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T601-XL",
+    "variant_id" : 604
+  }, {
+    "color" : "plum",
+    "id" : 6,
+    "image_id" : 611,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T601-XXL",
+    "variant_id" : 605
+  }, {
+    "color" : "plum",
+    "id" : 6,
+    "image_id" : 611,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T601-XXXL",
+    "variant_id" : 606
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "Women",
+  "collection" : [ "new products", "best sellers", "featured products" ],
+  "description" : "Bee Kind Graphic Tee",
+  "id" : 7,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 7,
+    "image_id" : 711,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F7_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 701 ]
+  }, {
+    "alt" : "back",
+    "id" : 7,
+    "image_id" : 712,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F7_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 701 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : false,
+  "stock" : 100,
+  "tags" : [ "featured", "hot", "new", "s", "m", "l", "xl", "2xl", "3xl", "yellow", "mustard" ],
+  "title" : "Bee Kind Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "mustard",
+    "id" : 7,
+    "image_id" : 711,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T701-S",
+    "variant_id" : 701
+  }, {
+    "color" : "mustard",
+    "id" : 7,
+    "image_id" : 711,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T701-M",
+    "variant_id" : 702
+  }, {
+    "color" : "mustard",
+    "id" : 7,
+    "image_id" : 711,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T701-L",
+    "variant_id" : 703
+  }, {
+    "color" : "mustard",
+    "id" : 7,
+    "image_id" : 711,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T701-XL",
+    "variant_id" : 704
+  }, {
+    "color" : "mustard",
+    "id" : 7,
+    "image_id" : 711,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T701-XXL",
+    "variant_id" : 705
+  }, {
+    "color" : "mustard",
+    "id" : 7,
+    "image_id" : 711,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T701-XXXL",
+    "variant_id" : 706
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "All",
+  "collection" : [ "new products", "best sellers", "featured products" ],
+  "description" : "The Red White & Blue Graphic Tee",
+  "id" : 8,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 8,
+    "image_id" : 811,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F8_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 801 ]
+  }, {
+    "alt" : "back",
+    "id" : 8,
+    "image_id" : 812,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F8_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 801 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : false,
+  "stock" : 100,
+  "tags" : [ "featured", "new", "hot", "s", "m", "l", "xl", "2xl", "3xl", "red", "white", "blue", "deepskyblue" ],
+  "title" : "The Red White & Blue Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "deepskyblue",
+    "id" : 8,
+    "image_id" : 811,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T801-S",
+    "variant_id" : 801
+  }, {
+    "color" : "deepskyblue",
+    "id" : 8,
+    "image_id" : 811,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T801-M",
+    "variant_id" : 802
+  }, {
+    "color" : "deepskyblue",
+    "id" : 8,
+    "image_id" : 812,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T801-L",
+    "variant_id" : 803
+  }, {
+    "color" : "deepskyblue",
+    "id" : 8,
+    "image_id" : 812,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T801-XL",
+    "variant_id" : 804
+  }, {
+    "color" : "deepskyblue",
+    "id" : 8,
+    "image_id" : 812,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T801-XXL",
+    "variant_id" : 805
+  }, {
+    "color" : "deepskyblue",
+    "id" : 8,
+    "image_id" : 812,
+    "price" : 22,
+    "size" : "3xl",
+    "sku" : "T801-XXXL",
+    "variant_id" : 806
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "Women",
+  "collection" : [ "new products", "best sellers", "featured products" ],
+  "description" : "Real Woman Graphic Tee",
+  "id" : 9,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 9,
+    "image_id" : 911,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F9_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 901 ]
+  }, {
+    "alt" : "back",
+    "id" : 9,
+    "image_id" : 912,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F9_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 901 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : true,
+  "stock" : 100,
+  "tags" : [ "featured", "new", "s", "m", "l", "xl", "2xl", "3xl", "red", "white", "blue", "palevioletred" ],
+  "title" : "Real Woman Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "palevioletred",
+    "id" : 9,
+    "image_id" : 911,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T901-S",
+    "variant_id" : 901
+  }, {
+    "color" : "palevioletred",
+    "id" : 9,
+    "image_id" : 911,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T401-M",
+    "variant_id" : 902
+  }, {
+    "color" : "palevioletred",
+    "id" : 9,
+    "image_id" : 911,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T901-L",
+    "variant_id" : 903
+  }, {
+    "color" : "palevioletred",
+    "id" : 9,
+    "image_id" : 911,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T901-XL",
+    "variant_id" : 904
+  }, {
+    "color" : "palevioletred",
+    "id" : 9,
+    "image_id" : 911,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T901-XXL",
+    "variant_id" : 905
+  }, {
+    "color" : "palevioletred",
+    "id" : 9,
+    "image_id" : 911,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T901-XXXL",
+    "variant_id" : 906
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "Women",
+  "collection" : [ "new products", "best sellers" ],
+  "description" : "Not a Morning Person- Brunette Graphic Tee",
+  "id" : 10,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 10,
+    "image_id" : 1011,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F10_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 1001 ]
+  }, {
+    "alt" : "back",
+    "id" : 10,
+    "image_id" : 1012,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F10_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 1001 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : false,
+  "stock" : 100,
+  "tags" : [ "hot", "new", "s", "m", "l", "xl", "2xl", "3xl", "white", "pink" ],
+  "title" : "Not a Morning Person- Brunette Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "pink",
+    "id" : 10,
+    "image_id" : 1011,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T1001-S",
+    "variant_id" : 1001
+  }, {
+    "color" : "pink",
+    "id" : 10,
+    "image_id" : 1011,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T1001-M",
+    "variant_id" : 1002
+  }, {
+    "color" : "pink",
+    "id" : 10,
+    "image_id" : 1011,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T1001-L",
+    "variant_id" : 1003
+  }, {
+    "color" : "pink",
+    "id" : 10,
+    "image_id" : 1011,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T1001-XL",
+    "variant_id" : 1004
+  }, {
+    "color" : "pink",
+    "id" : 10,
+    "image_id" : 1011,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T1001-XXL",
+    "variant_id" : 1005
+  }, {
+    "color" : "pink",
+    "id" : 10,
+    "image_id" : 1011,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T1001-XXXL",
+    "variant_id" : 1006
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "Men",
+  "collection" : [ "new products", "best sellers" ],
+  "description" : "A Musicians Dream Graphic Tee",
+  "id" : 11,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 11,
+    "image_id" : 1111,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F11_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 1101 ]
+  }, {
+    "alt" : "back",
+    "id" : 11,
+    "image_id" : 1112,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F11_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 1101 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : false,
+  "stock" : 100,
+  "tags" : [ "hot", "new", "s", "m", "l", "xl", "2xl", "3xl", "white", "indigo", "dodgerblue" ],
+  "title" : "A Musicians Dream Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "dodgerblue",
+    "id" : 11,
+    "image_id" : 1111,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T1101-S",
+    "variant_id" : 1101
+  }, {
+    "color" : "dodgerblue",
+    "id" : 11,
+    "image_id" : 1111,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T1101-M",
+    "variant_id" : 1102
+  }, {
+    "color" : "dodgerblue",
+    "id" : 11,
+    "image_id" : 1111,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T1101-L",
+    "variant_id" : 1103
+  }, {
+    "color" : "dodgerblue",
+    "id" : 11,
+    "image_id" : 1111,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T1101-XL",
+    "variant_id" : 1104
+  }, {
+    "color" : "dodgerblue",
+    "id" : 11,
+    "image_id" : 1111,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T1101-XXL",
+    "variant_id" : 1105
+  }, {
+    "color" : "dodgerblue",
+    "id" : 11,
+    "image_id" : 1111,
+    "price" : 27,
+    "size" : "3xl",
+    "sku" : "T1101-XXXL",
+    "variant_id" : 1106
+  } ]
+},
+{
+  "brand" : "none",
+  "category" : "Men",
+  "collection" : [ "new products", "best sellers", "featured products" ],
+  "description" : "Hustle Hard Graphic Tee",
+  "id" : 12,
+  "images" : [ {
+    "alt" : "front",
+    "id" : 12,
+    "image_id" : 1211,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F12_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 1201 ]
+  }, {
+    "alt" : "back",
+    "id" : 12,
+    "image_id" : 1212,
+    "src" : "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F12_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+    "variant_id" : [ 1201 ]
+  } ],
+  "new" : true,
+  "price" : 22,
+  "sale" : true,
+  "stock" : 100,
+  "tags" : [ "featured", "new", "hot", "s", "m", "l", "xl", "2xl", "3xl", "black", "blue", "deepskyblue" ],
+  "title" : "Hustle Hard Graphic Tee",
+  "type" : "clothing",
+  "variants" : [ {
+    "color" : "blue",
+    "id" : 12,
+    "image_id" : 1211,
+    "price" : 22,
+    "size" : "s",
+    "sku" : "T1201-S",
+    "variant_id" : 1201
+  }, {
+    "color" : "deepskyblue",
+    "id" : 12,
+    "image_id" : 1211,
+    "price" : 22,
+    "size" : "m",
+    "sku" : "T1201-M",
+    "variant_id" : 1202
+  }, {
+    "color" : "deepskyblue",
+    "id" : 12,
+    "image_id" : 1212,
+    "price" : 22,
+    "size" : "l",
+    "sku" : "T1201-L",
+    "variant_id" : 1203
+  }, {
+    "color" : "deepskyblue",
+    "id" : 12,
+    "image_id" : 1212,
+    "price" : 22,
+    "size" : "xl",
+    "sku" : "T1201-XL",
+    "variant_id" : 1204
+  }, {
+    "color" : "deepskyblue",
+    "id" : 12,
+    "image_id" : 1212,
+    "price" : 25,
+    "size" : "2xl",
+    "sku" : "T1201-XXL",
+    "variant_id" : 1205
+  }, {
+    "color" : "deepskyblue",
+    "id" : 12,
+    "image_id" : 1212,
+    "price" : 22,
+    "size" : "3xl",
+    "sku" : "T1201-XXXL",
+    "variant_id" : 1206
+  } ]
+},
+{
+  "id": 13,
+  "title": "Race Mom Wife Life Graphic Tee",
+  "description": "Race Mom Wife Life Graphic Tee",
+  "type": "clothing",
+  "brand": "none",
+  "collection": [
+    "new products",
+    "best sellers",
+    "featured products"
+  ],
+  "category": "Women",
+  "price": 22,
+  "sale": false,
+  "stock": 100,
+  "new": true,
+  "tags": [
+    "featured",
+    "new",
+    "hot",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+    "3xl",
+    "indigo",
+    "blue",
+    "dodgerblue"
+  ],
+  "variants": [
+    {
+      "variant_id": 1301,
+      "id": 13,
+      "sku": "T1301-S",
+      "size": "s",
+      "color": "dodgerblue",
+      "image_id": 1311,
+      "price": 22
+    },
+    {
+      "variant_id": 1302,
+      "id": 13,
+      "sku": "T1301-M",
+      "size": "m",
+      "color": "dodgerblue",
+      "image_id": 1311,
+      "price": 22
+    },
+    {
+      "variant_id": 1303,
+      "id": 13,
+      "sku": "T1301-L",
+      "size": "l",
+      "color": "dodgerblue",
+      "image_id": 1312,
+      "price": 22
+    },
+    {
+      "variant_id": 1304,
+      "id": 13,
+      "sku": "T1301-XL",
+      "size": "xl",
+      "color": "dodgerblue",
+      "image_id": 1312,
+      "price": 22
+    },
+    {
+      "variant_id": 1305,
+      "id": 13,
+      "sku": "T1301-XXL",
+      "size": "2xl",
+      "color": "dodgerblue",
+      "image_id": 1312,
+      "price": 25
+    },
+    {
+      "variant_id": 1306,
+      "id": 13,
+      "sku": "T1301-XXXL",
+      "size": "3xl",
+      "color": "dodgerblue",
+      "image_id": 1312,
+      "price": 22
+    }
+  ],
+  "images": [
+    {
+      "image_id": 1311,
+      "id": 13,
+      "alt": "front",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F13_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1301
+      ]
+    },
+    {
+      "image_id": 1312,
+      "id": 13,
+      "alt": "back",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F13_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1301
+      ]
+    }
+  ]
+},
+{
+  "id": 14,
+  "title": "Sorry, We're Racing Graphic Tee",
+  "description": "Sorry, We're Racing Graphic Tee",
+  "type": "clothing",
+  "brand": "none",
+  "collection": [
+    "new products",
+    "best sellers",
+    "featured products"
+  ],
+  "category": "All",
+  "price": 22,
+  "sale": false,
+  "stock": 100,
+  "new": true,
+  "tags": [
+    "featured",
+    "new",
+    "hot",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+    "3xl",
+    "saphire",
+    "blue",
+    "darkcyan"
+  ],
+  "variants": [
+    {
+      "variant_id": 1401,
+      "id": 14,
+      "sku": "T1401-S",
+      "size": "s",
+      "color": "darkcyan",
+      "image_id": 1411,
+      "price": 22
+    },
+    {
+      "variant_id": 1402,
+      "id": 14,
+      "sku": "T1401-M",
+      "size": "m",
+      "color": "darkcyan",
+      "image_id": 1411,
+      "price": 22
+    },
+    {
+      "variant_id": 1403,
+      "id": 14,
+      "sku": "T1401-L",
+      "size": "l",
+      "color": "darkcyan",
+      "image_id": 1412,
+      "price": 22
+    },
+    {
+      "variant_id": 1404,
+      "id": 14,
+      "sku": "T1401-XL",
+      "size": "xl",
+      "color": "darkcyan",
+      "image_id": 1412,
+      "price": 22
+    },
+    {
+      "variant_id": 1405,
+      "id": 14,
+      "sku": "T1401-XXL",
+      "size": "2xl",
+      "color": "darkcyan",
+      "image_id": 1412,
+      "price": 25
+    },
+    {
+      "variant_id": 1406,
+      "id": 14,
+      "sku": "T1401-XXXL",
+      "size": "3xl",
+      "color": "darkcyan",
+      "image_id": 1412,
+      "price": 22
+    }
+  ],
+  "images": [
+    {
+      "image_id": 1411,
+      "id": 14,
+      "alt": "front",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F14_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1401
+      ]
+    },
+    {
+      "image_id": 1412,
+      "id": 14,
+      "alt": "back",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F14_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1401
+      ]
+    }
+  ]
+},
+{
+  "id": 15,
+  "title": "Cheetah Finish Line Graphic Tee",
+  "description": "Cheetah Finish Line Graphic Tee",
+  "type": "clothing",
+  "brand": "none",
+  "collection": [
+    "new products",
+    "best sellers",
+    "featured products"
+  ],
+  "category": "Women",
+  "price": 22,
+  "sale": false,
+  "stock": 100,
+  "new": true,
+  "tags": [
+    "featured",
+    "new",
+    "hot",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+    "3xl",
+    "coral",
+    "pink"
+  ],
+  "variants": [
+    {
+      "variant_id": 1501,
+      "id": 15,
+      "sku": "T1501-S",
+      "size": "s",
+      "color": "coral",
+      "image_id": 1511,
+      "price": 22
+    },
+    {
+      "variant_id": 1502,
+      "id": 15,
+      "sku": "T1501-M",
+      "size": "m",
+      "color": "coral",
+      "image_id": 1511,
+      "price": 22
+    },
+    {
+      "variant_id": 1503,
+      "id": 15,
+      "sku": "T1501-L",
+      "size": "l",
+      "color": "coral",
+      "image_id": 1512,
+      "price": 22
+    },
+    {
+      "variant_id": 1504,
+      "id": 15,
+      "sku": "T1501-XL",
+      "size": "xl",
+      "color": "coral",
+      "image_id": 1512,
+      "price": 22
+    },
+    {
+      "variant_id": 1505,
+      "id": 15,
+      "sku": "T1501-XXL",
+      "size": "2xl",
+      "color": "coral",
+      "image_id": 1512,
+      "price": 25
+    },
+    {
+      "variant_id": 1506,
+      "id": 15,
+      "sku": "T1501-XXXL",
+      "size": "3xl",
+      "color": "coral",
+      "image_id": 1512,
+      "price": 22
+    }
+  ],
+  "images": [
+    {
+      "image_id": 1511,
+      "id": 15,
+      "alt": "front",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F15_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1501
+      ]
+    },
+    {
+      "image_id": 1512,
+      "id": 15,
+      "alt": "back",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F15_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1501
+      ]
+    }
+  ]
+},
+{
+  "id": 16,
+  "title": "Dirty Weekend Graphic Tee",
+  "description": "Dirty Weekend Graphic Tee",
+  "type": "clothing",
+  "brand": "none",
+  "collection": [
+    "new products",
+    "best sellers",
+    "featured products"
+  ],
+  "category": "All",
+  "price": 22,
+  "sale": false,
+  "stock": 100,
+  "new": true,
+  "tags": [
+    "featured",
+    "new",
+    "hot",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+    "3xl",
+    "indigo",
+    "steelblue",
+    "blue"
+  ],
+  "variants": [
+    {
+      "variant_id": 1601,
+      "id": 16,
+      "sku": "T1601-S",
+      "size": "s",
+      "color": "steelblue",
+      "image_id": 1611,
+      "price": 22
+    },
+    {
+      "variant_id": 1602,
+      "id": 16,
+      "sku": "T1601-M",
+      "size": "m",
+      "color": "steelblue",
+      "image_id": 1611,
+      "price": 22
+    },
+    {
+      "variant_id": 1603,
+      "id": 16,
+      "sku": "T1601-L",
+      "size": "l",
+      "color": "steelblue",
+      "image_id": 1612,
+      "price": 22
+    },
+    {
+      "variant_id": 1604,
+      "id": 16,
+      "sku": "T1601-XL",
+      "size": "xl",
+      "color": "steelblue",
+      "image_id": 1612,
+      "price": 22
+    },
+    {
+      "variant_id": 1605,
+      "id": 16,
+      "sku": "T1601-XXL",
+      "size": "2xl",
+      "color": "steelblue",
+      "image_id": 1612,
+      "price": 25
+    },
+    {
+      "variant_id": 1606,
+      "id": 16,
+      "sku": "T1601-XXXL",
+      "size": "3xl",
+      "color": "steelblue",
+      "image_id": 1612,
+      "price": 22
+    }
+  ],
+  "images": [
+    {
+      "image_id": 1611,
+      "id": 16,
+      "alt": "front",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F16_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1601
+      ]
+    },
+    {
+      "image_id": 1612,
+      "id": 16,
+      "alt": "back",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F16_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1601
+      ]
+    }
+  ]
+},
+{
+  "id": 17,
+  "title": "Racing Weekend Graphic Tee",
+  "description": "Racing Weekend Graphic Tee",
+  "type": "clothing",
+  "brand": "none",
+  "collection": [
+    "new products",
+    "best sellers",
+    "featured products"
+  ],
+  "category": "Women",
+  "price": 22,
+  "sale": false,
+  "stock": 100,
+  "new": true,
+  "tags": [
+    "featured",
+    "new",
+    "hot",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+    "3xl",
+    "pink"
+  ],
+  "variants": [
+    {
+      "variant_id": 1701,
+      "id": 17,
+      "sku": "T1701-S",
+      "size": "s",
+      "color": "pink",
+      "image_id": 1711,
+      "price": 22
+    },
+    {
+      "variant_id": 1702,
+      "id": 17,
+      "sku": "T1701-M",
+      "size": "m",
+      "color": "pink",
+      "image_id": 1711,
+      "price": 22
+    },
+    {
+      "variant_id": 1703,
+      "id": 17,
+      "sku": "T1701-L",
+      "size": "l",
+      "color": "pink",
+      "image_id": 1712,
+      "price": 22
+    },
+    {
+      "variant_id": 1704,
+      "id": 17,
+      "sku": "T1701-XL",
+      "size": "xl",
+      "color": "pink",
+      "image_id": 1712,
+      "price": 22
+    },
+    {
+      "variant_id": 1705,
+      "id": 17,
+      "sku": "T1701-XXL",
+      "size": "2xl",
+      "color": "pink",
+      "image_id": 1712,
+      "price": 25
+    },
+    {
+      "variant_id": 1706,
+      "id": 17,
+      "sku": "T1701-XXXL",
+      "size": "3xl",
+      "color": "pink",
+      "image_id": 1712,
+      "price": 22
+    }
+  ],
+  "images": [
+    {
+      "image_id": 1711,
+      "id": 17,
+      "alt": "front",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F17_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1701
+      ]
+    },
+    {
+      "image_id": 1712,
+      "id": 17,
+      "alt": "back",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Ftshirts%2F17_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1701
+      ]
+    }
+  ]
+},
+{
+  "id": 18,
+  "title": "Racing Is My Favorite Season Hoodie",
+  "description": "Racing Is My Favorite Season Hoodie",
+  "type": "clothing",
+  "brand": "none",
+  "collection": [
+    "new products",
+    "best sellers",
+    "featured products"
+  ],
+  "category": "All",
+  "price": 40,
+  "sale": false,
+  "stock": 100,
+  "new": true,
+  "tags": [
+    "featured",
+    "new",
+    "hot",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+    "3xl",
+    "red",
+    "crimson",
+    "heatherspred"
+  ],
+  "variants": [
+    {
+      "variant_id": 1801,
+      "id": 18,
+      "sku": "T1801-S",
+      "size": "s",
+      "color": "crimson",
+      "image_id": 1811,
+      "price": 40
+    },
+    {
+      "variant_id": 1802,
+      "id": 18,
+      "sku": "T1701-M",
+      "size": "m",
+      "color": "crimson",
+      "image_id": 1811,
+      "price": 40
+    },
+    {
+      "variant_id": 1803,
+      "id": 18,
+      "sku": "T1801-L",
+      "size": "l",
+      "color": "crimson",
+      "image_id": 1812,
+      "price": 40
+    },
+    {
+      "variant_id": 1804,
+      "id": 18,
+      "sku": "T1801-XL",
+      "size": "xl",
+      "color": "crimson",
+      "image_id": 1812,
+      "price": 40
+    },
+    {
+      "variant_id": 1805,
+      "id": 18,
+      "sku": "T1801-XXL",
+      "size": "2xl",
+      "color": "crimson",
+      "image_id": 1812,
+      "price": 45
+    },
+    {
+      "variant_id": 1806,
+      "id": 18,
+      "sku": "T1801-XXXL",
+      "size": "3xl",
+      "color": "crimson",
+      "image_id": 1812,
+      "price": 47
+    }
+  ],
+  "images": [
+    {
+      "image_id": 1811,
+      "id": 18,
+      "alt": "front",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Fhoodies%2F18_front.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1801
+      ]
+    },
+    {
+      "image_id": 1812,
+      "id": 18,
+      "alt": "back",
+      "src": "https://firebasestorage.googleapis.com/v0/b/tai-dye-studios.appspot.com/o/products%2Fhoodies%2F18_back.jpg?alt=media&token=56c36c46-4893-4157-98fb-00d8f440f7df",
+      "variant_id": [
+        1801
+      ]
+    }
+  ]
+} ]

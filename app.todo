@@ -1,5 +1,5 @@
 Services: @critical
-    Auth:
+    ✔ Auth: @done(21-07-16 01:22)
         ✔ CheckAuthStatus @done(21-06-01 01:34)
         ✔ Login @done(21-06-01 01:34)
             ✔ GoogleAuthProvider @done(21-06-01 01:35)
@@ -9,13 +9,13 @@ Services: @critical
         ✔ Registration @done(21-06-01 01:34)
         ✔ Password Reset @done(21-06-29 11:38)
 
-    User:
+    ✔ User: @done(21-07-16 01:22)
         ✔ Create @done(21-06-01 01:35)
         ✔ Read @done(21-06-01 01:35)
         ✔ Update @done(21-06-01 01:35)
         ✔ Delete @done(21-06-29 11:38)
 
-    Data:
+    ✔ Data: @done(21-07-16 01:22)
         ✔ Users @done(21-06-01 01:35)
         ✔ Contacts @done(21-06-01 01:35)
         ✔ Subscribers @done(21-06-01 01:35)
@@ -30,12 +30,12 @@ Services: @critical
 
     Analytics: @critical
         ☐ Study Documentation on Google Analytics
-        ☐ Add Google Analytics
-        ☐ Use Firebase to generate functions saving analytics
+        ✔ Add Google Analytics @done(21-07-16 01:22)
+        ✘ Use Firebase to generate functions saving analytics @cancelled(21-07-16 01:22)
 
 ------------------------------------------
 
-Assets: @high
+✔ Assets: @high @done(21-07-16 01:23)
     ☐ Products Data
         ✔ Generate data for every product that will be sold @done(21-06-29 11:38)
         ✔ Enter generated data into Products Firestore database @done(21-06-29 11:38)

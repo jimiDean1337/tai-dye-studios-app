@@ -13,22 +13,24 @@
                 <div class="col-lg-6 rtl-text">
                     <div class="product-right">
                         <h2>{{ product.title | titlecase }}</h2>
-                        <h3>{{ product.price * currency?.price | discount:product | currency:currency?.currency:'symbol' }}
-                            <del *ngIf="product?.discount"><span class="money">{{ product.price * currency?.price | currency:currency?.currency:'symbol' }}</span></del>
+                        <h3>{{ product?.price * currency?.price | discount:product | currency:currency?.currency:'symbol' }}
+                            <del *ngIf="product?.discount"><span class="money">{{ product?.price * currency?.price | currency:currency?.currency:'symbol' }}</span></del>
                         </h3>
+                        <p><b>NOTE:</b> Colors may be inconsistent due to device screen and/or our suppliers</p>
+                        <br>
                         <ul class="color-variant" *ngIf="Color(product.variants).length">
                             <li [class]="color" *ngFor="let color of Color(product.variants)"
+                            [ngbPopover]="color | uppercase"  triggers="mouseenter:mouseleave"
                                 [ngStyle]="{'background-color': color}" (click)="ChangeVariants(color, product)">
                             </li>
                         </ul>
                         <div class="border-product">
                             <h6 class="product-title">product details</h6>
-                            <p><b>NOTE:</b> Colors may be inconsistent due to device screen and/or our suppliers</p>
-                            <br>
-                            <p>{{ product.description.substring(0, 200)+'...' }}</p>
+                            <div [innerHTML]="product.description.substring(0, 200)+'...' | safeHtml"></div>
                         </div>
                         <div class="product-description border-product">
                             <div class="size-box" *ngIf="Size(product.variants).length">
+                                <p><i class="fa fa-exclamation"></i> 2XL And 3XL Slightly Increase Price</p>
                                 <ul>
                                     <li *ngFor="let size of Size(product.variants)">
                                         <a href="javascript:void(0)" (click)="selectSize(size)">{{ size | uppercase }}</a>
