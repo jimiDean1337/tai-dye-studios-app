@@ -467,8 +467,9 @@
                                             </ul>
                                         </div>
                                     </div> -->
-                                    <div class="d-flex justify-content-center">
-                                      <img class="" *ngIf="paypalLoading && (shippingDetails | async)" src="assets/images/loader.gif" alt="">
+                                    <div *ngIf="paypalLoading && (shippingDetails | async)" class="d-flex align-items-center justify-content-around">
+                                      <div class="animated flash infinite slow"><strong>LOADING PAYPAL...</strong></div>
+                                      <img class="img-fluid" src="assets/images/loader.gif" width="60" alt="Loading">
 
                                     </div>
                   <div class="text-right">
@@ -479,7 +480,7 @@
                     <ngx-paypal
                       #paypal
                       [config]="payPalConfig"
-                      *ngIf="payment === 'Paypal'"
+                      *ngIf="payment === 'Paypal' && !paypalLoading"
                     ></ngx-paypal>
                   </div>
                 </div>

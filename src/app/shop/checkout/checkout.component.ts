@@ -176,17 +176,15 @@ export class CheckoutComponent implements OnInit {
   private initPaypalConfig() {
     this.paypalLoading = true;
     setTimeout(() => {
-      this.paypalLoading = false;
+      // forkJoin([this.getSubTotal, this.getSalesTax, this.getShippingTotal, this.productService.coupon]).pipe(map(next => { console.log('ForkJoin Array', next) })).subscribe()
         forkJoin({
           subTotal: this.getSubTotal,
           salesTax: this.getSalesTax,
           shippingTotal: this.getShippingTotal,
           coupon: this.productService.coupon
         }).subscribe(next => {
-          // console.log('All Current Values', next)
-          // localStorage.setItem('subTotal', JSON.stringify(next.subTotal));
           const grandTotal = +Number(next.subTotal + next.salesTax + next.shippingTotal).toFixed(2);
-          // console.log('Paypal', grandTotal, next.subTotal, next.salesTax, next.shippingTotal)
+
           this.payPalConfig = {
               currency: this.productService.Currency.currency,
               clientId: environment.paypal_token,
@@ -232,20 +230,15 @@ export class CheckoutComponent implements OnInit {
             },
 
               onApprove: (data, actions) => {
-                // console.log('onApprove - transaction was approved, but not authorized', data, actions);
-                // actions.order.get().then(details => {
-                //   console.log('onApprove - you can get full order details inside onApprove: ', details);
-                // }).catch(err => console.log('ERROR -order.get!', err));
                 return actions.order.capture()
                   .then((orderDetails: any) => {
                     // console.log('onApprove - capture: ', orderDetails)
                     this.ngZone.run(() => {
-                      localStorage.removeItem('coupon');
                       this.orderService.createOrder(this.products, this.shippingDetails.getValue(), data.orderID, next.subTotal, grandTotal, next.salesTax, next.shippingTotal, this.localPickup.value, orderDetails, this.productService.Coupon);
                     })
-                }).catch(err => console.log('ERROR -order.capture!', err));
-              },
-              onClientAuthorization: (data) => {
+                  }).catch(err => console.log('ERROR -order.capture!', err));
+                },
+                onClientAuthorization: (data) => {
                   // console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
               },
               onCancel: (data, actions) => {
@@ -259,7 +252,8 @@ export class CheckoutComponent implements OnInit {
               }
           };
         })
-    }, 2000)
+      this.paypalLoading = false;
+    }, 4000)
 
   }
 

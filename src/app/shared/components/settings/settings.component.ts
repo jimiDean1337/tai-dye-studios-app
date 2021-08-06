@@ -59,6 +59,7 @@ export class SettingsComponent implements OnInit {
     private translate: TranslateService,
     private router: Router,
     public productService: ProductService) {
+
     this.productService.cartItems.subscribe(response => this.products = response);
   }
 

@@ -5,12 +5,12 @@
         <h2 class="title-borderless"># instagram</h2>
         <h5 class="text-center text-uppercase pb-3">Latest media from @tai_dye_studios</h5>
         <owl-carousel-o [options]="InstaSliderConfig" class="no-arrow instagram">
-          <ng-container *ngFor="let insta of instagram?.data | slice:1:4">
+          <ng-container *ngFor="let insta of instagram?.data">
             <ng-template carouselSlide>
               <div>
                 <a [href]="insta.permalink" target="_blank">
                   <div class="instagram-box">
-                    <img [src]="insta.media_url" alt="Avatar" style="width:100%">
+                    <img [src]="insta.media_url" alt="Instagram Media Item" style="width:100%">
                     <h3 class="caption">{{insta.caption.substring(0, 30)+'...'}}</h3>
                     <div class="overlay">
                       <i class="fa fa-instagram" aria-hidden="true"></i>

@@ -123,7 +123,7 @@
                   </div>
                   <div class="product-buttons" [placement]="productsSection.clientWidth > 760 ? 'left': 'top'" [ngbPopover]="!selectedSize ? 'You must select your size before you can add to cart or buy now': ''" [popoverTitle]="'Select Size'" triggers="click">
                     <button class="btn btn-solid mr-3" [class.disabled]="counter > product.stock || !selectedSize" (click)="addToCart(product, selectedSize)">add to cart</button>
-                    <button class="btn btn-solid" [class.disabled]="counter > product.stock || !selectedSize" (click)="buyNow(product, selectedSize)">buy now</button>
+                    <!-- <button class="btn btn-solid" [class.disabled]="counter > product.stock || !selectedSize" (click)="buyNow(product, selectedSize)">buy now</button> -->
                   </div>
                   <div class="border-product">
                     <h6 class="product-title">product details</h6>

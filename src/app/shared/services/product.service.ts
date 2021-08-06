@@ -27,7 +27,7 @@ export class ProductService {
   public Products: Observable<Product[]>;
   public Coupon: Coupon | null;
   public CartQuantity: number = 0;
-  CouponInvalid: BehaviorSubject<boolean>;
+  public CouponInvalid: BehaviorSubject<boolean>;
 
   constructor(private http: HttpClient,
     private db: AngularFireDatabase,

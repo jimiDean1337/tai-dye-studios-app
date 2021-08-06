@@ -46,18 +46,18 @@ export class OrderService {
       coupon
     };
     state.checkoutItems = item;
+    this.dataService.addOrder(item);
+    this.userService.addUserOrder(userId, item)
+    if (coupon) {
+      this.dataService.addUsedCoupons(coupon.code);
+    }
     localStorage.setItem("checkoutItems", JSON.stringify(item));
-    return await this.router.navigate(['/shop/checkout/success', orderId]).then(success => {
-      if (success) {
-        localStorage.removeItem("cartItems");
-        localStorage.removeItem("subTotal");
-        this.dataService.addOrder(item);
-        this.userService.addUserOrder(userId, item)
-        if (coupon) {
-          this.dataService.addUsedCoupons(coupon.code);
-        }
-      }
-    });
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("subTotal");
+    localStorage.removeItem('coupon');
+    // setTimeout(() => {
+    // }, 0)
+    await this.router.navigate(['/shop/checkout/success', orderId])
   }
 
 }

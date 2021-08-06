@@ -60,3 +60,8 @@ Testing: @high
     ☐ Map out stategies/services/modules for implementing A/B Testing
 
 ------------------------------------------
+
+Performance: @critical
+    ☐ Refactor server.ts
+    ☐ Add NGPWA
+    ☐ Meet AXE & Lighthouse Accessability Standards
