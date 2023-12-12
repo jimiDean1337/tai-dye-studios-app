@@ -4,7 +4,7 @@
 /* TODO: Set Paypal token */
 export const environment = {
   production: false,
-  instagram_token: '44e191a4280520c9ab25a39acd85fae5',
+  instagram_token: 'INSTAGRAM_TOKEN',
   twitter_token: 'TWITTER_TOKEN',
   facebook_token: 'FACEBOOK_TOKEN',
   stripe_token: 'STRIPE_TOKEN',
