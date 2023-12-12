@@ -8,9 +8,9 @@ export const environment = {
   twitter_token: 'TWITTER_TOKEN',
   facebook_token: 'FACEBOOK_TOKEN',
   stripe_token: 'STRIPE_TOKEN',
-  paypal_token: 'AcNlbd9DD3m82qLVfP9J3hbf8FByrax5NMez84I6v4J7gdbsrCrrBPCQJjOISr6G216KJtGXCQpaROoM',
+  paypal_token: 'PAYPAL_TOKEN',
   firebase_config: {
-    apiKey: "AIzaSyDKFOGrdYVOQTT3DKAWftQZ0Gm5gxGHsDE",
+    apiKey: "API_KEY",
     authDomain: "tai-dye-studios.firebaseapp.com",
     projectId: "tai-dye-studios",
     storageBucket: "tai-dye-studios.appspot.com",
