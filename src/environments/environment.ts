@@ -4,13 +4,13 @@
 /* TODO: Set Paypal token */
 export const environment = {
   production: false,
-  instagram_token: 'IGQVJWSHdITG1HUEtXVVZAvNS13MXdRNnJLSkpKZAEhHYmRHSUkwMlZAPUTlpbFlRVjQxTjJXUzRBSGFKWktwejhseUtud09tUmVmWVhyOGZA0TnU4ZAGYyOG9pUXFzc3JXVGhSbGJYUHpkX21ESXROSF9qcQZDZD',
+  instagram_token: 'INSTAGRAM_TOKEN',
   twitter_token: 'TWITTER_TOKEN',
-  facebook_token: 'EAADzL5jBZAMEBAI8y8UDHFhf9FS0V0MvUYiMv7UyD2zGnMnB0SJjQPI9UOapdLAk6hkrRoixWAwZBsVA6qLQfJqC1gS3FGgZBXqH5h58mfOkDR34cH2wYLaltrpcvG5xisOGjXZCouwMam0Yz3ejZBhKuz7ZCgZAzW5UHdZAGPNZCmKCR59gZBNZB1MI1frYzyqTZAgeZAk2XJeRaK5zCcd77Xbyd',
+  facebook_token: 'FACEBOOK_TOKEN',
   stripe_token: 'STRIPE_TOKEN',
-  paypal_token: 'AcNlbd9DD3m82qLVfP9J3hbf8FByrax5NMez84I6v4J7gdbsrCrrBPCQJjOISr6G216KJtGXCQpaROoM',
+  paypal_token: 'PAYPAL_TOKEN',
   firebase_config: {
-    apiKey: "AIzaSyDKFOGrdYVOQTT3DKAWftQZ0Gm5gxGHsDE",
+    apiKey: "API_KEY",
     authDomain: "tai-dye-studios.firebaseapp.com",
     projectId: "tai-dye-studios",
     storageBucket: "tai-dye-studios.appspot.com",
